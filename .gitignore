@@ -1,6 +1,6 @@
 .idea
 hugging_cache
-data
+data/*.jsonl
 **/__pycache__
 examples/WikiBio
 examples/wiki_recent
@@ -23,3 +23,6 @@ delta.txt
 # models
 generation
 judge
+Qwen2.5-1.5B-Instruct
+Qwen2.5-14B-Instruct
+dental_qwen2.5_1.5b_lora
