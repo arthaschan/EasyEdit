@@ -148,7 +148,7 @@ def get_lora_hparams(resume_step=0):
     
     hparams = LoRAHyperParams(
         lora_type="lora",                
-        layers=None,                     
+        layers=[],                     
         num_steps=remaining_steps,       # 续训时为剩余步数
         lr=2e-4,                         
         weight_decay=0.01,               

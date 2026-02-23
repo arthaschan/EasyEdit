@@ -2,12 +2,12 @@ from vllm import LLM, SamplingParams
 import torch
 
 # 1. 部署配置（核心修改点：替换模型地址，移除trust_remote_code）
-# 修改前：MODEL_PATH = "./dental_qwen_1.8b_lora"
-# 选项A：轻量化无缝替换（对应Qwen2.5-1.8B-Instruct微调模型）
-MODEL_PATH = "./dental_qwen2.5_1.8b_lora"
+# 修改前：MODEL_PATH = "./dental_qwen_1.5B_lora"
+# 选项A：轻量化无缝替换（对应Qwen2.5-1.5B-Instruct微调模型）
+MODEL_PATH = "./dental_qwen2.5_1.5b_lora"
 # 选项B：高性能升级（对应Qwen2.5-7B-Instruct微调模型）
 # MODEL_PATH = "./dental_qwen2.5_7b_lora"
-TOKENIZER_PATH = "Qwen/Qwen2.5-1.8B-Instruct"  # 对应Qwen2.5 tokenizer
+TOKENIZER_PATH = "Qwen/Qwen2.5-1.5B-Instruct"  # 对应Qwen2.5 tokenizer
 # TOKENIZER_PATH = "Qwen/Qwen2.5-7B-Instruct"  # 高性能版本对应tokenizer
 GPU_MEMORY_UTILIZATION = 0.9
 TORCH_DTYPE = "bfloat16"
@@ -45,7 +45,7 @@ def build_choice_prompt(question, options):
 
 # 4. 初始化vLLM模型（核心修改点：移除trust_remote_code，Qwen2.5无需该参数）
 def main():
-    print("正在加载Qwen2.5-1.8B-Instruct牙科模型（H100 vLLM加速）...")
+    print("正在加载Qwen2.5-1.5B-Instruct牙科模型（H100 vLLM加速）...")
     llm = LLM(
         model=MODEL_PATH,
         tokenizer=TOKENIZER_PATH,

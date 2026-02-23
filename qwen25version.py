@@ -18,6 +18,6 @@ print(f"Datasets版本：{datasets.__version__}")
 
 # 验证Qwen2.5模型是否可正常加载（贴合你的项目需求）
 from transformers import AutoTokenizer, AutoModelForCausalLM
-tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-1.8B-Instruct")
-model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-1.8B-Instruct", torch_dtype=torch.bfloat16).to("cuda")
+tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-1.5B-Instruct")
+model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-1.5B-Instruct", torch_dtype=torch.bfloat16).to("cuda")
 print("Qwen2.5模型加载成功，无版本冲突！")

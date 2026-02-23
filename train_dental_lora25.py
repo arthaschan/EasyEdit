@@ -94,7 +94,7 @@ def get_lora_hparams():
     """构建 LoRA 超参数（仅传入构造函数必填参数）"""
     hparams = LoRAHyperParams(
         lora_type="lora",                
-        layers=None,                     
+        layers=[],                    
         num_steps=60,                    
         lr=2e-4,                         
         weight_decay=0.01,               
