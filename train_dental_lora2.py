@@ -1,11 +1,22 @@
 import os
 import json
 import torch
+import numpy as np  # 新增：处理numpy相关序列化
 from easyeditor import BaseEditor  # 核心编辑器基类
 from easyeditor.models.lora import LoRAHyperParams  # LoRA 超参数类
 import shutil
 # 有断点续训的功能
-# ===================== 自定义依赖（修复 read_jsonl）=====================
+
+# ===================== 修复PyTorch 2.6+ weights_only问题（全局配置）=====================
+# 允许加载可信的numpy全局变量（解决UnpicklingError）
+torch.serialization.add_safe_globals([
+    np.core.multiarray.scalar,
+    np.ndarray,
+    np.float32,
+    np.float64
+])
+
+# ===================== 自定义依赖（修复 read_jsonl + JSON序列化）=====================
 def read_jsonl(file_path):
     """读取 JSONL 文件（EasyEdit 无内置，自定义实现）"""
     data = []
@@ -21,6 +32,26 @@ def read_jsonl(file_path):
                 continue
     return data
 
+def json_serialize_hparams(obj):
+    """自定义JSON序列化函数，处理torch dtype等特殊类型"""
+    # 处理torch dtype
+    if isinstance(obj, torch.dtype):
+        if obj == torch.bfloat16:
+            return "bfloat16"
+        elif obj == torch.float16:
+            return "float16"
+        elif obj == torch.float32:
+            return "float32"
+        elif obj == torch.float64:
+            return "float64"
+        else:
+            return str(obj)
+    # 处理numpy类型
+    if isinstance(obj, np.generic):
+        return obj.item()
+    # 处理其他可能的非序列化对象
+    raise TypeError(f"无法序列化类型: {type(obj)}")
+
 # ===================== 1. 基础配置（新增断点续训相关）=====================
 DEVICE = "cuda:0" if torch.cuda.is_available() else "cpu"
 TORCH_DTYPE = torch.bfloat16
@@ -32,7 +63,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 # ===== 断点续训核心配置 =====
 CHECKPOINT_DIR = os.path.join(OUTPUT_DIR, "checkpoints")  # 检查点保存目录
 os.makedirs(CHECKPOINT_DIR, exist_ok=True)
-CHECKPOINT_STEP = 100  # 每10步保存一次检查点
+CHECKPOINT_STEP = 10  # 每10步保存一次检查点
 RESUME_TRAINING = True  # 是否开启断点续训（True=开启，False=从头训练）
 
 # ===================== 2. 字段映射配置（适配你的数据源格式）=====================
@@ -127,8 +158,17 @@ def load_latest_checkpoint(editor, checkpoint_dir):
     latest_ckpt = checkpoint_files[0]
     ckpt_path = os.path.join(checkpoint_dir, latest_ckpt)
     
-    # 加载检查点
-    checkpoint = torch.load(ckpt_path, map_location=DEVICE)
+    # 修复：加载检查点时关闭weights_only（可信源），并指定map_location
+    try:
+        checkpoint = torch.load(
+            ckpt_path, 
+            map_location=DEVICE,
+            weights_only=False  # 关键：关闭权重仅加载（自己的检查点可信）
+        )
+    except Exception as e:
+        print(f"⚠️ 加载检查点失败：{e}")
+        return False, 0, None
+    
     # 恢复模型权重
     editor.model.load_state_dict(checkpoint["lora_state_dict"])
     # 恢复步数和优化器状态
@@ -142,7 +182,7 @@ def load_latest_checkpoint(editor, checkpoint_dir):
 def get_lora_hparams(resume_step=0):
     """构建 LoRA 超参数（适配断点续训：调整剩余训练步数）"""
     # 原始总步数
-    total_steps = 60
+    total_steps = 10
     # 若续训，调整剩余步数
     remaining_steps = max(0, total_steps - resume_step)
     
@@ -239,8 +279,15 @@ def main():
         save_checkpoint(editor, optimizer, interrupt_step, metrics if 'metrics' in locals() else {}, hparams, interrupt_ckpt_path)
         raise
     
-    # 4. 保存最终 LoRA 模型
-    editor.save_model(OUTPUT_DIR)
+    # 4. 保存最终 LoRA 模型（修复：替换不存在的save_model）
+    print(f"正在保存最终 LoRA 模型至：{OUTPUT_DIR}")
+    editor.model.save_pretrained(OUTPUT_DIR)  # PEFT原生保存方法
+    
+    # 保存超参数（修复：处理dtype序列化）
+    hparams_path = os.path.join(OUTPUT_DIR, "lora_hparams.json")
+    with open(hparams_path, "w", encoding="utf-8") as f:
+        json.dump(hparams.__dict__, f, ensure_ascii=False, indent=4, default=json_serialize_hparams)
+    
     print(f"微调完成！模型保存至：{OUTPUT_DIR}")
     print(f"训练指标：{metrics}")
 

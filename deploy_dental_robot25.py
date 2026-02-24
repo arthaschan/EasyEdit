@@ -1,19 +1,17 @@
 from vllm import LLM, SamplingParams
 import torch
 
-# 1. 部署配置（核心修改点：替换模型地址，移除trust_remote_code）
-# 修改前：MODEL_PATH = "./dental_qwen_1.5B_lora"
-# 选项A：轻量化无缝替换（对应Qwen2.5-1.5B-Instruct微调模型）
+# 1. 部署配置（核心修改：注释量化+修正dtype类型）
 MODEL_PATH = "./dental_qwen2.5_1.5b_lora"
-# 选项B：高性能升级（对应Qwen2.5-7B-Instruct微调模型）
-# MODEL_PATH = "./dental_qwen2.5_7b_lora"
-TOKENIZER_PATH = "Qwen/Qwen2.5-1.5B-Instruct"  # 对应Qwen2.5 tokenizer
-# TOKENIZER_PATH = "Qwen/Qwen2.5-7B-Instruct"  # 高性能版本对应tokenizer
+# MODEL_PATH = "./dental_qwen2.5_7b_lora"  # 7B版本备用
+TOKENIZER_PATH = "./Qwen2.5-1.5B-Instruct"  
+# TOKENIZER_PATH = "Qwen/Qwen2.5-7B-Instruct"  # 7B版本tokenizer
 GPU_MEMORY_UTILIZATION = 0.9
-TORCH_DTYPE = "bfloat16"
-QUANTIZATION = "awq"  # 保留AWQ 4bit量化，H100显存优化
+# 关键修改1：字符串→torch.dtype类型
+TORCH_DTYPE = torch.bfloat16  
+# QUANTIZATION = "awq"  # 注释/删除AWQ量化（核心修复点）
 
-# 2. 采样参数配置（完全复用）
+# 2. 采样参数配置（无修改）
 SAMPLING_PARAMS = SamplingParams(
     temperature=0.7,
     top_p=0.95,
@@ -21,7 +19,7 @@ SAMPLING_PARAMS = SamplingParams(
     stop=["<|endoftext|>", "</s>"]
 )
 
-# 3. Prompt模板（完全复用，Qwen2.5兼容该对话格式）
+# 3. Prompt模板（无修改）
 def build_qa_prompt(question):
     return f"""<|im_start|>system
 你是一名专业的牙科医生，擅长解答各类口腔医学问题，回答需专业、准确、通俗易懂，符合中文表达习惯。
@@ -43,7 +41,7 @@ def build_choice_prompt(question, options):
 <|im_start|>assistant
 """
 
-# 4. 初始化vLLM模型（核心修改点：移除trust_remote_code，Qwen2.5无需该参数）
+# 4. 初始化vLLM模型（核心修改：torch_dtype→dtype + 注释quantization）
 def main():
     print("正在加载Qwen2.5-1.5B-Instruct牙科模型（H100 vLLM加速）...")
     llm = LLM(
@@ -51,13 +49,12 @@ def main():
         tokenizer=TOKENIZER_PATH,
         tensor_parallel_size=1,
         gpu_memory_utilization=GPU_MEMORY_UTILIZATION,
-        torch_dtype=TORCH_DTYPE,
-        quantization=QUANTIZATION,
-        # 修改前：trust_remote_code=True （Qwen2.5无需该参数，直接删除）
+        dtype=TORCH_DTYPE,  # 关键修改：torch_dtype → dtype
+        # quantization=QUANTIZATION,  # 注释AWQ量化（核心修复点）
     )
     print("模型加载完成！可开始进行牙科问答/选择题交互。")
     
-    # 5. 交互逻辑（完全复用，无需修改）
+    # 5. 交互逻辑（无修改）
     while True:
         task_type = input("\n请选择任务类型（1=问答，2=选择题，0=退出）：")
         if task_type == "0":
