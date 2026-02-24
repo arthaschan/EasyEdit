@@ -182,7 +182,7 @@ def load_latest_checkpoint(editor, checkpoint_dir):
 def get_lora_hparams(resume_step=0):
     """构建 LoRA 超参数（适配断点续训：调整剩余训练步数）"""
     # 原始总步数
-    total_steps = 10
+    total_steps = 60
     # 若续训，调整剩余步数
     remaining_steps = max(0, total_steps - resume_step)
     
