@@ -5,7 +5,7 @@ import os
 from tqdm import tqdm  # 进度条，方便查看测试进度
 
 # ===================== 1. 基础配置（与原代码保持一致） =====================
-MODEL_PATH = "./dental_qwen2.5_7b_lora"
+MODEL_PATH = "./dental_qwen2.5_7b_choice_lora"
 TOKENIZER_PATH = "./Qwen2.5-7B-Instruct"
 GPU_MEMORY_UTILIZATION = 0.9
 DTYPE = torch.bfloat16
@@ -123,10 +123,11 @@ def run_testset(llm, testset_path):
         print("无有效测试样本，终止测试")
         return
     
-    # 2. 构建prompt模板（适配中文"选项："格式）
+    # 2. 构建prompt模板（恢复Qwen对话格式，与BaseEditor内部处理保持一致）
     def build_test_prompt(question, options):
-        """构建测试用的prompt，要求仅输出字母"""
-        options_text = "\n".join([f"{k}：{v}" for k, v in options.items()])
+        """构建测试用的prompt - 使用Qwen原生对话格式"""
+        options_text = "\n".join([f"{k}. {v}" for k, v in options.items()])
+        # 恢复原来的Qwen对话格式（BaseEditor在训练时可能自动适用此格式）
         prompt = f"""<|im_start|>system
 你是一名专业的牙科医生，仅需输出正确选项的字母（如A、B、C、D、E），不要输出其他内容，无需额外解释。
 <|im_end|>
@@ -193,7 +194,7 @@ def run_testset(llm, testset_path):
 # ===================== 4. 主函数 =====================
 def main():
     # 加载模型
-    print("正在加载Qwen2.5-1.5B-Instruct牙科模型（H100 vLLM加速）...")
+    print("正在加载Qwen2.5-7B-Instruct牙科模型（H100 vLLM加速）...")
     llm = LLM(
         model=MODEL_PATH,
         tokenizer=TOKENIZER_PATH,

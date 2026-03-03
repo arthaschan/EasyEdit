@@ -234,11 +234,17 @@ def load_dental_choice_data():
             if not new_answer:
                 new_answer = original_answer
 
-            # 结构化Prompt（选择题专属）
-            prompt = f"""指令：请回答以下牙科选择题，仅输出选项字母（如A/B/C/D/E），无需解释。
+            # 结构化Prompt（使用Qwen原生对话格式，与autoTest7.py保持一致）
+            prompt = f"""<|im_start|>system
+你是一名专业的牙科医生，仅需输出正确选项的字母（如A、B、C、D、E），不要输出其他内容，无需额外解释。
+<|im_end|>
+<|im_start|>user
 问题：{title}
 选项：
-{option_text}"""
+{option_text}
+<|im_end|>
+<|im_start|>assistant
+"""
 
             # 双目标蒸馏（老师答案+人工答案）
             teacher_ans = get_teacher_answer(prompt, teacher_model, teacher_tokenizer)

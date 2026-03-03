@@ -188,7 +188,7 @@ def run_qwen_test():
     accuracy = (correct_count / total_count) * 100 if total_count > 0 else 0
 
     print("\n" + "="*80)
-    print("Qwen2.5-1.5B-Instruct 牙科选择题测试报告")
+    print("Qwen2.5-7B-Instruct 牙科选择题测试报告")
     print("="*80)
     print(f"总测试样本数：{total_count}")
     print(f"正确数：{correct_count}")
