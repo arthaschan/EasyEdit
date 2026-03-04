@@ -318,25 +318,27 @@ def load_latest_checkpoint(editor, checkpoint_dir):
         print(f"⚠️ 加载检查点失败：{e}")
         return False, 0, None
 
-# ===================== LoRA超参数（适配Qwen2.5-7B）=====================
+# ===================== LoRA超参数（适配Qwen2.5-7B，10小时约束优化）=====================
 def get_lora_hparams(resume_step=0):
-    """定制化LoRA超参数（适配Qwen2.5-7B实际结构）"""
-    total_steps = 20  # 选择题专属训练步数
+    """定制化LoRA超参数（在H100上10小时内完成训练，保证显著性能提升）
+    时间预算：20步 ≈ 1小时，目标200步 ≈ 10小时
+    """
+    total_steps = 200  # 关键优化：扩大10倍（20→200），确保2~3个epoch
     remaining_steps = max(0, total_steps - resume_step)
     
     hparams = LoRAHyperParams(
         lora_type="lora",
         layers=[],  # 空列表让PEFT自动搜索整个模型中的target_modules
         num_steps=remaining_steps,
-        lr=1e-4,  # 降低学习率避免过拟合
-        weight_decay=0.001,  # 增强泛化
-        kl_factor=0.1,  # KL散度平衡
+        lr=5e-5,  # 关键优化：降低学习率（1e-4→5e-5），适应更长训练，防止振荡
+        weight_decay=0.01,  # 关键优化：增加正则化（0.001→0.01），防止过拟合
+        kl_factor=0.05,  # 关键优化：降低KL约束（0.1→0.05），允许更编辑灵活性
         norm_constraint=1.0,
         # Qwen2.5-7B官方配置（来自hparams/LoRA/qwen2.5-7b.yaml）
         target_modules=["q_proj", "v_proj"],
-        rank=8,  # 平衡精度与显存
-        lora_alpha=16,
-        lora_dropout=0.02,  # 低dropout提升精准度
+        rank=16,  # 关键优化：增加秩（8→16），提升模型容量，计算成本增加可控
+        lora_alpha=32,  # 与rank保持2:1关系
+        lora_dropout=0.1,  # 关键优化：增加dropout（0.02→0.1），强化正则化
         device=DEVICE.split(":")[-1],
         alg_name="LoRA",
         model_name=MODEL_NAME
