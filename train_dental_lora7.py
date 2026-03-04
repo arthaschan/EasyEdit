@@ -252,13 +252,14 @@ def load_dental_choice_data():
 
             prompts.append(prompt)
             target_new.append(target)
-            subject.append("牙科选择题")
+            # subject must be present in the prompt; system message includes “牙科医生”
+            subject.append("牙科医生")
 
             # 难题增强（包含"最正确""以上均正确/不正确"的视为难题，权重×2）
             if "最正确" in title or "以上均正确" in options_text or "以上均不正确" in options_text:
                 prompts.append(prompt)
                 target_new.append(target)
-                subject.append("牙科选择题")
+                subject.append("牙科医生")
 
         except Exception as e:
             invalid_count += 1
