@@ -8,8 +8,8 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig
 # 替换为你本地Qwen2.5-1.5B-Instruct模型的实际路径
 LOCAL_MODEL_PATH = "./Qwen2.5-7B-Instruct"  
 # 替换为你测试集的实际路径
-#TESTSET_PATH = "./dental_choice_testset.jsonl"  
-TESTSET_PATH = "./data/dental/dental_sft_test.jsonl"  # 替换为你的jsonl测试集路径
+#TESTSET_PATH = "./dental_choice_testset.jsonl"
+TESTSET_PATH = "./data/cmexam_dental_choice_train.jsonl"  # 使用新的测试集
 # 生成配置（关闭随机性，仅输出字母）
 GEN_CONFIG = GenerationConfig(
     temperature=0.0,  # 固定温度，确保回答稳定
@@ -20,38 +20,7 @@ GEN_CONFIG = GenerationConfig(
     do_sample=False,  # 关闭采样，确定性输出
 )
 
-# ===================== 2. 核心工具函数（适配你的数据格式） =====================
-def extract_question_options(user_content):
-    """
-    从user的content中提取问题和选项（适配中文"问题：""选项："格式）
-    输入：原始user content字符串
-    输出：question（问题文本）、options（选项字典，如{"A":"xxx", "B":"xxx"}）
-    """
-    lines = user_content.strip().split("\n")
-    question = ""
-    options = {}
-    is_option = False
-
-    for line in lines:
-        line = line.strip()
-        if not line:
-            continue
-        # 跳过指令行，提取核心问题
-        if line.startswith("请回答以下选择题"):
-            continue
-        # 提取问题（中文"问题："）
-        elif line.startswith("问题："):
-            question = line.replace("问题：", "").strip()
-        # 识别选项开始（中文"选项："）
-        elif line.startswith("选项："):
-            is_option = True
-        # 提取选项（A/B/C/D/E开头，兼容中英文冒号）
-        elif is_option and len(line) >= 2 and line[1] in [":", "："]:
-            option_key = line[0].upper()
-            option_value = line[2:].strip()
-            options[option_key] = option_value
-
-    return question, options
+# ===================== 2. 核心工具函数（适配cmexam数据格式） =====================
 
 def extract_answer_char(answer_text):
     """
@@ -63,7 +32,7 @@ def extract_answer_char(answer_text):
     return ""
 
 def load_jsonl_testset(file_path):
-    """加载并解析jsonl测试集，返回标准化的样本列表"""
+    """加载并解析cmexam格式的jsonl测试集，返回标准化的样本列表"""
     test_samples = []
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"测试集文件不存在：{file_path}")
@@ -73,21 +42,29 @@ def load_jsonl_testset(file_path):
         for line_idx, line in enumerate(lines):
             try:
                 data = json.loads(line.strip())
-                # 提取user问题和assistant正确答案
-                user_content = ""
-                correct_answer = ""
-                for conv in data.get("conversations", []):
-                    if conv.get("role") == "user":
-                        user_content = conv.get("content", "")
-                    elif conv.get("role") == "assistant":
-                        correct_answer = conv.get("content", "")
 
-                # 解析问题和选项
-                question, options = extract_question_options(user_content)
-                correct_answer_char = extract_answer_char(correct_answer)
+                # 直接从cmexam格式提取数据
+                question = data.get("Question", "")
+                options_text = data.get("Options", "")
+                correct_answer = data.get("Answer", "")
+
+                # 解析选项文本为字典格式
+                options = {}
+                for opt_line in options_text.split('\n'):
+                    opt_line = opt_line.strip()
+                    if len(opt_line) >= 3 and opt_line[1] in ['.', '：', ':', ' ']:
+                        option_key = opt_line[0].upper()
+                        # 找到分隔符的位置
+                        sep_pos = 1
+                        if opt_line[1] in ['.', '：', ':']:
+                            sep_pos = 2
+                        elif opt_line[1] == ' ' and len(opt_line) > 2 and opt_line[2] in ['.', '：', ':']:
+                            sep_pos = 3
+                        option_value = opt_line[sep_pos:].strip()
+                        options[option_key] = option_value
 
                 # 过滤无效样本
-                if not question or not options or not correct_answer_char:
+                if not question or not options or not correct_answer:
                     print(f"警告：第{line_idx+1}行数据解析失败，跳过")
                     continue
 
@@ -95,7 +72,7 @@ def load_jsonl_testset(file_path):
                     "line_idx": line_idx + 1,
                     "question": question,
                     "options": options,
-                    "correct_answer": correct_answer_char
+                    "correct_answer": correct_answer
                 })
             except Exception as e:
                 print(f"错误：第{line_idx+1}行数据解析出错 - {str(e)}，跳过")
@@ -131,11 +108,12 @@ def run_qwen_test():
         return
 
     # 3. 构建Qwen专用prompt（遵循官方对话格式）
-    def build_qwen_prompt(question, options):
+    # prompt 构造函数与 deploy_dental_robot7.py 保持完全一致
+    def build_choice_prompt(question, options):
+        # options 为字典，需要按行拼接
         options_text = "\n".join([f"{k}：{v}" for k, v in options.items()])
-        # Qwen2.5标准对话格式
         prompt = f"""<|im_start|>system
-你是一名专业的牙科医生，仅需输出正确选项的字母（如A、B、C、D、E），不要输出其他内容，无需额外解释。
+你是一名专业的牙科医生，只需输出一个字母（A、B、C、D、E）作为结果，不要附带任何解释或空格。
 <|im_end|>
 <|im_start|>user
 问题：{question}
@@ -154,7 +132,7 @@ def run_qwen_test():
     with torch.no_grad():  # 禁用梯度计算，节省显存
         for sample in tqdm(test_samples, desc="测试进度"):
             # 构建prompt并编码
-            prompt = build_qwen_prompt(sample["question"], sample["options"])
+            prompt = build_choice_prompt(sample["question"], sample["options"])
             inputs = tokenizer([prompt], return_tensors="pt").to(model.device)
 
             # 模型生成回答

@@ -53,6 +53,9 @@ We have also published a blog post titled "[Take Control of What Your LLM Knows 
 
 </details>
 
+# 数据说明
+训练用的数据cmexam_dental_choice.jsonl 840条记录，来源于cmexam,过滤的表https://github.com/arthaschan/CMExam/tree/main/data/test_with_annotations.csv里的口腔科的数据。
+测试用的数据集来自于 https://github.com/arthaschan/CMB/tree/main/data/CMB.zip，解压缩后，
 
 ## Knowledge Editing
 

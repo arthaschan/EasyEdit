@@ -1,429 +1,388 @@
 import os
 import json
 import random
-import re
+import argparse
 import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from transformers import AutoModelForCausalLM, AutoTokenizer
+from peft import LoraConfig, get_peft_model
+from torch.utils.data import Dataset, DataLoader
 import numpy as np
-from easyeditor import BaseEditor
-from easyeditor.models.lora import LoRAHyperParams
-import shutil
-from transformers import AutoModelForCausalLM, AutoTokenizer, LogitsProcessorList
+from tqdm import tqdm
+from pathlib import Path
 
-# ===================== 全局配置 =====================
-# PyTorch 2.6+ 反序列化修复
-torch.serialization.add_safe_globals([
-    np.core.multiarray.scalar,
-    np.ndarray,
-    np.float32,
-    np.float64
-])
+import os
+# 禁用 wandb 避免API key问题（之前用于绕过缺失问题，现在可以安全注释）
+# os.environ['WANDB_API_KEY'] = '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'
+# 导入EasyEdit框架组件
+# from easyeditor.dataset.counterfact import CounterFactDataset  # 复用数据集基类
+# from easyeditor.util.hparams import HyperParams
+# from easyeditor.models.lora.lora_hparams import LoRAHyperParams
 
-# 基础配置
-DEVICE = "cuda:0" if torch.cuda.is_available() else "cpu"
-TORCH_DTYPE = torch.bfloat16
-MODEL_NAME = "./Qwen2.5-7B-Instruct"  # 7B模型路径
-OUTPUT_DIR = "./dental_qwen2.5_7b_choice_lora"
-os.makedirs(OUTPUT_DIR, exist_ok=True)
+# ===================== 自定义数据集类（基于EasyEdit） =====================
+class DentalQADataset(Dataset):
+    """
+    基于EasyEdit CounterFactDataset的牙科QA数据集
+    """
+    def __init__(self, data_path: str, tokenizer, max_length: int = 1024, augment: bool = False):
+        self.data_path = Path(data_path)
+        self.tokenizer = tokenizer
+        self.max_length = max_length
+        self.augment = augment  # whether to apply simple text augmentations
 
-# 断点续训配置
-CHECKPOINT_DIR = os.path.join(OUTPUT_DIR, "checkpoints")
-os.makedirs(CHECKPOINT_DIR, exist_ok=True)
-CHECKPOINT_STEP = 5
-RESUME_TRAINING = False  # 首次训练关闭续训
+        # 加载JSONL格式的数据
+        self.data = []
+        with open(self.data_path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line:
+                    self.data.append(json.loads(line))
 
-# 牙科术语同义词典（数据增强用）
-DENTAL_SYNONYM = {
-    "牙髓炎": ["牙髓炎症", "牙髓感染"],
-    "牙周病": ["牙周炎症", "牙周病变"],
-    "龋齿": ["蛀牙", "虫牙"],
-    "智齿": ["第三磨牙", "立事牙"],
-    "多生牙": ["额外牙", "多余牙"],
-    "乳牙滞留": ["乳牙迟脱", "乳牙未掉"],
-    "地图舌": ["剥脱性舌炎", "游走性舌炎"],
-    "沟纹舌": ["脑回舌", "皱褶舌"]
-}
+        print(f"加载牙科QA数据集完成，共 {len(self.data)} 条记录")
 
-# ===================== 自定义Logits处理器（替代allowed_tokens）=====================
-class AllowedTokensLogitsProcessor:
-    """自定义Logits处理器，限制仅输出指定token（A/B/C/D/E）"""
-    def __init__(self, tokenizer, allowed_chars=["A", "B", "C", "D", "E"]):
-        self.allowed_token_ids = tokenizer.convert_tokens_to_ids(allowed_chars)
-        # 过滤无效token ID（避免-100）
-        self.allowed_token_ids = [tid for tid in self.allowed_token_ids if tid != tokenizer.unk_token_id]
+    def __len__(self):
+        return len(self.data)
 
-    def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor) -> torch.FloatTensor:
-        # 创建掩码，将非允许token的概率设为负无穷
-        mask = torch.ones_like(scores) * -float("inf")
-        mask[:, self.allowed_token_ids] = 0
-        scores = scores + mask
-        return scores
+    def __getitem__(self, idx):
+        item = self.data[idx]
 
-# ===================== 工具函数 =====================
-def read_jsonl(file_path):
-    """读取JSONL文件"""
-    data = []
-    if not os.path.exists(file_path):
-        print(f"⚠️ 数据文件不存在：{file_path}")
-        return data
+        # 构建对话格式的prompt（与deploy_dental_robot7.py保持一致）
+        question = item.get("Question", "")
+        options = item.get("Options", "")
+        answer = item.get("Answer", "")
+
+        # 简单数据增强：在 question 前后添加随机短语
+        if self.augment and random.random() < 0.3:
+            prefixes = ["请回答：", "以下问题：", "问题是："]
+            suffixes = ["。", "?", ""]
+            question = random.choice(prefixes) + question + random.choice(suffixes)
+
+        prompt = f"<|im_start|>system\n你是一名专业的牙科医生，只需输出一个字母（A、B、C、D、E）作为结果，不要附带任何解释或空格。\n<|im_end|>\n<|im_start|>user\n问题：{question}\n选项：\n{options}\n<|im_end|>\n<|im_start|>assistant\n{answer}<|im_end|>"
+
+        # Tokenize
+        inputs = self.tokenizer(
+            prompt,
+            truncation=True,
+            padding="max_length",
+            max_length=self.max_length,
+            return_tensors="pt"
+        )
+
+        return {
+            "input_ids": inputs["input_ids"].squeeze(),
+            "attention_mask": inputs["attention_mask"].squeeze(),
+            "labels": inputs["input_ids"].squeeze()  # Causal LM的labels与input_ids相同
+        }
+
+# ===================== 蒸馏损失函数 =====================
+def distillation_loss(student_logits, teacher_logits, labels, temperature=2.0, alpha=0.5):
+    """
+    计算蒸馏损失：alpha * KL(teacher_logits, student_logits) + (1-alpha) * CE(student_logits, labels)
+    """
+    # 学生模型的交叉熵损失
+    ce_loss = F.cross_entropy(student_logits.view(-1, student_logits.size(-1)), labels.view(-1), ignore_index=-100)
+
+    # 蒸馏损失：KL散度
+    teacher_probs = F.softmax(teacher_logits / temperature, dim=-1)
+    student_log_probs = F.log_softmax(student_logits / temperature, dim=-1)
+    kl_loss = F.kl_div(student_log_probs, teacher_probs, reduction='batchmean') * (temperature ** 2)
+
+    # 组合损失
+    loss = alpha * kl_loss + (1 - alpha) * ce_loss
+    return loss
+
+# ===================== 实用函数 =====================
+def extract_answer_char(text: str) -> str:
+    """从生成文本中提取第一个 A-E 字母"""
+    for ch in text.strip().upper():
+        if ch in ["A", "B", "C", "D", "E"]:
+            return ch
+    return ""
+
+
+def evaluate_generation(model, tokenizer, file_path, device, max_new_tokens=4):
+    """对指定 jsonl 文件进行批量生成评估，返回准确率和错误列表"""
+    samples = []
     with open(file_path, "r", encoding="utf-8") as f:
-        for line_idx, line in enumerate(f):
+        for line in f:
             line = line.strip()
             if not line:
                 continue
-            try:
-                data.append(json.loads(line))
-            except json.JSONDecodeError as e:
-                print(f"⚠️ 第{line_idx+1}行JSON解析失败：{e}")
-                continue
-    print(f"📄 成功读取 {file_path}：{len(data)} 条数据")
-    return data
-
-def json_serialize_hparams(obj):
-    """自定义JSON序列化（处理dtype）"""
-    if isinstance(obj, torch.dtype):
-        return str(obj).split(".")[-1]
-    if isinstance(obj, np.generic):
-        return obj.item()
-    raise TypeError(f"无法序列化类型: {type(obj)}")
-
-def parse_options(options_text):
-    """解析Options字段为(A, 内容)格式的列表"""
-    options = []
-    # 按换行分割选项行
-    option_lines = [line.strip() for line in options_text.split("\n") if line.strip()]
-    for line in option_lines:
-        # 匹配 A xxx / A.xxx / A：xxx 等格式
-        match = re.match(r"([A-Z])[\s.：:、]*(.*)", line)
-        if match:
-            opt_char = match.group(1).strip()
-            opt_content = match.group(2).strip()
-            if opt_char and opt_content:
-                options.append((opt_char, opt_content))
-    return options
-
-def get_teacher_answer(prompt, teacher_model, teacher_tokenizer):
-    """调用老师模型获取选择题答案（修复allowed_tokens警告）"""
-    inputs = teacher_tokenizer(prompt, return_tensors="pt").to(DEVICE)
-    
-    # 创建Logits处理器，限制仅输出A/B/C/D/E
-    logits_processor = LogitsProcessorList([
-        AllowedTokensLogitsProcessor(teacher_tokenizer, ["A", "B", "C", "D", "E"])
-    ])
-    
-    with torch.no_grad():
-        outputs = teacher_model.generate(
-            **inputs,
-            max_new_tokens=1,
-            temperature=0.0,
-            top_k=1,
-            pad_token_id=teacher_tokenizer.eos_token_id,
-            logits_processor=logits_processor,  # 替代allowed_tokens
-            do_sample=False  # 确保确定性输出
-        )
-    answer = teacher_tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
-    # 兜底处理
-    final_ans = ""
-    for char in answer[::-1]:  # 从后往前找选项字母
-        if char in ["A", "B", "C", "D", "E"]:
-            final_ans = char
-            break
-    if not final_ans:
-        final_ans = "A"
-    return final_ans
-
-def infer_choice(model, tokenizer, prompt):
-    """定制化选择题推理函数（修复allowed_tokens警告）"""
-    inputs = tokenizer(prompt, return_tensors="pt").to(DEVICE)
-    
-    # 创建Logits处理器，限制仅输出A/B/C/D/E
-    logits_processor = LogitsProcessorList([
-        AllowedTokensLogitsProcessor(tokenizer, ["A", "B", "C", "D", "E"])
-    ])
-    
-    with torch.no_grad():
-        outputs = model.generate(
-            **inputs,
-            max_new_tokens=1,
-            temperature=0.0,
-            top_k=1,
-            top_p=0.0,
-            do_sample=False,
-            pad_token_id=tokenizer.eos_token_id,
-            logits_processor=logits_processor  # 替代allowed_tokens
-        )
-    answer = tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
-    
-    # 概率兜底
-    final_ans = ""
-    for char in answer[::-1]:
-        if char in ["A", "B", "C", "D", "E"]:
-            final_ans = char
-            break
-    if not final_ans:
-        logits = model(**inputs).logits[:, -1, :]
-        probs = torch.softmax(logits, dim=-1)
-        choice_ids = tokenizer.convert_tokens_to_ids(["A", "B", "C", "D", "E"])
-        choice_probs = [probs[0][idx] if idx < probs.shape[-1] else 0.0 for idx in choice_ids]
-        final_ans = ["A", "B", "C", "D", "E"][torch.argmax(torch.tensor(choice_probs))]
-    return final_ans
-
-# ===================== 数据加载（适配新格式）=====================
-def load_dental_choice_data():
-    """加载并优化牙科选择题数据（适配cmexam_dental_choice.jsonl格式）"""
-    # 1. 加载基础数据（仅读取新文件）
-    train_data_paths = ["./data/cmexam_dental_choice.jsonl"]
-    all_data = []
-    for path in train_data_paths:
-        all_data.extend(read_jsonl(path))
-    if len(all_data) == 0:
-        raise ValueError("❌ 未加载到任何数据，请检查文件路径和格式")
-
-    # 2. 数据处理+增强
-    prompts = []
-    target_new = []
-    subject = []
-    invalid_count = 0
-
-    for idx, item in enumerate(all_data):
-        try:
-            # 基础字段校验（适配新格式）
-            required_fields = ["Question", "Options", "Answer"]
-            if not all(f in item for f in required_fields):
-                raise KeyError(f"缺少字段：{[f for f in required_fields if f not in item]}")
-            
-            # 提取核心信息
-            title = item["Question"].strip()
-            options_text = item["Options"].strip()
-            original_answer = item["Answer"].strip().upper()
-            
-            # 解析选项
-            options = parse_options(options_text)
-            if len(options) < 2:
-                raise ValueError(f"有效选项数不足（仅{len(options)}个）")
-            if original_answer not in [opt[0] for opt in options]:
-                raise ValueError(f"答案{original_answer}不在选项列表中")
-            
-            # 术语同义替换（数据增强）
-            for term, synonyms in DENTAL_SYNONYM.items():
-                if term in title and random.random() > 0.5:
-                    title = title.replace(term, random.choice(synonyms))
-            
-            # 保持选项字母顺序（A/B/C/D/E固定），不打乱
-            # 这样模型学到的是稳定的选择逻辑，而不是随机映射
-            option_text = "\n".join([f"{opt[0]}. {opt[1]}" for opt in options])
-            new_answer = original_answer
-
-            # 结构化Prompt（使用Qwen原生对话格式，与autoTest7.py保持一致）
-            prompt = f"""<|im_start|>system
-你是一名专业的牙科医生，仅需输出正确选项的字母（如A、B、C、D、E），不要输出其他内容，无需额外解释。
-<|im_end|>
-<|im_start|>user
-问题：{title}
-选项：
-{option_text}
-<|im_end|>
-<|im_start|>assistant
-"""
-
-            # 单目标训练（仅人工标注答案）
-            # 移除双目标蒸馏，因为teacher答案和human答案不一致会导致梯度冲突
-            # 直接优化单个清晰目标提高收敛效果
-            target = new_answer
-
-            prompts.append(prompt)
-            target_new.append(target)
-            # subject must be present in the prompt; system message includes “牙科医生”
-            subject.append("牙科医生")
-
-            # 难题增强（包含"最正确""以上均正确/不正确"的视为难题，权重×2）
-            if "最正确" in title or "以上均正确" in options_text or "以上均不正确" in options_text:
-                prompts.append(prompt)
-                target_new.append(target)
-                subject.append("牙科医生")
-
-        except Exception as e:
-            invalid_count += 1
-            print(f"⚠️ 第{idx+1}条数据处理失败：{e}")
-            continue
-
-    torch.cuda.empty_cache()
-
-    print(f"✅ 数据处理完成：有效{len(prompts)}条 | 无效{invalid_count}条")
-    if len(prompts) == 0:
-        raise ValueError("❌ 无有效训练数据，请检查数据源格式")
-    ground_truth = target_new
-    return prompts, target_new, subject, ground_truth
-
-# ===================== 检查点工具 =====================
-def save_checkpoint(editor, optimizer, current_step, metrics, hparams, checkpoint_path):
-    """保存检查点（适配7B模型）"""
-    checkpoint = {
-        "step": current_step,
-        "lora_state_dict": editor.model.state_dict(),
-        "optimizer_state_dict": optimizer.state_dict() if optimizer else None,
-        "metrics": metrics,
-        "hparams": hparams.__dict__,
-        "torch_dtype": TORCH_DTYPE,
-        "device": DEVICE
-    }
-    temp_path = checkpoint_path + ".tmp"
-    torch.save(checkpoint, temp_path)
-    if os.path.exists(checkpoint_path):
-        os.remove(checkpoint_path)
-    shutil.move(temp_path, checkpoint_path)
-    print(f"✅ 检查点保存：{checkpoint_path}（步数：{current_step}）")
-
-def load_latest_checkpoint(editor, checkpoint_dir):
-    """加载最新检查点"""
-    checkpoint_files = [f for f in os.listdir(checkpoint_dir) if f.startswith("checkpoint_") and f.endswith(".pth")]
-    if not checkpoint_files:
-        print("ℹ️ 无检查点，从头训练")
-        return False, 0, None
-    
-    checkpoint_files.sort(key=lambda x: int(x.split("_")[1].split(".")[0]), reverse=True)
-    latest_ckpt = checkpoint_files[0]
-    ckpt_path = os.path.join(checkpoint_dir, latest_ckpt)
-    
-    try:
-        checkpoint = torch.load(ckpt_path, map_location=DEVICE, weights_only=False)
-        editor.model.load_state_dict(checkpoint["lora_state_dict"])
-        resume_step = checkpoint["step"]
-        optimizer_state = checkpoint["optimizer_state_dict"]
-        print(f"✅ 加载检查点：{ckpt_path}（恢复步数：{resume_step}）")
-        return True, resume_step, optimizer_state
-    except Exception as e:
-        print(f"⚠️ 加载检查点失败：{e}")
-        return False, 0, None
-
-# ===================== LoRA超参数（适配Qwen2.5-7B，10小时约束优化）=====================
-def get_lora_hparams(resume_step=0):
-    """定制化LoRA超参数（在H100上10小时内完成训练，保证显著性能提升）
-    改进方案：移除双目标蒸馏后的调整
-    预期准确率提升：+5-10%（从78.31%→84-88%）
-    """
-    total_steps = 500  # 关键改进：增加到500步（≈5个epoch），确保充分训练
-    remaining_steps = max(0, total_steps - resume_step)
-    
-    hparams = LoRAHyperParams(
-        lora_type="lora",
-        layers=[],  # 框架要求：空列表
-        num_steps=remaining_steps,
-        lr=1e-4,  # 关键改进：提升到1e-4（vs原来的5e-5），更快收敛
-        weight_decay=0.01,  # 保留正则化防止过拟合
-        kl_factor=0.05,  # 保留KL约束允许灵活编辑
-        norm_constraint=1.0,
-        # Qwen2.5-7B官方配置（来自hparams/LoRA/qwen2.5-7b.yaml）
-        target_modules=["q_proj", "v_proj"],
-        rank=32,  # 关键改进：增加到32（vs原来的16），增加LoRA容量以学习更细粒度知识
-        lora_alpha=64,  # 与rank保持2:1关系
-        lora_dropout=0.1,  # 保留dropout
-        device=DEVICE.split(":")[-1],
-        alg_name="LoRA",
-        model_name=MODEL_NAME
-    )
-    
-    # 选择题专属配置（batch_size=1是框架限制）
-    hparams.torch_dtype = TORCH_DTYPE
-    hparams.batch_size = 1  # 框架要求：必须为1
-    hparams.max_length = 1024
-    hparams.use_chat_template = False  # 关闭对话模板
-    hparams.resume_step = resume_step
-    
-    return hparams
-
-# ===================== 训练主逻辑 =====================
-def main():
-    # 1. 显存清理
-    torch.cuda.empty_cache()
-    torch.cuda.reset_peak_memory_stats()
-    
-    # 2. 加载数据
-    try:
-        prompts, target_new, subject, ground_truth = load_dental_choice_data()
-    except Exception as e:
-        print(f"❌ 数据加载失败：{e}")
-        return
-    
-    # 3. 初始化编辑器
-    resume_step = 0
-    optimizer_state = None
-    hparams = get_lora_hparams()
-    
-    if RESUME_TRAINING:
-        temp_editor = BaseEditor.from_hparams(hparams)
-        load_success, resume_step, optimizer_state = load_latest_checkpoint(temp_editor, CHECKPOINT_DIR)
-        if load_success:
-            hparams = get_lora_hparams(resume_step)
-            editor = BaseEditor.from_hparams(hparams)
-            editor.model.load_state_dict(temp_editor.model.state_dict())
+            data = json.loads(line)
+            q = data.get("Question", "")
+            opts = data.get("Options", "")
+            ans = data.get("Answer", "")
+            if q and opts and ans:
+                samples.append((q, opts, ans))
+    correct = 0
+    wrongs = []
+    model.eval()
+    for q, opts, ans in samples:
+        prompt = f"<|im_start|>system\n你是一名专业的牙科医生，只需输出一个字母（A、B、C、D、E）作为结果，不要附带任何解释或空格。\n<|im_end|>\n<|im_start|>user\n问题：{q}\n选项：\n{opts}\n<|im_end|>\n<|im_start|>assistant\n"
+        inputs = tokenizer(prompt, return_tensors="pt", truncation=True).to(device)
+        outputs = model.generate(**inputs, max_new_tokens=max_new_tokens)
+        gen = tokenizer.decode(outputs[0][inputs["input_ids"].size(1):], skip_special_tokens=True)
+        pred = extract_answer_char(gen)
+        if pred == ans:
+            correct += 1
         else:
-            editor = BaseEditor.from_hparams(hparams)
-    else:
-        editor = BaseEditor.from_hparams(hparams)
-    
-    # 4. 通用优化
-    editor.model.gradient_checkpointing_enable()  # 梯度检查点（通用显存优化）
-    # 冻结非LoRA层（仅训练LoRA）
-    for name, param in editor.model.named_parameters():
-        if "lora" not in name:
-            param.requires_grad = False
-    
-    # 5. 开始训练
-    print(f"\n🚀 开始训练Qwen2.5-7B牙科选择题（改进版：单目标+更大模型容量）")
-    print(f"ℹ️ 改进要点：")
-    print(f"  • 移除双目标蒸馏（teacher_ans|human_ans）→ 单目标（human_ans）")
-    print(f"  • 移除选项打乱 → 保持A/B/C/D/E固定映射")
-    print(f"  • 训练步数：{hparams.num_steps} (↑500) | LoRA秩：{hparams.rank} (↑32) | 学习率：{hparams.lr} (↑1e-4)")
-    print(f"  • Batch：{hparams.batch_size} | 精度：{TORCH_DTYPE}")
-    print(f"ℹ️ 预期效果：准确率 78.31% → 84-88%\n")
-    
-    try:
-        # 执行蒸馏训练
-        metrics, edited_model, optimizer = editor.edit(
-            prompts=prompts,
-            target_new=target_new,
-            subject=subject,
-            ground_truth=ground_truth,
-            keep_original_weight=True
-        )
-        
-        # 保存最终检查点
-        final_ckpt = os.path.join(CHECKPOINT_DIR, f"checkpoint_{resume_step + hparams.num_steps}.pth")
-        save_checkpoint(editor, optimizer, resume_step + hparams.num_steps, metrics, hparams, final_ckpt)
-        
-    except KeyboardInterrupt:
-        print("\n⚠️ 手动中断，保存当前状态...")
-        interrupt_step = resume_step + (hparams.num_steps // 2)
-        interrupt_ckpt = os.path.join(CHECKPOINT_DIR, f"checkpoint_{interrupt_step}.pth")
-        save_checkpoint(editor, optimizer, interrupt_step, metrics if 'metrics' in locals() else {}, hparams, interrupt_ckpt)
-        raise
-    
-    # 6. 保存最终模型
-    print(f"\n💾 保存最终模型到：{OUTPUT_DIR}")
-    editor.model.save_pretrained(OUTPUT_DIR)
-    
-    # 保存超参数
-    hparams_path = os.path.join(OUTPUT_DIR, "lora_hparams.json")
-    with open(hparams_path, "w", encoding="utf-8") as f:
-        json.dump(hparams.__dict__, f, ensure_ascii=False, indent=4, default=json_serialize_hparams)
-    
-    # 7. 验证效果
-    print("\n📊 验证模型效果...")
-    test_prompt = """指令：请回答以下牙科选择题，仅输出选项字母（如A/B/C/D/E），无需解释。
-问题：地图舌的舌背黏膜表现为
-选项：
-A.片状白斑
-B.菌状乳头不明显
-C.光滑的红色剥脱区
-D.沟纹如脑回状
-E.以上均不正确"""
-    
-    # 加载tokenizer验证
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, trust_remote_code=True)
-    student_ans = infer_choice(editor.model, tokenizer, test_prompt)
-    print(f"学生模型答案：{student_ans}（正确答案应为C）")
-    print(f"\n✅ 训练完成！模型路径：{OUTPUT_DIR}")
+            wrongs.append({"question": q, "options": opts, "gt": ans, "pred": pred, "gen": gen})
+    acc = 100 * correct / len(samples) if samples else 0.0
+    return acc, wrongs
+
+
+# ===================== 自定义训练循环 =====================
+def train_with_distillation(student_model, teacher_model, tokenizer, train_dataloader, optimizer, scheduler, device, num_epochs=3, hparams=None):
+    """使用蒸馏的自定义训练循环，可以在每轮后执行验证
+    若出现OOM会捕获并给出建议。
+    教师模型可能驻留在CPU，运行时会将输入转到CPU。
+    """
+    student_model.train()
+    teacher_model.eval()
+    best_acc = hparams.best_val_acc if hparams is not None else 0.0
+
+    for epoch in range(num_epochs):
+        try:
+            print(f"\n🚀 开始训练第 {epoch + 1} 轮")
+            epoch_loss = 0.0
+            progress_bar = tqdm(train_dataloader, desc=f"Epoch {epoch + 1}")
+
+            for batch in progress_bar:
+                input_ids = batch["input_ids"].to(device)
+                attention_mask = batch["attention_mask"].to(device)
+                labels = batch["labels"].to(device)
+
+                # 学生模型前向传播
+                student_outputs = student_model(input_ids=input_ids, attention_mask=attention_mask)
+                student_logits = student_outputs.logits
+
+                # 教师模型前向传播 (在CPU)
+                with torch.no_grad():
+                    t_input_ids = input_ids.to(teacher_model.device)
+                    t_attn = attention_mask.to(teacher_model.device)
+                    teacher_outputs = teacher_model(input_ids=t_input_ids, attention_mask=t_attn)
+                    teacher_logits = teacher_outputs.logits.to(device)
+
+                # 计算蒸馏损失，并按梯度累积比例缩放
+                accum_steps = hparams.gradient_accumulation_steps if hparams is not None else 1
+                loss = distillation_loss(student_logits, teacher_logits, labels) / accum_steps
+
+                # 反向传播 + 累积
+                loss.backward()
+                step = progress_bar.n  # current batch index
+                if (step + 1) % accum_steps == 0:
+                    optimizer.step()
+                    if scheduler:
+                        scheduler.step()
+                    optimizer.zero_grad()
+
+                epoch_loss += loss.item()
+                progress_bar.set_postfix({"loss": f"{loss.item():.4f}"})
+
+            avg_loss = epoch_loss / len(train_dataloader)
+            print(f"第 {epoch + 1} 轮平均损失: {avg_loss:.4f}")
+
+            # 如果提供了验证集则在每轮后评估
+            if hparams is not None and hparams.val_path:
+                val_acc, wrongs = evaluate_generation(student_model, tokenizer, hparams.val_path, device)
+                print(f"第 {epoch + 1} 轮验证准确率: {val_acc:.2f}%")
+                # 比较并保存最优模型
+                if val_acc > best_acc:
+                    best_acc = val_acc
+                    hparams.best_val_acc = val_acc
+                    save_dir = os.path.join(hparams.output_dir, "best")
+                    os.makedirs(save_dir, exist_ok=True)
+                    student_model.save_pretrained(save_dir)
+                    tokenizer.save_pretrained(save_dir)
+                    print(f"保存当前最佳模型到 {save_dir}")
+                    # 记录错误样本
+                    with open(os.path.join(hparams.output_dir, f"val_wrong_epoch{epoch+1}.jsonl"), "w", encoding="utf-8") as wf:
+                        for w in wrongs:
+                            wf.write(json.dumps(w, ensure_ascii=False) + "\n")
+        except RuntimeError as e:
+            if 'out of memory' in str(e):
+                print("\n[OOM] CUDA 内存不足。尝试减小 --batch_size 或使用 --gradient_accumulation_steps。")
+                torch.cuda.empty_cache()
+                raise
+            else:
+                raise
+
+    return student_model 
+ 
+# ===================== 主函数 =====================
+def main():
+    print("🚀 开始基于EasyEdit框架的蒸馏+LoRA微调牙科选择题模型")
+
+    # 使用简化的配置类（避免EasyEdit依赖）
+    class DentalLoRAHyperParams:
+        """牙科QA训练配置"""
+        # LoRA配置
+        lora_type: str = "lora"
+        layers: list = []
+        rank: int = 16              # 增大秩
+        lora_alpha: int = 32        # 增大 alpha
+        lora_dropout: float = 0.05
+        target_modules: list = ["q_proj", "k_proj", "v_proj", "o_proj"]
+
+        # 训练配置
+        num_epochs: int = 5         # 提高训练轮次
+        batch_size: int = 4         # 默认batch较小以降低显存占用
+        gradient_accumulation_steps: int = 1  # 可选梯度累积
+        learning_rate: float = 2e-4
+        weight_decay: float = 0.01
+
+        # 蒸馏配置
+        temperature: float = 2.0
+        alpha: float = 0.5  # 蒸馏权重
+
+        # 路径配置
+        model_name: str = "./Qwen2.5-7B-Instruct"
+        data_path: str = "./data/cmexam_dental_choice_train.jsonl"  # 使用训练集
+        output_dir: str = "./dental_qwen2.5_7b_choice_lora_distill_easyedit"
+
+        # 设备配置
+        device: int = 0
+        model_parallel: bool = False
+        augment: bool = False  # 是否执行简易数据增强
+
+        # 可选的验证/测试集路径
+        val_path: str = ""  # 训练时提供可进行每轮验证
+        test_path: str = ""
+
+        # 内部跟踪
+        best_val_acc: float = 0.0
+
+    # 解析命令行参数并创建配置实例
+    parser = argparse.ArgumentParser(description="训练牙科QA模型（蒸馏 + LoRA）")
+    parser.add_argument("--num_epochs", type=int, help="训练轮数")
+    parser.add_argument("--batch_size", type=int, help="批量大小")
+    parser.add_argument("--gradient_accumulation_steps", type=int, help="梯度累积步数")
+    parser.add_argument("--learning_rate", type=float, help="学习率")
+    parser.add_argument("--rank", type=int, help="LoRA秩")
+    parser.add_argument("--lora_alpha", type=int, help="LoRA alpha")
+    parser.add_argument("--augment", action="store_true", help="启用简单的数据增强")
+    parser.add_argument("--data_path", type=str, help="数据路径")
+    parser.add_argument("--val_path", type=str, help="验证集 jsonl 路径")
+    parser.add_argument("--test_path", type=str, help="测试集 jsonl 路径")
+    parser.add_argument("--output_dir", type=str, help="输出目录")
+    args = parser.parse_args()
+
+    hparams = DentalLoRAHyperParams()
+    # 用命令行参数覆盖默认值
+    if args.num_epochs is not None:
+        hparams.num_epochs = args.num_epochs
+    if args.batch_size is not None:
+        hparams.batch_size = args.batch_size
+    if args.learning_rate is not None:
+        hparams.learning_rate = args.learning_rate
+    if args.rank is not None:
+        hparams.rank = args.rank
+    if args.lora_alpha is not None:
+        hparams.lora_alpha = args.lora_alpha
+    if args.data_path is not None:
+        hparams.data_path = args.data_path
+    if args.output_dir is not None:
+        hparams.output_dir = args.output_dir
+    if args.augment:
+        hparams.augment = True
+    if args.batch_size is not None and args.batch_size>0:
+        hparams.batch_size = args.batch_size
+    if args.gradient_accumulation_steps is not None and args.gradient_accumulation_steps>1:
+        hparams.gradient_accumulation_steps = args.gradient_accumulation_steps
+    if args.val_path is not None:
+        hparams.val_path = args.val_path
+    if args.test_path is not None:
+        hparams.test_path = args.test_path
+
+    # 打印配置以便调试
+    print("训练配置:", vars(hparams))
+
+    device = torch.device(f"cuda:{hparams.device}" if torch.cuda.is_available() else "cpu")
+    print(f"使用设备: {device}")
+
+    # 1. 加载tokenizer（复用EasyEdit的tokenizer设置）
+    print("加载tokenizer...")
+    tokenizer = AutoTokenizer.from_pretrained(hparams.model_name, trust_remote_code=True)
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+    # 按照EasyEdit的Qwen设置
+    tokenizer = AutoTokenizer.from_pretrained(
+        hparams.model_name,
+        eos_token='<|endoftext|>',
+        pad_token='<|endoftext|>',
+        unk_token='<|endoftext|>',
+        trust_remote_code=True
+    )
+
+    # 2. 加载和处理数据（使用自定义数据集类）
+    print("加载数据...")
+    dataset = DentalQADataset(hparams.data_path, tokenizer, augment=hparams.augment)
+    train_dataloader = DataLoader(dataset, batch_size=hparams.batch_size, shuffle=True)
+
+    # 3. 加载教师模型（放到CPU以节省GPU显存）
+    print("加载教师模型到CPU...")
+    teacher_model = AutoModelForCausalLM.from_pretrained(
+        hparams.model_name,
+        torch_dtype=torch.bfloat16,
+        trust_remote_code=True,
+        device_map="cpu"
+    )
+    teacher_model.eval()  # 教师模型设为评估模式
+
+    # 4. 加载学生模型并应用LoRA（复用EasyEdit的LoRA配置）
+    print("加载学生模型并应用LoRA...")
+    student_model = AutoModelForCausalLM.from_pretrained(
+        hparams.model_name,
+        torch_dtype=torch.bfloat16,
+        trust_remote_code=True
+    )
+
+    # 使用EasyEdit风格的LoRA配置
+    lora_config = LoraConfig(
+        task_type="CAUSAL_LM",
+        inference_mode=False,
+        r=hparams.rank,
+        lora_alpha=hparams.lora_alpha,
+        lora_dropout=hparams.lora_dropout,
+        target_modules=hparams.target_modules
+    )
+    student_model = get_peft_model(student_model, lora_config)
+    student_model = student_model.to(device)
+    student_model.print_trainable_parameters()  # 显示可训练参数
+
+    # 5. 优化器和调度器
+    optimizer = torch.optim.AdamW(
+        student_model.parameters(),
+        lr=hparams.learning_rate,
+        weight_decay=hparams.weight_decay
+    )
+    scheduler = None  # 可以添加学习率调度器
+
+    # 6. 开始蒸馏训练
+    print("开始蒸馏训练...")
+    trained_model = train_with_distillation(
+        student_model, teacher_model, tokenizer, train_dataloader,
+        optimizer, scheduler, device, num_epochs=hparams.num_epochs
+    )
+
+    # 7. 保存模型
+    print("保存模型...")
+    os.makedirs(hparams.output_dir, exist_ok=True)
+    trained_model.save_pretrained(hparams.output_dir)
+    tokenizer.save_pretrained(hparams.output_dir)
+
+    print(f"✅ 基于EasyEdit框架的蒸馏训练完成！模型保存至：{hparams.output_dir}")
+
+    # 如果有测试集路径，则用最终模型进行一次评估
+    if hparams.test_path:
+        print("在测试集上进行评估...")
+        test_acc, test_wrongs = evaluate_generation(trained_model, tokenizer, hparams.test_path, device)
+        print(f"测试集准确率: {test_acc:.2f}%")
+        with open(os.path.join(hparams.output_dir, "test_wrong.jsonl"), "w", encoding="utf-8") as wf:
+            for w in test_wrongs:
+                wf.write(json.dumps(w, ensure_ascii=False) + "\n")
+        print(f"测试集错误样本已记录在 {hparams.output_dir}/test_wrong.jsonl")
 
 if __name__ == "__main__":
     main()
-# target_modules=["q_proj", "v_proj"]

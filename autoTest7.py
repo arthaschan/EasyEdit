@@ -5,7 +5,7 @@ import os
 from tqdm import tqdm  # 进度条，方便查看测试进度
 
 # ===================== 1. 基础配置（与原代码保持一致） =====================
-MODEL_PATH = "./dental_qwen2.5_7b_choice_lora"
+MODEL_PATH = "./dental_qwen2.5_7b_choice_lora_standard"
 TOKENIZER_PATH = "./Qwen2.5-7B-Instruct"
 GPU_MEMORY_UTILIZATION = 0.9
 DTYPE = torch.bfloat16

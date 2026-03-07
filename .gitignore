@@ -29,3 +29,6 @@ dental_qwen2.5_1.5b_lora
 Qwen2.5-7B-Instruct
 dental_qwen2.5_7b_lora
 dental_qwen2.5_7b_choice_lora
+dental_qwen2.5_7b_choice_lora_distill_easyedit
+dental_qwen2.5_7b_choice_lora_standard
+tmp_test
