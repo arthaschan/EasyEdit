@@ -32,3 +32,6 @@ dental_qwen2.5_7b_choice_lora
 dental_qwen2.5_7b_choice_lora_distill_easyedit
 dental_qwen2.5_7b_choice_lora_standard
 tmp_test
+exp_r16_a32_e4
+tmp_perf_check
+auto_experiments

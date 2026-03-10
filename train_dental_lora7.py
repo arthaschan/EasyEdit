@@ -11,15 +11,8 @@ from torch.utils.data import Dataset, DataLoader
 import numpy as np
 from tqdm import tqdm
 from pathlib import Path
-
-import os
 # 禁用 wandb 避免API key问题（之前用于绕过缺失问题，现在可以安全注释）
 # os.environ['WANDB_API_KEY'] = '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'
-# 导入EasyEdit框架组件
-# from easyeditor.dataset.counterfact import CounterFactDataset  # 复用数据集基类
-# from easyeditor.util.hparams import HyperParams
-# from easyeditor.models.lora.lora_hparams import LoRAHyperParams
-
 # ===================== 自定义数据集类（基于EasyEdit） =====================
 class DentalQADataset(Dataset):
     """
@@ -141,6 +134,9 @@ def train_with_distillation(student_model, teacher_model, tokenizer, train_datal
     student_model.train()
     teacher_model.eval()
     best_acc = hparams.best_val_acc if hparams is not None else 0.0
+    accum_steps = max(1, hparams.gradient_accumulation_steps) if hparams is not None else 1
+
+    optimizer.zero_grad(set_to_none=True)
 
     for epoch in range(num_epochs):
         try:
@@ -148,7 +144,7 @@ def train_with_distillation(student_model, teacher_model, tokenizer, train_datal
             epoch_loss = 0.0
             progress_bar = tqdm(train_dataloader, desc=f"Epoch {epoch + 1}")
 
-            for batch in progress_bar:
+            for step, batch in enumerate(progress_bar):
                 input_ids = batch["input_ids"].to(device)
                 attention_mask = batch["attention_mask"].to(device)
                 labels = batch["labels"].to(device)
@@ -165,17 +161,21 @@ def train_with_distillation(student_model, teacher_model, tokenizer, train_datal
                     teacher_logits = teacher_outputs.logits.to(device)
 
                 # 计算蒸馏损失，并按梯度累积比例缩放
-                accum_steps = hparams.gradient_accumulation_steps if hparams is not None else 1
-                loss = distillation_loss(student_logits, teacher_logits, labels) / accum_steps
+                loss = distillation_loss(
+                    student_logits,
+                    teacher_logits,
+                    labels,
+                    temperature=(hparams.temperature if hparams is not None else 2.0),
+                    alpha=(hparams.alpha if hparams is not None else 0.5),
+                ) / accum_steps
 
                 # 反向传播 + 累积
                 loss.backward()
-                step = progress_bar.n  # current batch index
-                if (step + 1) % accum_steps == 0:
+                if (step + 1) % accum_steps == 0 or (step + 1) == len(train_dataloader):
                     optimizer.step()
                     if scheduler:
                         scheduler.step()
-                    optimizer.zero_grad()
+                    optimizer.zero_grad(set_to_none=True)
 
                 epoch_loss += loss.item()
                 progress_bar.set_postfix({"loss": f"{loss.item():.4f}"})
@@ -188,13 +188,14 @@ def train_with_distillation(student_model, teacher_model, tokenizer, train_datal
                 val_acc, wrongs = evaluate_generation(student_model, tokenizer, hparams.val_path, device)
                 print(f"第 {epoch + 1} 轮验证准确率: {val_acc:.2f}%")
                 # 比较并保存最优模型
-                if val_acc > best_acc:
+                if val_acc > best_acc or (not hparams.best_ckpt_path):
                     best_acc = val_acc
                     hparams.best_val_acc = val_acc
                     save_dir = os.path.join(hparams.output_dir, "best")
                     os.makedirs(save_dir, exist_ok=True)
                     student_model.save_pretrained(save_dir)
                     tokenizer.save_pretrained(save_dir)
+                    hparams.best_ckpt_path = save_dir
                     print(f"保存当前最佳模型到 {save_dir}")
                     # 记录错误样本
                     with open(os.path.join(hparams.output_dir, f"val_wrong_epoch{epoch+1}.jsonl"), "w", encoding="utf-8") as wf:
@@ -252,6 +253,7 @@ def main():
 
         # 内部跟踪
         best_val_acc: float = 0.0
+        best_ckpt_path: str = ""
 
     # 解析命令行参数并创建配置实例
     parser = argparse.ArgumentParser(description="训练牙科QA模型（蒸馏 + LoRA）")
@@ -261,6 +263,8 @@ def main():
     parser.add_argument("--learning_rate", type=float, help="学习率")
     parser.add_argument("--rank", type=int, help="LoRA秩")
     parser.add_argument("--lora_alpha", type=int, help="LoRA alpha")
+    parser.add_argument("--temperature", type=float, help="蒸馏温度")
+    parser.add_argument("--alpha", type=float, help="蒸馏损失中的KL权重")
     parser.add_argument("--augment", action="store_true", help="启用简单的数据增强")
     parser.add_argument("--data_path", type=str, help="数据路径")
     parser.add_argument("--val_path", type=str, help="验证集 jsonl 路径")
@@ -280,6 +284,10 @@ def main():
         hparams.rank = args.rank
     if args.lora_alpha is not None:
         hparams.lora_alpha = args.lora_alpha
+    if args.temperature is not None and args.temperature > 0:
+        hparams.temperature = args.temperature
+    if args.alpha is not None and 0.0 <= args.alpha <= 1.0:
+        hparams.alpha = args.alpha
     if args.data_path is not None:
         hparams.data_path = args.data_path
     if args.output_dir is not None:
@@ -363,7 +371,7 @@ def main():
     print("开始蒸馏训练...")
     trained_model = train_with_distillation(
         student_model, teacher_model, tokenizer, train_dataloader,
-        optimizer, scheduler, device, num_epochs=hparams.num_epochs
+        optimizer, scheduler, device, num_epochs=hparams.num_epochs, hparams=hparams
     )
 
     # 7. 保存模型
@@ -377,7 +385,19 @@ def main():
     # 如果有测试集路径，则用最终模型进行一次评估
     if hparams.test_path:
         print("在测试集上进行评估...")
-        test_acc, test_wrongs = evaluate_generation(trained_model, tokenizer, hparams.test_path, device)
+        model_for_test = trained_model
+        if hparams.best_ckpt_path and os.path.isdir(hparams.best_ckpt_path):
+            print(f"检测到最佳检查点: {hparams.best_ckpt_path}，使用最佳模型进行测试评估")
+            from peft import PeftModel
+            base_for_eval = AutoModelForCausalLM.from_pretrained(
+                hparams.model_name,
+                torch_dtype=torch.bfloat16,
+                trust_remote_code=True
+            ).to(device)
+            model_for_test = PeftModel.from_pretrained(base_for_eval, hparams.best_ckpt_path).to(device)
+            model_for_test.eval()
+
+        test_acc, test_wrongs = evaluate_generation(model_for_test, tokenizer, hparams.test_path, device)
         print(f"测试集准确率: {test_acc:.2f}%")
         with open(os.path.join(hparams.output_dir, "test_wrong.jsonl"), "w", encoding="utf-8") as wf:
             for w in test_wrongs:
