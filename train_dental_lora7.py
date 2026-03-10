@@ -5,7 +5,7 @@ import argparse
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer, get_cosine_schedule_with_warmup
 from peft import LoraConfig, get_peft_model
 from torch.utils.data import Dataset, DataLoader
 import numpy as np
@@ -51,32 +51,52 @@ class DentalQADataset(Dataset):
             suffixes = ["。", "?", ""]
             question = random.choice(prefixes) + question + random.choice(suffixes)
 
-        prompt = f"<|im_start|>system\n你是一名专业的牙科医生，只需输出一个字母（A、B、C、D、E）作为结果，不要附带任何解释或空格。\n<|im_end|>\n<|im_start|>user\n问题：{question}\n选项：\n{options}\n<|im_end|>\n<|im_start|>assistant\n{answer}<|im_end|>"
+        # 分拆 prompt 前缀和答案，用于 label masking
+        prompt_prefix = f"<|im_start|>system\n你是一名专业的牙科医生，只需输出一个字母（A、B、C、D、E）作为结果，不要附带任何解释或空格。\n<|im_end|>\n<|im_start|>user\n问题：{question}\n选项：\n{options}\n<|im_end|>\n<|im_start|>assistant\n"
+        full_text = prompt_prefix + f"{answer}<|im_end|>"
 
-        # Tokenize
+        # Tokenize 完整序列
         inputs = self.tokenizer(
-            prompt,
+            full_text,
             truncation=True,
             padding="max_length",
             max_length=self.max_length,
             return_tensors="pt"
         )
 
+        # Tokenize 前缀以确定 prompt 长度（使用相同的 add_special_tokens 设置）
+        prefix_enc = self.tokenizer(prompt_prefix, truncation=True, max_length=self.max_length)
+        prefix_len = len(prefix_enc["input_ids"])
+
+        # labels: prompt 部分设为 -100（不参与损失计算），仅答案 token 计算损失
+        labels = inputs["input_ids"].squeeze().clone()
+        labels[:prefix_len] = -100
+        labels[inputs["attention_mask"].squeeze() == 0] = -100  # padding 也忽略
+
         return {
             "input_ids": inputs["input_ids"].squeeze(),
             "attention_mask": inputs["attention_mask"].squeeze(),
-            "labels": inputs["input_ids"].squeeze()  # Causal LM的labels与input_ids相同
+            "labels": labels
         }
 
 # ===================== 蒸馏损失函数 =====================
 def distillation_loss(student_logits, teacher_logits, labels, temperature=2.0, alpha=0.5):
     """
     计算蒸馏损失：alpha * KL(teacher_logits, student_logits) + (1-alpha) * CE(student_logits, labels)
+    注意: Causal LM 中 logits[t] 预测 position t+1，因此 CE 需要做 label shift。
     """
-    # 学生模型的交叉熵损失
-    ce_loss = F.cross_entropy(student_logits.view(-1, student_logits.size(-1)), labels.view(-1), ignore_index=-100)
+    # Causal LM shift: logits[t] 预测 labels[t+1]
+    shift_logits = student_logits[:, :-1, :].contiguous()
+    shift_labels = labels[:, 1:].contiguous()
 
-    # 蒸馏损失：KL散度
+    # 学生模型的交叉熵损失（shift 后）
+    ce_loss = F.cross_entropy(
+        shift_logits.view(-1, shift_logits.size(-1)),
+        shift_labels.view(-1),
+        ignore_index=-100,
+    )
+
+    # 蒸馏损失：KL散度（student/teacher logits 对齐，无需 shift）
     teacher_probs = F.softmax(teacher_logits / temperature, dim=-1)
     student_log_probs = F.log_softmax(student_logits / temperature, dim=-1)
     kl_loss = F.kl_div(student_log_probs, teacher_probs, reduction='batchmean') * (temperature ** 2)
@@ -127,9 +147,8 @@ def evaluate_generation(model, tokenizer, file_path, device, max_new_tokens=4):
 
 # ===================== 自定义训练循环 =====================
 def train_with_distillation(student_model, teacher_model, tokenizer, train_dataloader, optimizer, scheduler, device, num_epochs=3, hparams=None):
-    """使用蒸馏的自定义训练循环，可以在每轮后执行验证
+    """使用蒸馏的自定义训练循环，可以在每轮后执行验证。
     若出现OOM会捕获并给出建议。
-    教师模型可能驻留在CPU，运行时会将输入转到CPU。
     """
     student_model.train()
     teacher_model.eval()
@@ -153,12 +172,10 @@ def train_with_distillation(student_model, teacher_model, tokenizer, train_datal
                 student_outputs = student_model(input_ids=input_ids, attention_mask=attention_mask)
                 student_logits = student_outputs.logits
 
-                # 教师模型前向传播 (在CPU)
+                # 教师模型前向传播（与学生在同一设备）
                 with torch.no_grad():
-                    t_input_ids = input_ids.to(teacher_model.device)
-                    t_attn = attention_mask.to(teacher_model.device)
-                    teacher_outputs = teacher_model(input_ids=t_input_ids, attention_mask=t_attn)
-                    teacher_logits = teacher_outputs.logits.to(device)
+                    teacher_outputs = teacher_model(input_ids=input_ids, attention_mask=attention_mask)
+                    teacher_logits = teacher_outputs.logits
 
                 # 计算蒸馏损失，并按梯度累积比例缩放
                 loss = distillation_loss(
@@ -296,7 +313,7 @@ def main():
         hparams.augment = True
     if args.batch_size is not None and args.batch_size>0:
         hparams.batch_size = args.batch_size
-    if args.gradient_accumulation_steps is not None and args.gradient_accumulation_steps>1:
+    if args.gradient_accumulation_steps is not None and args.gradient_accumulation_steps > 0:
         hparams.gradient_accumulation_steps = args.gradient_accumulation_steps
     if args.val_path is not None:
         hparams.val_path = args.val_path
@@ -309,12 +326,8 @@ def main():
     device = torch.device(f"cuda:{hparams.device}" if torch.cuda.is_available() else "cpu")
     print(f"使用设备: {device}")
 
-    # 1. 加载tokenizer（复用EasyEdit的tokenizer设置）
+    # 1. 加载tokenizer（复用EasyEdit的Qwen设置）
     print("加载tokenizer...")
-    tokenizer = AutoTokenizer.from_pretrained(hparams.model_name, trust_remote_code=True)
-    if tokenizer.pad_token is None:
-        tokenizer.pad_token = tokenizer.eos_token
-    # 按照EasyEdit的Qwen设置
     tokenizer = AutoTokenizer.from_pretrained(
         hparams.model_name,
         eos_token='<|endoftext|>',
@@ -328,14 +341,13 @@ def main():
     dataset = DentalQADataset(hparams.data_path, tokenizer, augment=hparams.augment)
     train_dataloader = DataLoader(dataset, batch_size=hparams.batch_size, shuffle=True)
 
-    # 3. 加载教师模型（放到CPU以节省GPU显存）
-    print("加载教师模型到CPU...")
+    # 3. 加载教师模型到GPU（H100有80GB显存，两个7B bf16模型约28GB，完全够用）
+    print("加载教师模型到GPU...")
     teacher_model = AutoModelForCausalLM.from_pretrained(
         hparams.model_name,
         torch_dtype=torch.bfloat16,
         trust_remote_code=True,
-        device_map="cpu"
-    )
+    ).to(device)
     teacher_model.eval()  # 教师模型设为评估模式
 
     # 4. 加载学生模型并应用LoRA（复用EasyEdit的LoRA配置）
@@ -365,7 +377,16 @@ def main():
         lr=hparams.learning_rate,
         weight_decay=hparams.weight_decay
     )
-    scheduler = None  # 可以添加学习率调度器
+    # Cosine warmup 学习率调度器
+    accum_steps_for_sched = max(1, hparams.gradient_accumulation_steps)
+    total_steps = (len(train_dataloader) + accum_steps_for_sched - 1) // accum_steps_for_sched * hparams.num_epochs
+    warmup_steps = max(1, total_steps // 10)  # 10% warmup
+    scheduler = get_cosine_schedule_with_warmup(
+        optimizer,
+        num_warmup_steps=warmup_steps,
+        num_training_steps=total_steps,
+    )
+    print(f"调度器: cosine warmup, total_steps={total_steps}, warmup={warmup_steps}")
 
     # 6. 开始蒸馏训练
     print("开始蒸馏训练...")
