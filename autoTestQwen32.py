@@ -3,11 +3,9 @@ import os
 import torch
 from tqdm import tqdm
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from peft import PeftModel
 
-# 评估目标：优先加载 32B->7B 蒸馏后的 LoRA，若不存在则回退到 7B 基座
-BASE_MODEL_PATH = "./Qwen2.5-7B-Instruct"
-ADAPTER_PATH = "./dental_qwen2.5_7b_choice_lora_distill_from32_best"
+# 评估目标：直接评测 Qwen2.5-32B-Instruct 基座模型
+MODEL_PATH = "./Qwen2.5-32B-Instruct"
 TESTSET_PATH = "./data/cmexam_dental_choice_test.jsonl"
 
 MAX_NEW_TOKENS = 4
@@ -71,25 +69,17 @@ def build_choice_prompt(question, options_text):
 
 def run_qwen_test():
     print("正在加载 tokenizer...")
-    tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_PATH, trust_remote_code=True, use_fast=False)
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, trust_remote_code=True, use_fast=False)
 
-    print("正在加载 7B 基座模型...")
-    base_model = AutoModelForCausalLM.from_pretrained(
-        BASE_MODEL_PATH,
+    print("正在加载 32B 基座模型...")
+    model = AutoModelForCausalLM.from_pretrained(
+        MODEL_PATH,
         trust_remote_code=True,
         torch_dtype=torch.bfloat16,
         device_map="auto",
         load_in_4bit=False,
     )
-
-    if os.path.isdir(ADAPTER_PATH):
-        print(f"检测到 LoRA 适配器，加载: {ADAPTER_PATH}")
-        model = PeftModel.from_pretrained(base_model, ADAPTER_PATH)
-        report_name = "Qwen2.5-7B (32B蒸馏LoRA)"
-    else:
-        print("未检测到 LoRA 适配器，回退到 7B 基座")
-        model = base_model
-        report_name = "Qwen2.5-7B 基座"
+    report_name = "Qwen2.5-32B-Instruct 基座"
 
     model.eval()
     print("模型加载完成！")

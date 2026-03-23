@@ -6,7 +6,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig
 
 # ===================== 1. 基础配置 =====================
 LOCAL_MODEL_PATH = "./Qwen2.5-14B-Instruct"
-TESTSET_PATH = "./data/cmexam_dental_choice_train.jsonl"
+TESTSET_PATH = "./data/cmexam_dental_choice_test.jsonl"
 
 GEN_CONFIG = GenerationConfig(
     temperature=0.0,

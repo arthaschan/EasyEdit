@@ -9,7 +9,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig
 LOCAL_MODEL_PATH = "./Qwen2.5-7B-Instruct"  
 # 替换为你测试集的实际路径
 #TESTSET_PATH = "./dental_choice_testset.jsonl"
-TESTSET_PATH = "./data/cmexam_dental_choice_train.jsonl"  # 使用新的测试集
+TESTSET_PATH = "./data/cmexam_dental_choice_test.jsonl"  # 使用新的测试集
 # 生成配置（关闭随机性，仅输出字母）
 GEN_CONFIG = GenerationConfig(
     temperature=0.0,  # 固定温度，确保回答稳定
