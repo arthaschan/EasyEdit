@@ -1,5 +1,10 @@
 # Dental Distill+LoRA Experiment History
 
+## 0) Continuity Entry
+- Latest AI handover context: `AI_CONTEXT_LATEST.md`
+- Secondary archive (moved artifacts): `/home/student/arthas/EasyEdit3_archives/secondary_slim_20260324_213749`
+- Before running old analysis commands, check whether referenced logs/models were archived.
+
 ## 1) Overall Progress
 - Initial reproducible baseline (before auto sweep): test accuracy around **73.49%**.
 - Best observed so far: **75.90%**.
