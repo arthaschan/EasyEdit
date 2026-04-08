@@ -1,0 +1,31 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+🚀 开始基于EasyEdit框架的蒸馏+LoRA微调牙科选择题模型
+训练配置: {'num_epochs': 4, 'batch_size': 2, 'learning_rate': 0.0001, 'model_name': '/home/student/arthas/EasyEdit3/Qwen2.5-7B-Instruct', 'rank': 16, 'lora_alpha': 32, 'temperature': 1.5, 'alpha': 0.0, 'data_path': '/home/student/arthas/EasyEdit3/data/cmexam_dental_choice_train_nooverlap.jsonl', 'output_dir': '/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260408_091034_recheck_seed55/output_seed55', 'gradient_accumulation_steps': 4, 'val_path': '/home/student/arthas/EasyEdit3/data/cmexam_dental_choice_val_nooverlap.jsonl', 'test_path': '/home/student/arthas/EasyEdit3/data/cmexam_dental_choice_test.jsonl', 'resume': True, 'default_distill_mask': 0, 'seed': 55, 'deterministic': True}
+使用设备: cuda:0
+加载tokenizer...
+加载数据...
+加载牙科QA数据集完成，共 672 条记录
+加载教师模型到GPU...
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights: 100%|██████████| 339/339 [00:00<00:00, 6633.21it/s]
+加载学生模型并应用LoRA...
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights: 100%|██████████| 339/339 [00:00<00:00, 6910.16it/s]
+trainable params: 10,092,544 || all params: 7,625,709,056 || trainable%: 0.1323
+调度器: cosine warmup, total_steps=336, warmup=33
+开始蒸馏训练...
+
+🚀 开始训练第 1 轮
+Epoch 1:   0%|          | 0/336 [00:00<?, ?it/s]Epoch 1:   0%|          | 0/336 [00:02<?, ?it/s, loss=0.0000]Epoch 1:   0%|          | 1/336 [00:02<13:10,  2.36s/it, loss=0.0000]Epoch 1:   0%|          | 1/336 [00:02<13:10,  2.36s/it, loss=0.0079]Epoch 1:   1%|          | 2/336 [00:02<06:24,  1.15s/it, loss=0.0079]Epoch 1:   1%|          | 2/336 [00:02<06:24,  1.15s/it, loss=0.0000]Epoch 1:   1%|          | 3/336 [00:02<04:14,  1.31it/s, loss=0.0000]Epoch 1:   1%|          | 3/336 [00:03<06:00,  1.08s/it, loss=0.0000]
+Traceback (most recent call last):
+  File "/home/student/arthas/EasyEdit3/train_dental_lora7_deepseek.py", line 728, in <module>
+    main()
+  File "/home/student/arthas/EasyEdit3/train_dental_lora7_deepseek.py", line 692, in main
+    trained_model = train_with_distillation(
+  File "/home/student/arthas/EasyEdit3/train_dental_lora7_deepseek.py", line 384, in train_with_distillation
+    loss.backward()
+  File "/home/student/arthas/EasyEdit3/.venv/lib/python3.10/site-packages/torch/_tensor.py", line 631, in backward
+    torch.autograd.backward(
+  File "/home/student/arthas/EasyEdit3/.venv/lib/python3.10/site-packages/torch/autograd/__init__.py", line 381, in backward
+    _engine_run_backward(
+  File "/home/student/arthas/EasyEdit3/.venv/lib/python3.10/site-packages/torch/autograd/graph.py", line 869, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

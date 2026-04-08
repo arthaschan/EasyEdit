@@ -1,0 +1,5 @@
+[RUN] DeepSeek-V3 (deepseek) model=deepseek-chat
+[DONE] DeepSeek-V3 acc=87.95% parsed=100.00% total=83
+[RUN] Kimi-Latest (kimi) model=moonshot-v1-32k
+[DONE] Kimi-Latest acc=60.24% parsed=100.00% total=83
+[RUN] Doubao-ARK (doubao) model=ep-20260330210911-6pc2r

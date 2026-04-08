@@ -1,0 +1,13 @@
+[INFO] RUN_ID=20260408_045958_doubao_improve_r4
+[RUN][improve-r4] r4_lr14_ep3_s42
+[DONE][improve-r4] r4_lr14_ep3_s42
+[RUN][improve-r4] r4_lr16_ep3_s42
+[DONE][improve-r4] r4_lr16_ep3_s42
+[RUN][improve-r4] r4_lr15_ep3_s55
+[DONE][improve-r4] r4_lr15_ep3_s55
+[RUN][improve-r4] r4_lr15_ep3_r24_s42
+[DONE][improve-r4] r4_lr15_ep3_r24_s42
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_045958_doubao_improve_r4/improve_results_latest.json
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_045958_doubao_improve_r4/improve_results_latest.md
+[DONE] doubao improve round4 finished
+[OUT] run_root=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_045958_doubao_improve_r4

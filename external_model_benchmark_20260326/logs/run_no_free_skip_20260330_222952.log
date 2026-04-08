@@ -1,0 +1,12 @@
+[RUN] DeepSeek-V3 (deepseek) model=deepseek-chat
+[DONE] DeepSeek-V3 acc=85.06% parsed=100.00% total=830
+[RUN] ChatGPT-4.1 (openai) model=gpt-4.1
+[SKIP] ChatGPT-4.1 reason=403 Client Error: Forbidden for url: https://api.openai.com/v1/chat/completions
+[RUN] Kimi-Latest (kimi) model=moonshot-v1-8k
+[SKIP] Kimi-Latest reason=429 Client Error: Too Many Requests for url: https://api.moonshot.cn/v1/chat/completions
+[RUN] Doubao-ARK (doubao) model=ep-20260330210911-6pc2r
+[DONE] Doubao-ARK acc=93.49% parsed=97.59% total=830
+[OUT] outputs/leaderboard_20260330_222952.json
+[OUT] outputs/leaderboard_20260330_222952.md
+[OUT] outputs/leaderboard_latest.json
+[OUT] outputs/leaderboard_latest.md

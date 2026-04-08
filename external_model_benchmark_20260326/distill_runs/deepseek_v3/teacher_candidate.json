@@ -1,0 +1,7 @@
+{
+  "name": "DeepSeek-V3",
+  "provider": "deepseek",
+  "base_url": "https://api.deepseek.com/v1/chat/completions",
+  "model": "deepseek-chat",
+  "api_key_env": "sk-e025208e764648ce8da92d26596e246f"
+}

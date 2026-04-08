@@ -1,0 +1,6 @@
+[
+  {"name": "a015_t15", "alpha": 0.15, "temperature": 1.5},
+  {"name": "a020_t15", "alpha": 0.20, "temperature": 1.5},
+  {"name": "a025_t15", "alpha": 0.25, "temperature": 1.5},
+  {"name": "a030_t15", "alpha": 0.30, "temperature": 1.5}
+]

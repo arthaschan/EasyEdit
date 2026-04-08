@@ -1,0 +1,66 @@
+{
+  "run_time": "2026-04-07T16:04:57.451706",
+  "baseline": 77.11,
+  "results": [
+    {
+      "name": "a013_lr10",
+      "alpha": 0.13,
+      "temperature": 1.5,
+      "learning_rate": 0.0001,
+      "accuracy": 73.49,
+      "delta_vs_baseline": -3.62,
+      "status": "ok",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_150748/logs/stage1_a013_lr10.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_150748/logs/stage2_a013_lr10.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_150748/outputs/a013_lr10"
+    },
+    {
+      "name": "a015_lr05",
+      "alpha": 0.15,
+      "temperature": 1.5,
+      "learning_rate": 5e-05,
+      "accuracy": 75.9,
+      "delta_vs_baseline": -1.21,
+      "status": "ok",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_150748/logs/stage1_a015_lr05.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_150748/logs/stage2_a015_lr05.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_150748/outputs/a015_lr05"
+    },
+    {
+      "name": "a015_lr10",
+      "alpha": 0.15,
+      "temperature": 1.5,
+      "learning_rate": 0.0001,
+      "accuracy": 74.7,
+      "delta_vs_baseline": -2.41,
+      "status": "ok",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_150748/logs/stage1_a015_lr10.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_150748/logs/stage2_a015_lr10.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_150748/outputs/a015_lr10"
+    },
+    {
+      "name": "a017_lr10",
+      "alpha": 0.17,
+      "temperature": 1.5,
+      "learning_rate": 0.0001,
+      "accuracy": 73.49,
+      "delta_vs_baseline": -3.62,
+      "status": "ok",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_150748/logs/stage1_a017_lr10.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_150748/logs/stage2_a017_lr10.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_150748/outputs/a017_lr10"
+    }
+  ],
+  "best": {
+    "name": "a015_lr05",
+    "alpha": 0.15,
+    "temperature": 1.5,
+    "learning_rate": 5e-05,
+    "accuracy": 75.9,
+    "delta_vs_baseline": -1.21,
+    "status": "ok",
+    "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_150748/logs/stage1_a015_lr05.log",
+    "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_150748/logs/stage2_a015_lr05.log",
+    "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_150748/outputs/a015_lr05"
+  }
+}

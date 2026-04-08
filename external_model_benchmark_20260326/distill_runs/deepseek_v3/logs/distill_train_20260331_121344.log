@@ -1,0 +1,39 @@
+[STEP] Generate teacher-labeled dataset (DeepSeek-V3)
+[RESUME] existing_done=63 existing_valid=63
+[PROGRESS] scanned=80/672 newly_valid=17 failed=0 total_valid=80
+[PROGRESS] scanned=100/672 newly_valid=37 failed=0 total_valid=100
+[PROGRESS] scanned=120/672 newly_valid=57 failed=0 total_valid=120
+[PROGRESS] scanned=140/672 newly_valid=77 failed=0 total_valid=140
+[PROGRESS] scanned=160/672 newly_valid=97 failed=0 total_valid=160
+[PROGRESS] scanned=180/672 newly_valid=117 failed=0 total_valid=180
+[PROGRESS] scanned=200/672 newly_valid=137 failed=0 total_valid=200
+[PROGRESS] scanned=220/672 newly_valid=157 failed=0 total_valid=220
+[PROGRESS] scanned=240/672 newly_valid=177 failed=0 total_valid=240
+[PROGRESS] scanned=260/672 newly_valid=197 failed=0 total_valid=260
+[PROGRESS] scanned=280/672 newly_valid=217 failed=0 total_valid=280
+[PROGRESS] scanned=300/672 newly_valid=237 failed=0 total_valid=300
+[PROGRESS] scanned=320/672 newly_valid=257 failed=0 total_valid=320
+[PROGRESS] scanned=340/672 newly_valid=277 failed=0 total_valid=340
+[PROGRESS] scanned=360/672 newly_valid=297 failed=0 total_valid=360
+[PROGRESS] scanned=380/672 newly_valid=317 failed=0 total_valid=380
+[PROGRESS] scanned=400/672 newly_valid=337 failed=0 total_valid=400
+[PROGRESS] scanned=420/672 newly_valid=357 failed=0 total_valid=420
+[PROGRESS] scanned=440/672 newly_valid=377 failed=0 total_valid=440
+[PROGRESS] scanned=460/672 newly_valid=397 failed=0 total_valid=460
+[PROGRESS] scanned=480/672 newly_valid=417 failed=0 total_valid=480
+[PROGRESS] scanned=500/672 newly_valid=437 failed=0 total_valid=500
+[PROGRESS] scanned=520/672 newly_valid=457 failed=0 total_valid=520
+[PROGRESS] scanned=540/672 newly_valid=477 failed=0 total_valid=540
+[PROGRESS] scanned=560/672 newly_valid=497 failed=0 total_valid=560
+[PROGRESS] scanned=580/672 newly_valid=517 failed=0 total_valid=580
+[PROGRESS] scanned=600/672 newly_valid=537 failed=0 total_valid=600
+[PROGRESS] scanned=620/672 newly_valid=557 failed=0 total_valid=620
+[PROGRESS] scanned=640/672 newly_valid=577 failed=0 total_valid=640
+[PROGRESS] scanned=660/672 newly_valid=597 failed=0 total_valid=660
+[DONE] attempted=609 newly_valid=609 failed=0 total_valid=672 output=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3/artifacts/teacher_train.jsonl
+[INFO] teacher_data_lines=672
+[STEP] Train student Qwen2.5-7B-Instruct from teacher labels
+Traceback (most recent call last):
+  File "/home/student/arthas/EasyEdit3/train_dental_lora7.py", line 6, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'

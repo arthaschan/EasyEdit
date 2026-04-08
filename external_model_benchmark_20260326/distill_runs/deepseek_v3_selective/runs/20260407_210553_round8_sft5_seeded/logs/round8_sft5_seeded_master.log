@@ -1,0 +1,16 @@
+[INFO] RUN_ID=20260407_210553_round8_sft5_seeded
+[STEP] run seeded SFT x5
+[RUN][sft-seeded] sft_seed11 seed=11
+[DONE][sft-seeded] sft_seed11
+[RUN][sft-seeded] sft_seed22 seed=22
+[DONE][sft-seeded] sft_seed22
+[RUN][sft-seeded] sft_seed33 seed=33
+[DONE][sft-seeded] sft_seed33
+[RUN][sft-seeded] sft_seed44 seed=44
+[DONE][sft-seeded] sft_seed44
+[RUN][sft-seeded] sft_seed55 seed=55
+[DONE][sft-seeded] sft_seed55
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_210553_round8_sft5_seeded/sft_seeded_summary.json
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_210553_round8_sft5_seeded/sft_seeded_summary.md
+[DONE] round8 seeded sft finished
+[OUT] run_root=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_210553_round8_sft5_seeded

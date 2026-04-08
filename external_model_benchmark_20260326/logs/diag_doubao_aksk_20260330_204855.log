@@ -1,0 +1,4 @@
+[OUT] outputs/doubao_aksk_diag_20260330_204855.json
+[OUT] outputs/doubao_aksk_diag_latest.json
+[STATUS] failed
+[ERROR] 401 unauthorized: check ak/sk pair, endpoint ownership/region, and service authorization

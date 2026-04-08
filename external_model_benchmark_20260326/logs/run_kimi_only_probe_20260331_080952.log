@@ -1,0 +1,6 @@
+[RUN] Kimi-Latest (kimi) model=moonshot-v1-8k
+[DONE] Kimi-Latest acc=100.00% parsed=100.00% total=1
+[OUT] outputs/leaderboard_20260331_080952.json
+[OUT] outputs/leaderboard_20260331_080952.md
+[OUT] outputs/leaderboard_latest.json
+[OUT] outputs/leaderboard_latest.md

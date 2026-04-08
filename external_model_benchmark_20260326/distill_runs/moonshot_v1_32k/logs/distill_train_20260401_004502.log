@@ -1,0 +1,24 @@
+[STEP] Generate teacher-labeled dataset (moonshot-v1-32k)
+[RESUME] existing_done=672 existing_valid=672
+[DONE] attempted=0 newly_valid=0 failed=0 total_valid=672 output=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/moonshot_v1_32k/artifacts/teacher_train.jsonl
+[INFO] teacher_data_lines=672
+[STEP] Train student Qwen2.5-7B-Instruct from teacher labels
+🚀 开始基于EasyEdit框架的蒸馏+LoRA微调牙科选择题模型
+Traceback (most recent call last):
+  File "/home/student/arthas/EasyEdit3/train_dental_lora7.py", line 544, in <module>
+    main()
+  File "/home/student/arthas/EasyEdit3/train_dental_lora7.py", line 352, in main
+    parser.add_argument("--model_name", type=str, help="学生/教师基础模型路径（本地路径或HF模型名）")
+  File "/usr/lib/python3.10/argparse.py", line 1460, in add_argument
+    return self._add_action(action)
+  File "/usr/lib/python3.10/argparse.py", line 1826, in _add_action
+    self._optionals._add_action(action)
+  File "/usr/lib/python3.10/argparse.py", line 1662, in _add_action
+    action = super(_ArgumentGroup, self)._add_action(action)
+  File "/usr/lib/python3.10/argparse.py", line 1474, in _add_action
+    self._check_conflict(action)
+  File "/usr/lib/python3.10/argparse.py", line 1611, in _check_conflict
+    conflict_handler(action, confl_optionals)
+  File "/usr/lib/python3.10/argparse.py", line 1620, in _handle_conflict_error
+    raise ArgumentError(action, message % conflict_string)
+argparse.ArgumentError: argument --model_name: conflicting option string: --model_name

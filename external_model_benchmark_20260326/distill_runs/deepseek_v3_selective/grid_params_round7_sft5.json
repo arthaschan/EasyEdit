@@ -1,0 +1,7 @@
+[
+  {"name":"sft_rep1","learning_rate":0.00010,"num_epochs":4,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4},
+  {"name":"sft_rep2","learning_rate":0.00010,"num_epochs":4,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4},
+  {"name":"sft_rep3","learning_rate":0.00010,"num_epochs":4,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4},
+  {"name":"sft_rep4","learning_rate":0.00010,"num_epochs":4,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4},
+  {"name":"sft_rep5","learning_rate":0.00010,"num_epochs":4,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4}
+]

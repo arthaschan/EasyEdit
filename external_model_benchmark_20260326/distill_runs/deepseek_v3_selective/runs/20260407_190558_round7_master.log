@@ -1,0 +1,21 @@
+[INFO] RUN_BASE=20260407_190558_round7
+[INFO] fixed_teacher_labels=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_094814/artifacts/teacher_train_selective.jsonl
+[STEP] anchor low-alpha distillation
+[RUN][anchor][stage1] a002_lr10
+[RUN][anchor][stage2] a002_lr10
+[DONE][anchor] a002_lr10
+[RUN][anchor][stage1] a004_lr10
+[RUN][anchor][stage2] a004_lr10
+[DONE][anchor] a004_lr10
+[RUN][anchor][stage1] a006_lr10
+[RUN][anchor][stage2] a006_lr10
+[DONE][anchor] a006_lr10
+[RUN][anchor][stage1] a008_lr10
+[RUN][anchor][stage2] a008_lr10
+[DONE][anchor] a008_lr10
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_190558_round7_anchor_lowalpha/two_stage_results_latest.json
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_190558_round7_anchor_lowalpha/two_stage_results_latest.md
+[STEP] pure sft 5-repeat
+[RUN][sft] sft_rep1
+[DONE][sft] sft_rep1
+[RUN][sft] sft_rep2

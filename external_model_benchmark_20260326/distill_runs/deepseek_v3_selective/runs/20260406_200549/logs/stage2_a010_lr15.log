@@ -1,0 +1,18 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+🚀 开始基于EasyEdit框架的蒸馏+LoRA微调牙科选择题模型
+训练配置: {'num_epochs': 3, 'batch_size': 2, 'learning_rate': 0.00015, 'model_name': '/home/student/arthas/EasyEdit3/Qwen2.5-7B-Instruct', 'rank': 16, 'lora_alpha': 32, 'temperature': 1.5, 'alpha': 0.1, 'data_path': '/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/artifacts/teacher_train_selective.jsonl', 'output_dir': '/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/outputs/a010_lr15', 'gradient_accumulation_steps': 4, 'val_path': '/home/student/arthas/EasyEdit3/data/cmexam_dental_choice_val_nooverlap.jsonl', 'test_path': '/home/student/arthas/EasyEdit3/data/cmexam_dental_choice_test.jsonl', 'resume': True, 'default_distill_mask': 1}
+使用设备: cuda:0
+加载tokenizer...
+加载数据...
+加载牙科QA数据集完成，共 672 条记录
+加载教师模型到GPU...
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights: 100%|██████████| 339/339 [00:00<00:00, 7705.69it/s]
+加载学生模型并应用LoRA...
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights: 100%|██████████| 339/339 [00:00<00:00, 9374.63it/s]
+检测到断点，加载LoRA权重: /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/outputs/a010_lr15/checkpoints/epoch_1
+Traceback (most recent call last):
+  File "/home/student/arthas/EasyEdit3/train_dental_lora7.py", line 579, in <module>
+    main()
+  File "/home/student/arthas/EasyEdit3/train_dental_lora7.py", line 494, in main
+    student_model = PeftModel.from_pretrained(student_base, resume_dir, is_trainable=True)
+UnboundLocalError: local variable 'PeftModel' referenced before assignment

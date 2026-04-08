@@ -1,0 +1,17 @@
+[INFO] ROOT_DIR=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326
+[INFO] DATASET_PATH=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/../data/cmexam_dental_choice.jsonl
+[INFO] SAMPLE_SIZE=20
+[INFO] PYTHON_BIN=/home/student/arthas/EasyEdit3/.venv/bin/python
+[RUN] DeepSeek-V3 (deepseek) model=deepseek-chat
+[DONE] DeepSeek-V3 acc=95.00% parsed=100.00% total=20
+[RUN] ChatGPT-4.1 (openai) model=gpt-4.1
+[SKIP] ChatGPT-4.1 reason=openai free account: skipped by config
+[RUN] Kimi-Latest (kimi) model=moonshot-v1-8k
+[SKIP] Kimi-Latest reason=429 Client Error: Too Many Requests for url: https://api.moonshot.cn/v1/chat/completions
+[RUN] Doubao-ARK (doubao) model=AKLTNGZhMzY4ZDRjMjg1NGQ4OWFkOTA5Nzg5ZGY4MmE3MTE
+[SKIP] Doubao-ARK reason=missing doubao aksk: ak=missing, sk=missing
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/outputs/leaderboard_20260330_202555.json
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/outputs/leaderboard_20260330_202555.md
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/outputs/leaderboard_latest.json
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/outputs/leaderboard_latest.md
+[INFO] done. log=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/logs/run_20260330_202555.log

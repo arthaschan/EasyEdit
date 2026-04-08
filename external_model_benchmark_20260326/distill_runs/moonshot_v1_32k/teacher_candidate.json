@@ -1,0 +1,7 @@
+{
+  "name": "moonshot-v1-32k",
+  "provider": "kimi",
+  "base_url": "https://api.moonshot.cn/v1/chat/completions",
+  "model": "moonshot-v1-32k",
+  "api_key_env": "sk-76ufvelWrjmHWt01yEfjiCkokISczU30Dk2bVEXn5tITyaah"
+}

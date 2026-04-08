@@ -1,0 +1,23 @@
+[INFO] RUN_ID=20260407_182401_stability5
+[INFO] fixed_teacher_labels=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_094814/artifacts/teacher_train_selective.jsonl
+[RUN][stage1] rep1_a015_lr10
+[RUN][stage2] rep1_a015_lr10
+[DONE] rep1_a015_lr10
+[RUN][stage1] rep2_a015_lr10
+[RUN][stage2] rep2_a015_lr10
+[DONE] rep2_a015_lr10
+[RUN][stage1] rep3_a015_lr10
+[RUN][stage2] rep3_a015_lr10
+[DONE] rep3_a015_lr10
+[RUN][stage1] rep4_a015_lr10
+[RUN][stage2] rep4_a015_lr10
+[DONE] rep4_a015_lr10
+[RUN][stage1] rep5_a015_lr10
+[RUN][stage2] rep5_a015_lr10
+[DONE] rep5_a015_lr10
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_182401_stability5/two_stage_results_latest.json
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_182401_stability5/two_stage_results_latest.md
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_182401_stability5/stability_summary.json
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_182401_stability5/stability_summary.md
+[DONE] round6 stability5 finished
+[OUT] run_root=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_182401_stability5

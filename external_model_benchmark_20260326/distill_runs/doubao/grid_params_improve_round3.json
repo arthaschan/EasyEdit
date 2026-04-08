@@ -1,0 +1,10 @@
+[
+  {"name":"sft_lr13_ep3_s7","learning_rate":0.00013,"num_epochs":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4,"seed":7},
+  {"name":"sft_lr15_ep3_s11","learning_rate":0.00015,"num_epochs":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4,"seed":11},
+  {"name":"sft_lr15_ep3_s42","learning_rate":0.00015,"num_epochs":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4,"seed":42},
+  {"name":"sft_lr17_ep3_s21","learning_rate":0.00017,"num_epochs":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4,"seed":21},
+  {"name":"sft_lr15_ep2_s42","learning_rate":0.00015,"num_epochs":2,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4,"seed":42},
+  {"name":"sft_lr12_ep4_s33","learning_rate":0.00012,"num_epochs":4,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4,"seed":33},
+  {"name":"sft_lr15_ep3_r32_s42","learning_rate":0.00015,"num_epochs":3,"rank":32,"lora_alpha":64,"batch_size":2,"gradient_accumulation_steps":4,"seed":42},
+  {"name":"sft_lr10_ep3_r32_s55","learning_rate":0.00010,"num_epochs":3,"rank":32,"lora_alpha":64,"batch_size":2,"gradient_accumulation_steps":4,"seed":55}
+]

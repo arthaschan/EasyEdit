@@ -1,0 +1,32 @@
+[INFO] RUN_BASE_ID=20260407_162424
+[INFO] fixed_teacher_labels=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_094814/artifacts/teacher_train_selective.jsonl
+[INFO] start grid: repro3
+[RUN][repro3][stage1] rep1_a015_lr10
+[RUN][repro3][stage2] rep1_a015_lr10
+[DONE][repro3] rep1_a015_lr10
+[RUN][repro3][stage1] rep2_a015_lr10
+[RUN][repro3][stage2] rep2_a015_lr10
+[DONE][repro3] rep2_a015_lr10
+[RUN][repro3][stage1] rep3_a015_lr10
+[RUN][repro3][stage2] rep3_a015_lr10
+[DONE][repro3] rep3_a015_lr10
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_162424_repro3/two_stage_results_latest.json
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_162424_repro3/two_stage_results_latest.md
+[INFO] start grid: alpha_low
+[RUN][alpha_low][stage1] a010_lr10
+[RUN][alpha_low][stage2] a010_lr10
+[DONE][alpha_low] a010_lr10
+[RUN][alpha_low][stage1] a011_lr10
+[RUN][alpha_low][stage2] a011_lr10
+[DONE][alpha_low] a011_lr10
+[RUN][alpha_low][stage1] a012_lr10
+[RUN][alpha_low][stage2] a012_lr10
+[DONE][alpha_low] a012_lr10
+[RUN][alpha_low][stage1] a014_lr10
+[RUN][alpha_low][stage2] a014_lr10
+[DONE][alpha_low] a014_lr10
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_162424_alpha_low/two_stage_results_latest.json
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_162424_alpha_low/two_stage_results_latest.md
+[DONE] followup training finished
+[OUT] repro_root=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_162424_repro3
+[OUT] alpha_root=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_162424_alpha_low

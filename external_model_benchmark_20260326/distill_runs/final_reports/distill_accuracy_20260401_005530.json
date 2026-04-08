@@ -1,0 +1,29 @@
+{
+  "device": "cuda:0",
+  "results": [
+    {
+      "total": 83,
+      "correct": 61,
+      "accuracy": 73.49,
+      "teacher": "DeepSeek-V3",
+      "status": "ok",
+      "adapter": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3/outputs/student_qwen25_7b_from_deepseek_v3/best"
+    },
+    {
+      "total": 83,
+      "correct": 61,
+      "accuracy": 73.49,
+      "teacher": "moonshot-v1-32k",
+      "status": "ok",
+      "adapter": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/moonshot_v1_32k/outputs/student_qwen25_7b_from_moonshot_v1_32k/best"
+    },
+    {
+      "total": 83,
+      "correct": 61,
+      "accuracy": 73.49,
+      "teacher": "doubao",
+      "status": "ok",
+      "adapter": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/outputs/student_qwen25_7b_from_doubao/best"
+    }
+  ]
+}

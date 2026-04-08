@@ -1,0 +1,41 @@
+[STEP] Generate teacher-labeled dataset (doubao)
+[PROGRESS] scanned=20/672 newly_valid=20 failed=0 total_valid=20
+[PROGRESS] scanned=40/672 newly_valid=40 failed=0 total_valid=40
+[PROGRESS] scanned=60/672 newly_valid=60 failed=0 total_valid=60
+[PROGRESS] scanned=80/672 newly_valid=80 failed=0 total_valid=80
+[PROGRESS] scanned=100/672 newly_valid=99 failed=1 total_valid=99
+[PROGRESS] scanned=120/672 newly_valid=119 failed=1 total_valid=119
+[PROGRESS] scanned=140/672 newly_valid=139 failed=1 total_valid=139
+[PROGRESS] scanned=160/672 newly_valid=159 failed=1 total_valid=159
+[PROGRESS] scanned=180/672 newly_valid=179 failed=1 total_valid=179
+[PROGRESS] scanned=200/672 newly_valid=199 failed=1 total_valid=199
+[PROGRESS] scanned=220/672 newly_valid=219 failed=1 total_valid=219
+[PROGRESS] scanned=240/672 newly_valid=239 failed=1 total_valid=239
+[PROGRESS] scanned=260/672 newly_valid=259 failed=1 total_valid=259
+[PROGRESS] scanned=280/672 newly_valid=279 failed=1 total_valid=279
+[PROGRESS] scanned=300/672 newly_valid=299 failed=1 total_valid=299
+[PROGRESS] scanned=320/672 newly_valid=319 failed=1 total_valid=319
+[PROGRESS] scanned=340/672 newly_valid=339 failed=1 total_valid=339
+[PROGRESS] scanned=360/672 newly_valid=359 failed=1 total_valid=359
+[PROGRESS] scanned=380/672 newly_valid=379 failed=1 total_valid=379
+[PROGRESS] scanned=400/672 newly_valid=399 failed=1 total_valid=399
+[PROGRESS] scanned=420/672 newly_valid=419 failed=1 total_valid=419
+[PROGRESS] scanned=440/672 newly_valid=439 failed=1 total_valid=439
+[PROGRESS] scanned=460/672 newly_valid=459 failed=1 total_valid=459
+[PROGRESS] scanned=480/672 newly_valid=479 failed=1 total_valid=479
+[PROGRESS] scanned=500/672 newly_valid=499 failed=1 total_valid=499
+[PROGRESS] scanned=520/672 newly_valid=519 failed=1 total_valid=519
+[PROGRESS] scanned=540/672 newly_valid=539 failed=1 total_valid=539
+[PROGRESS] scanned=560/672 newly_valid=559 failed=1 total_valid=559
+[PROGRESS] scanned=580/672 newly_valid=579 failed=1 total_valid=579
+[PROGRESS] scanned=600/672 newly_valid=599 failed=1 total_valid=599
+[PROGRESS] scanned=620/672 newly_valid=619 failed=1 total_valid=619
+[PROGRESS] scanned=640/672 newly_valid=639 failed=1 total_valid=639
+[PROGRESS] scanned=660/672 newly_valid=659 failed=1 total_valid=659
+[DONE] attempted=672 newly_valid=671 failed=1 total_valid=671 output=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/artifacts/teacher_train.jsonl
+[INFO] teacher_data_lines=671
+[STEP] Train student Qwen2.5-7B-Instruct from teacher labels
+Traceback (most recent call last):
+  File "/home/student/arthas/EasyEdit3/train_dental_lora7.py", line 6, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'

@@ -1,0 +1,114 @@
+{
+  "run_time": "2026-04-07T23:18:42.529437",
+  "baseline": 77.11,
+  "results": [
+    {
+      "name": "a004_lr10",
+      "alpha": 0.04,
+      "temperature": 1.5,
+      "learning_rate": 0.0001,
+      "accuracy": 72.29,
+      "delta_vs_baseline": -4.82,
+      "status": "ok",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/logs/stage1_a004_lr10.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/logs/stage2_a004_lr10.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/outputs/a004_lr10"
+    },
+    {
+      "name": "a004_lr15",
+      "alpha": 0.04,
+      "temperature": 1.5,
+      "learning_rate": 0.00015,
+      "accuracy": 72.29,
+      "delta_vs_baseline": -4.82,
+      "status": "ok",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/logs/stage1_a004_lr15.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/logs/stage2_a004_lr15.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/outputs/a004_lr15"
+    },
+    {
+      "name": "a008_lr10",
+      "alpha": 0.08,
+      "temperature": 1.5,
+      "learning_rate": 0.0001,
+      "accuracy": 71.08,
+      "delta_vs_baseline": -6.03,
+      "status": "ok",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/logs/stage1_a008_lr10.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/logs/stage2_a008_lr10.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/outputs/a008_lr10"
+    },
+    {
+      "name": "a008_lr15",
+      "alpha": 0.08,
+      "temperature": 1.5,
+      "learning_rate": 0.00015,
+      "accuracy": 73.49,
+      "delta_vs_baseline": -3.62,
+      "status": "ok",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/logs/stage1_a008_lr15.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/logs/stage2_a008_lr15.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/outputs/a008_lr15"
+    },
+    {
+      "name": "a012_lr10",
+      "alpha": 0.12,
+      "temperature": 1.5,
+      "learning_rate": 0.0001,
+      "accuracy": 72.29,
+      "delta_vs_baseline": -4.82,
+      "status": "ok",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/logs/stage1_a012_lr10.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/logs/stage2_a012_lr10.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/outputs/a012_lr10"
+    },
+    {
+      "name": "a012_lr15",
+      "alpha": 0.12,
+      "temperature": 1.5,
+      "learning_rate": 0.00015,
+      "accuracy": 73.49,
+      "delta_vs_baseline": -3.62,
+      "status": "ok",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/logs/stage1_a012_lr15.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/logs/stage2_a012_lr15.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/outputs/a012_lr15"
+    },
+    {
+      "name": "a016_lr10",
+      "alpha": 0.16,
+      "temperature": 1.5,
+      "learning_rate": 0.0001,
+      "accuracy": 69.88,
+      "delta_vs_baseline": -7.23,
+      "status": "ok",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/logs/stage1_a016_lr10.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/logs/stage2_a016_lr10.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/outputs/a016_lr10"
+    },
+    {
+      "name": "a016_lr15",
+      "alpha": 0.16,
+      "temperature": 1.5,
+      "learning_rate": 0.00015,
+      "accuracy": 73.49,
+      "delta_vs_baseline": -3.62,
+      "status": "ok",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/logs/stage1_a016_lr15.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/logs/stage2_a016_lr15.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/outputs/a016_lr15"
+    }
+  ],
+  "best": {
+    "name": "a008_lr15",
+    "alpha": 0.08,
+    "temperature": 1.5,
+    "learning_rate": 0.00015,
+    "accuracy": 73.49,
+    "delta_vs_baseline": -3.62,
+    "status": "ok",
+    "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/logs/stage1_a008_lr15.log",
+    "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/logs/stage2_a008_lr15.log",
+    "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/outputs/a008_lr15"
+  }
+}

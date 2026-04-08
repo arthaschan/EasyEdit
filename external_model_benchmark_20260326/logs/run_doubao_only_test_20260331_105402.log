@@ -1,0 +1,6 @@
+[RUN] Doubao-ARK (doubao) model=ep-20260330210911-6pc2r
+[DONE] Doubao-ARK acc=97.59% parsed=98.80% total=83
+[OUT] outputs/leaderboard_20260331_105402.json
+[OUT] outputs/leaderboard_20260331_105402.md
+[OUT] outputs/leaderboard_latest.json
+[OUT] outputs/leaderboard_latest.md

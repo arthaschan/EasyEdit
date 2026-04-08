@@ -1,0 +1,30 @@
+[
+  {
+    "name": "DeepSeek-V3",
+    "provider": "deepseek",
+    "base_url": "https://api.deepseek.com/v1/chat/completions",
+    "model": "deepseek-chat",
+    "api_key_env": "sk-e025208e764648ce8da92d26596e246f",
+    "enabled": true
+  },
+  {
+    "name": "Kimi-Latest",
+    "provider": "kimi",
+    "base_url": "https://api.moonshot.cn/v1/chat/completions",
+    "model": "moonshot-v1-8k",
+    "api_key_env": "sk-76ufvelWrjmHWt01yEfjiCkokISczU30Dk2bVEXn5tITyaah",
+    "free_account": false,
+    "request_interval_sec": 1.0,
+    "max_retries": 2,
+    "enabled": true
+  },
+  {
+    "name": "Doubao-ARK",
+    "provider": "doubao",
+    "base_url": "https://ark.cn-beijing.volces.com/api/v3/chat/completions",
+    "model": "ep-20260330210911-6pc2r",
+    "auth_mode": "apikey",
+    "api_key_env": "52de55b0-eae0-4317-8e3c-d9e790ecd7db",
+    "enabled": true
+  }
+]

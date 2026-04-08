@@ -1,0 +1,20 @@
+[INFO] RUN_ID=20260408_083133_doubao_soft_r5
+[STEP] generate soft labels
+[RESUME] existing_done=584 existing_valid=584
+[PROGRESS] scanned=600/672 newly_valid=16 failed=0 total_valid=600
+[PROGRESS] scanned=620/672 newly_valid=36 failed=0 total_valid=620
+[PROGRESS] scanned=640/672 newly_valid=56 failed=0 total_valid=640
+[PROGRESS] scanned=660/672 newly_valid=76 failed=0 total_valid=660
+[DONE] attempted=88 newly_valid=88 failed=0 total_valid=672 output=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/artifacts/teacher_train_soft_r5.jsonl
+[RUN][soft-r5] soft5_a20_lr15e4_r32_s42
+[DONE][soft-r5] soft5_a20_lr15e4_r32_s42
+[RUN][soft-r5] soft5_a35_lr15e4_r32_s42
+[DONE][soft-r5] soft5_a35_lr15e4_r32_s42
+[RUN][soft-r5] soft5_a20_lr12e4_r24_s42
+[DONE][soft-r5] soft5_a20_lr12e4_r24_s42
+[RUN][soft-r5] soft5_a35_lr12e4_r24_s52
+[DONE][soft-r5] soft5_a35_lr12e4_r24_s52
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_083133_doubao_soft_r5/soft_results_latest.json
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_083133_doubao_soft_r5/soft_results_latest.md
+[DONE] doubao soft round5 finished
+[OUT] run_root=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_083133_doubao_soft_r5

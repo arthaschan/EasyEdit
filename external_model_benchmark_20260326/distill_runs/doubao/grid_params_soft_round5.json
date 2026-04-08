@@ -1,0 +1,46 @@
+[
+  {
+    "name": "soft5_a20_lr15e4_r32_s42",
+    "learning_rate": 0.00015,
+    "num_epochs": 3,
+    "batch_size": 4,
+    "gradient_accumulation_steps": 2,
+    "rank": 32,
+    "lora_alpha": 64,
+    "alpha": 0.2,
+    "seed": 42
+  },
+  {
+    "name": "soft5_a35_lr15e4_r32_s42",
+    "learning_rate": 0.00015,
+    "num_epochs": 3,
+    "batch_size": 4,
+    "gradient_accumulation_steps": 2,
+    "rank": 32,
+    "lora_alpha": 64,
+    "alpha": 0.35,
+    "seed": 42
+  },
+  {
+    "name": "soft5_a20_lr12e4_r24_s42",
+    "learning_rate": 0.00012,
+    "num_epochs": 3,
+    "batch_size": 4,
+    "gradient_accumulation_steps": 2,
+    "rank": 24,
+    "lora_alpha": 48,
+    "alpha": 0.2,
+    "seed": 42
+  },
+  {
+    "name": "soft5_a35_lr12e4_r24_s52",
+    "learning_rate": 0.00012,
+    "num_epochs": 3,
+    "batch_size": 4,
+    "gradient_accumulation_steps": 2,
+    "rank": 24,
+    "lora_alpha": 48,
+    "alpha": 0.35,
+    "seed": 52
+  }
+]

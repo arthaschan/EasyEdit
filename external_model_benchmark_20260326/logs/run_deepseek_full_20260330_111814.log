@@ -1,0 +1,6 @@
+[RUN] DeepSeek-V3 (deepseek) model=deepseek-chat
+[DONE] DeepSeek-V3 acc=85.00% parsed=100.00% total=200
+[OUT] outputs/leaderboard_20260330_111814.json
+[OUT] outputs/leaderboard_20260330_111814.md
+[OUT] outputs/leaderboard_latest.json
+[OUT] outputs/leaderboard_latest.md

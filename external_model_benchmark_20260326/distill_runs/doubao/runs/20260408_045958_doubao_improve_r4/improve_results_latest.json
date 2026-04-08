@@ -1,0 +1,60 @@
+{
+  "run_root": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_045958_doubao_improve_r4",
+  "baseline": 77.11,
+  "previous_best": 80.72,
+  "n": 4,
+  "best": {
+    "name": "r4_lr14_ep3_s42",
+    "learning_rate": 0.00014,
+    "num_epochs": 3,
+    "rank": 16,
+    "lora_alpha": 32,
+    "seed": 42,
+    "accuracy": 79.52,
+    "status": "ok"
+  },
+  "mean": 77.71,
+  "std": 2.0,
+  "rows": [
+    {
+      "name": "r4_lr14_ep3_s42",
+      "learning_rate": 0.00014,
+      "num_epochs": 3,
+      "rank": 16,
+      "lora_alpha": 32,
+      "seed": 42,
+      "accuracy": 79.52,
+      "status": "ok"
+    },
+    {
+      "name": "r4_lr16_ep3_s42",
+      "learning_rate": 0.00016,
+      "num_epochs": 3,
+      "rank": 16,
+      "lora_alpha": 32,
+      "seed": 42,
+      "accuracy": 74.7,
+      "status": "ok"
+    },
+    {
+      "name": "r4_lr15_ep3_s55",
+      "learning_rate": 0.00015,
+      "num_epochs": 3,
+      "rank": 16,
+      "lora_alpha": 32,
+      "seed": 55,
+      "accuracy": 77.11,
+      "status": "ok"
+    },
+    {
+      "name": "r4_lr15_ep3_r24_s42",
+      "learning_rate": 0.00015,
+      "num_epochs": 3,
+      "rank": 24,
+      "lora_alpha": 48,
+      "seed": 42,
+      "accuracy": 79.52,
+      "status": "ok"
+    }
+  ]
+}

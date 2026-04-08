@@ -1,0 +1,151 @@
+{
+  "run_time": "2026-04-06T21:07:39.673363",
+  "baseline": 77.11,
+  "results": [
+    {
+      "name": "a005_lr10",
+      "alpha": 0.05,
+      "temperature": 1.5,
+      "learning_rate": 0.0001,
+      "accuracy": null,
+      "delta_vs_baseline": null,
+      "status": "failed",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage1_a005_lr10.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage2_a005_lr10.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/outputs/a005_lr10"
+    },
+    {
+      "name": "a005_lr15",
+      "alpha": 0.05,
+      "temperature": 1.5,
+      "learning_rate": 0.00015,
+      "accuracy": null,
+      "delta_vs_baseline": null,
+      "status": "failed",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage1_a005_lr15.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage2_a005_lr15.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/outputs/a005_lr15"
+    },
+    {
+      "name": "a005_lr20",
+      "alpha": 0.05,
+      "temperature": 1.5,
+      "learning_rate": 0.0002,
+      "accuracy": null,
+      "delta_vs_baseline": null,
+      "status": "failed",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage1_a005_lr20.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage2_a005_lr20.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/outputs/a005_lr20"
+    },
+    {
+      "name": "a010_lr10",
+      "alpha": 0.1,
+      "temperature": 1.5,
+      "learning_rate": 0.0001,
+      "accuracy": null,
+      "delta_vs_baseline": null,
+      "status": "failed",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage1_a010_lr10.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage2_a010_lr10.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/outputs/a010_lr10"
+    },
+    {
+      "name": "a010_lr15",
+      "alpha": 0.1,
+      "temperature": 1.5,
+      "learning_rate": 0.00015,
+      "accuracy": null,
+      "delta_vs_baseline": null,
+      "status": "failed",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage1_a010_lr15.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage2_a010_lr15.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/outputs/a010_lr15"
+    },
+    {
+      "name": "a010_lr20",
+      "alpha": 0.1,
+      "temperature": 1.5,
+      "learning_rate": 0.0002,
+      "accuracy": null,
+      "delta_vs_baseline": null,
+      "status": "failed",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage1_a010_lr20.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage2_a010_lr20.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/outputs/a010_lr20"
+    },
+    {
+      "name": "a015_lr10",
+      "alpha": 0.15,
+      "temperature": 1.5,
+      "learning_rate": 0.0001,
+      "accuracy": null,
+      "delta_vs_baseline": null,
+      "status": "failed",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage1_a015_lr10.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage2_a015_lr10.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/outputs/a015_lr10"
+    },
+    {
+      "name": "a015_lr15",
+      "alpha": 0.15,
+      "temperature": 1.5,
+      "learning_rate": 0.00015,
+      "accuracy": null,
+      "delta_vs_baseline": null,
+      "status": "failed",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage1_a015_lr15.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage2_a015_lr15.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/outputs/a015_lr15"
+    },
+    {
+      "name": "a015_lr20",
+      "alpha": 0.15,
+      "temperature": 1.5,
+      "learning_rate": 0.0002,
+      "accuracy": null,
+      "delta_vs_baseline": null,
+      "status": "failed",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage1_a015_lr20.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage2_a015_lr20.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/outputs/a015_lr20"
+    },
+    {
+      "name": "a020_lr10",
+      "alpha": 0.2,
+      "temperature": 1.5,
+      "learning_rate": 0.0001,
+      "accuracy": null,
+      "delta_vs_baseline": null,
+      "status": "failed",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage1_a020_lr10.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage2_a020_lr10.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/outputs/a020_lr10"
+    },
+    {
+      "name": "a020_lr15",
+      "alpha": 0.2,
+      "temperature": 1.5,
+      "learning_rate": 0.00015,
+      "accuracy": null,
+      "delta_vs_baseline": null,
+      "status": "failed",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage1_a020_lr15.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage2_a020_lr15.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/outputs/a020_lr15"
+    },
+    {
+      "name": "a020_lr20",
+      "alpha": 0.2,
+      "temperature": 1.5,
+      "learning_rate": 0.0002,
+      "accuracy": null,
+      "delta_vs_baseline": null,
+      "status": "failed",
+      "stage1_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage1_a020_lr20.log",
+      "stage2_log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/logs/stage2_a020_lr20.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260406_200549/outputs/a020_lr20"
+    }
+  ],
+  "best": null
+}

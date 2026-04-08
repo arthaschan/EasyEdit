@@ -1,0 +1,6 @@
+[
+  {"name":"a010_lr10","alpha":0.10,"temperature":1.5,"learning_rate":0.00010,"num_epochs_stage1":1,"num_epochs_stage2":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4},
+  {"name":"a011_lr10","alpha":0.11,"temperature":1.5,"learning_rate":0.00010,"num_epochs_stage1":1,"num_epochs_stage2":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4},
+  {"name":"a012_lr10","alpha":0.12,"temperature":1.5,"learning_rate":0.00010,"num_epochs_stage1":1,"num_epochs_stage2":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4},
+  {"name":"a014_lr10","alpha":0.14,"temperature":1.5,"learning_rate":0.00010,"num_epochs_stage1":1,"num_epochs_stage2":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4}
+]

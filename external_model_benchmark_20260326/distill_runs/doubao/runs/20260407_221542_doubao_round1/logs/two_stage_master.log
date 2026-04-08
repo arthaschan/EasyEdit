@@ -1,0 +1,35 @@
+[INFO] RUN_ID=20260407_221542_doubao_round1
+[STEP] build selective dataset from doubao teacher labels
+[OUT] train=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/artifacts/teacher_train_selective.jsonl
+[OUT] clean=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/artifacts/teacher_train_clean.jsonl
+[OUT] mismatch=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/artifacts/teacher_train_mismatch.jsonl
+[STATS] total=672 clean=657 mismatch=15 clean_ratio=0.9777
+[STEP] run two-stage grid
+[RUN][stage1] a004_lr10
+[RUN][stage2] a004_lr10
+[DONE] a004_lr10
+[RUN][stage1] a004_lr15
+[RUN][stage2] a004_lr15
+[DONE] a004_lr15
+[RUN][stage1] a008_lr10
+[RUN][stage2] a008_lr10
+[DONE] a008_lr10
+[RUN][stage1] a008_lr15
+[RUN][stage2] a008_lr15
+[DONE] a008_lr15
+[RUN][stage1] a012_lr10
+[RUN][stage2] a012_lr10
+[DONE] a012_lr10
+[RUN][stage1] a012_lr15
+[RUN][stage2] a012_lr15
+[DONE] a012_lr15
+[RUN][stage1] a016_lr10
+[RUN][stage2] a016_lr10
+[DONE] a016_lr10
+[RUN][stage1] a016_lr15
+[RUN][stage2] a016_lr15
+[DONE] a016_lr15
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/two_stage_results_latest.json
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1/two_stage_results_latest.md
+[DONE] doubao two-stage round1 finished
+[OUT] run_root=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_221542_doubao_round1

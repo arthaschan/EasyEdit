@@ -1,0 +1,44 @@
+{
+  "run_root": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_232004_doubao_sft_round2",
+  "baseline": 77.11,
+  "n": 4,
+  "best": {
+    "name": "sft_lr15_ep3",
+    "learning_rate": 0.00015,
+    "num_epochs": 3,
+    "accuracy": 80.72,
+    "status": "ok"
+  },
+  "mean": 76.2,
+  "std": 3.45,
+  "rows": [
+    {
+      "name": "sft_lr08_ep3",
+      "learning_rate": 8e-05,
+      "num_epochs": 3,
+      "accuracy": 73.49,
+      "status": "ok"
+    },
+    {
+      "name": "sft_lr10_ep3",
+      "learning_rate": 0.0001,
+      "num_epochs": 3,
+      "accuracy": 78.31,
+      "status": "ok"
+    },
+    {
+      "name": "sft_lr15_ep3",
+      "learning_rate": 0.00015,
+      "num_epochs": 3,
+      "accuracy": 80.72,
+      "status": "ok"
+    },
+    {
+      "name": "sft_lr10_ep4",
+      "learning_rate": 0.0001,
+      "num_epochs": 4,
+      "accuracy": 72.29,
+      "status": "ok"
+    }
+  ]
+}

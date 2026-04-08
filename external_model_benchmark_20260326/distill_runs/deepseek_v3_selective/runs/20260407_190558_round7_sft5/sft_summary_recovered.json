@@ -1,0 +1,39 @@
+{
+  "run_root": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_190558_round7_sft5",
+  "n": 5,
+  "baseline": 77.11,
+  "historical_best": 79.52,
+  "mean": 73.01,
+  "std": 4.07,
+  "min": 69.88,
+  "max": 80.72,
+  "best_vs_baseline": 3.61,
+  "best_vs_historical_best": 1.2,
+  "rows": [
+    {
+      "name": "sft_rep1",
+      "accuracy": 71.08,
+      "status": "ok"
+    },
+    {
+      "name": "sft_rep2",
+      "accuracy": 69.88,
+      "status": "ok"
+    },
+    {
+      "name": "sft_rep3",
+      "accuracy": 80.72,
+      "status": "ok"
+    },
+    {
+      "name": "sft_rep4",
+      "accuracy": 73.49,
+      "status": "ok"
+    },
+    {
+      "name": "sft_rep5",
+      "accuracy": 69.88,
+      "status": "ok"
+    }
+  ]
+}

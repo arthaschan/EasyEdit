@@ -1,0 +1,100 @@
+{
+  "run_root": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_235124_doubao_improve_r3",
+  "baseline": 77.11,
+  "previous_best": 80.72,
+  "n": 8,
+  "best": {
+    "name": "sft_lr15_ep3_s42",
+    "learning_rate": 0.00015,
+    "num_epochs": 3,
+    "rank": 16,
+    "lora_alpha": 32,
+    "seed": 42,
+    "accuracy": 80.72,
+    "status": "ok"
+  },
+  "mean": 75.45,
+  "std": 2.89,
+  "rows": [
+    {
+      "name": "sft_lr13_ep3_s7",
+      "learning_rate": 0.00013,
+      "num_epochs": 3,
+      "rank": 16,
+      "lora_alpha": 32,
+      "seed": 7,
+      "accuracy": 78.31,
+      "status": "ok"
+    },
+    {
+      "name": "sft_lr15_ep3_s11",
+      "learning_rate": 0.00015,
+      "num_epochs": 3,
+      "rank": 16,
+      "lora_alpha": 32,
+      "seed": 11,
+      "accuracy": 74.7,
+      "status": "ok"
+    },
+    {
+      "name": "sft_lr15_ep3_s42",
+      "learning_rate": 0.00015,
+      "num_epochs": 3,
+      "rank": 16,
+      "lora_alpha": 32,
+      "seed": 42,
+      "accuracy": 80.72,
+      "status": "ok"
+    },
+    {
+      "name": "sft_lr17_ep3_s21",
+      "learning_rate": 0.00017,
+      "num_epochs": 3,
+      "rank": 16,
+      "lora_alpha": 32,
+      "seed": 21,
+      "accuracy": 73.49,
+      "status": "ok"
+    },
+    {
+      "name": "sft_lr15_ep2_s42",
+      "learning_rate": 0.00015,
+      "num_epochs": 2,
+      "rank": 16,
+      "lora_alpha": 32,
+      "seed": 42,
+      "accuracy": 73.49,
+      "status": "ok"
+    },
+    {
+      "name": "sft_lr12_ep4_s33",
+      "learning_rate": 0.00012,
+      "num_epochs": 4,
+      "rank": 16,
+      "lora_alpha": 32,
+      "seed": 33,
+      "accuracy": 77.11,
+      "status": "ok"
+    },
+    {
+      "name": "sft_lr15_ep3_r32_s42",
+      "learning_rate": 0.00015,
+      "num_epochs": 3,
+      "rank": 32,
+      "lora_alpha": 64,
+      "seed": 42,
+      "accuracy": 74.7,
+      "status": "ok"
+    },
+    {
+      "name": "sft_lr10_ep3_r32_s55",
+      "learning_rate": 0.0001,
+      "num_epochs": 3,
+      "rank": 32,
+      "lora_alpha": 64,
+      "seed": 55,
+      "accuracy": 71.08,
+      "status": "ok"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "name": "doubao-teacher-eval",
+    "provider": "doubao",
+    "base_url": "https://ark.cn-beijing.volces.com/api/v3/chat/completions",
+    "model": "ep-20260330210911-6pc2r",
+    "api_key_env": "52de55b0-eae0-4317-8e3c-d9e790ecd7db",
+    "enabled": true
+  }
+]

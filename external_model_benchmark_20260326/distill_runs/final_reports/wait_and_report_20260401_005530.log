@@ -1,0 +1,12 @@
+[INFO] waiting for running distillation jobs to finish
+[INFO] all distillation jobs completed, generating final report
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights: 100%|██████████| 339/339 [00:00<00:00, 8445.21it/s]
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights: 100%|██████████| 339/339 [00:00<00:00, 8953.22it/s]
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights: 100%|██████████| 339/339 [00:00<00:00, 9587.47it/s]
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/final_reports/distill_accuracy_20260401_005530.json
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/final_reports/distill_accuracy_20260401_005530.md
+[DONE] report_json=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/final_reports/distill_accuracy_20260401_005530.json
+[DONE] report_md=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/final_reports/distill_accuracy_20260401_005530.md
+[DONE] latest_json=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/final_reports/distill_accuracy_latest.json
+[DONE] latest_md=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/final_reports/distill_accuracy_latest.md

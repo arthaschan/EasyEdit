@@ -1,0 +1,10 @@
+[
+  {"name":"a004_lr10","alpha":0.04,"temperature":1.5,"learning_rate":0.00010,"num_epochs_stage1":1,"num_epochs_stage2":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4},
+  {"name":"a004_lr15","alpha":0.04,"temperature":1.5,"learning_rate":0.00015,"num_epochs_stage1":1,"num_epochs_stage2":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4},
+  {"name":"a008_lr10","alpha":0.08,"temperature":1.5,"learning_rate":0.00010,"num_epochs_stage1":1,"num_epochs_stage2":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4},
+  {"name":"a008_lr15","alpha":0.08,"temperature":1.5,"learning_rate":0.00015,"num_epochs_stage1":1,"num_epochs_stage2":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4},
+  {"name":"a012_lr10","alpha":0.12,"temperature":1.5,"learning_rate":0.00010,"num_epochs_stage1":1,"num_epochs_stage2":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4},
+  {"name":"a012_lr15","alpha":0.12,"temperature":1.5,"learning_rate":0.00015,"num_epochs_stage1":1,"num_epochs_stage2":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4},
+  {"name":"a016_lr10","alpha":0.16,"temperature":1.5,"learning_rate":0.00010,"num_epochs_stage1":1,"num_epochs_stage2":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4},
+  {"name":"a016_lr15","alpha":0.16,"temperature":1.5,"learning_rate":0.00015,"num_epochs_stage1":1,"num_epochs_stage2":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4}
+]

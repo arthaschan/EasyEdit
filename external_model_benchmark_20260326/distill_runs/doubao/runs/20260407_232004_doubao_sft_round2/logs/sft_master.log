@@ -1,0 +1,13 @@
+[INFO] RUN_ID=20260407_232004_doubao_sft_round2
+[RUN][sft] sft_lr08_ep3
+[DONE][sft] sft_lr08_ep3
+[RUN][sft] sft_lr10_ep3
+[DONE][sft] sft_lr10_ep3
+[RUN][sft] sft_lr15_ep3
+[DONE][sft] sft_lr15_ep3
+[RUN][sft] sft_lr10_ep4
+[DONE][sft] sft_lr10_ep4
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_232004_doubao_sft_round2/sft_results_latest.json
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_232004_doubao_sft_round2/sft_results_latest.md
+[DONE] doubao sft round2 finished
+[OUT] run_root=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_232004_doubao_sft_round2

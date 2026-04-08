@@ -1,0 +1,6 @@
+[RUN] Kimi-Latest (kimi) model=moonshot-v1-8k
+[SKIP] Kimi-Latest reason=429 Client Error: Too Many Requests for url: https://api.moonshot.cn/v1/chat/completions
+[OUT] outputs/leaderboard_20260331_074355.json
+[OUT] outputs/leaderboard_20260331_074355.md
+[OUT] outputs/leaderboard_latest.json
+[OUT] outputs/leaderboard_latest.md

@@ -1,0 +1,8 @@
+[
+  {"name": "a03_t15", "alpha": 0.3, "temperature": 1.5, "num_epochs": 3, "learning_rate": 0.0002, "rank": 16, "lora_alpha": 32, "batch_size": 2, "gradient_accumulation_steps": 4},
+  {"name": "a03_t20", "alpha": 0.3, "temperature": 2.0, "num_epochs": 3, "learning_rate": 0.0002, "rank": 16, "lora_alpha": 32, "batch_size": 2, "gradient_accumulation_steps": 4},
+  {"name": "a05_t20", "alpha": 0.5, "temperature": 2.0, "num_epochs": 3, "learning_rate": 0.0002, "rank": 16, "lora_alpha": 32, "batch_size": 2, "gradient_accumulation_steps": 4},
+  {"name": "a05_t25", "alpha": 0.5, "temperature": 2.5, "num_epochs": 3, "learning_rate": 0.0002, "rank": 16, "lora_alpha": 32, "batch_size": 2, "gradient_accumulation_steps": 4},
+  {"name": "a07_t25", "alpha": 0.7, "temperature": 2.5, "num_epochs": 3, "learning_rate": 0.0002, "rank": 16, "lora_alpha": 32, "batch_size": 2, "gradient_accumulation_steps": 4},
+  {"name": "a07_t30", "alpha": 0.7, "temperature": 3.0, "num_epochs": 3, "learning_rate": 0.0002, "rank": 16, "lora_alpha": 32, "batch_size": 2, "gradient_accumulation_steps": 4}
+]

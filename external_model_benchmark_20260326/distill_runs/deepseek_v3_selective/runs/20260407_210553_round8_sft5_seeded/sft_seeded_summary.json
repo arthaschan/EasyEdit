@@ -1,0 +1,44 @@
+{
+  "run_root": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_210553_round8_sft5_seeded",
+  "n": 5,
+  "baseline": 77.11,
+  "historical_best": 79.52,
+  "mean": 75.9,
+  "std": 0.76,
+  "min": 74.7,
+  "max": 77.11,
+  "best_vs_baseline": 0.0,
+  "best_vs_historical_best": -2.41,
+  "rows": [
+    {
+      "name": "sft_seed11",
+      "seed": 11,
+      "accuracy": 75.9,
+      "status": "ok"
+    },
+    {
+      "name": "sft_seed22",
+      "seed": 22,
+      "accuracy": 74.7,
+      "status": "ok"
+    },
+    {
+      "name": "sft_seed33",
+      "seed": 33,
+      "accuracy": 75.9,
+      "status": "ok"
+    },
+    {
+      "name": "sft_seed44",
+      "seed": 44,
+      "accuracy": 75.9,
+      "status": "ok"
+    },
+    {
+      "name": "sft_seed55",
+      "seed": 55,
+      "accuracy": 77.11,
+      "status": "ok"
+    }
+  ]
+}

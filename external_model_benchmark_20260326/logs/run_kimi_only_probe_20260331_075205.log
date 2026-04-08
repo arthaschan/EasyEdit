@@ -1,0 +1,6 @@
+[RUN] Kimi-Latest (kimi) model=moonshot-v1-8k
+[SKIP] Kimi-Latest reason=429 Client Error for url: https://api.moonshot.cn/v1/chat/completions; body={"error":{"message":"Your account org-3a0fb4d87645485bb70dada5b4d33705 \u003cak-f96y6s4m5jpi11adpqxi\u003e is suspended due to insufficient balance, please recharge your account or check your plan and billing details","type":"exceeded_curre
+[OUT] outputs/leaderboard_20260331_075205.json
+[OUT] outputs/leaderboard_20260331_075205.md
+[OUT] outputs/leaderboard_latest.json
+[OUT] outputs/leaderboard_latest.md

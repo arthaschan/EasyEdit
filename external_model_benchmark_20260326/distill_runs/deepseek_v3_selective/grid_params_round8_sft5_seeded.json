@@ -1,0 +1,7 @@
+[
+  {"name":"sft_seed11","seed":11,"learning_rate":0.00010,"num_epochs":4,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4},
+  {"name":"sft_seed22","seed":22,"learning_rate":0.00010,"num_epochs":4,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4},
+  {"name":"sft_seed33","seed":33,"learning_rate":0.00010,"num_epochs":4,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4},
+  {"name":"sft_seed44","seed":44,"learning_rate":0.00010,"num_epochs":4,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4},
+  {"name":"sft_seed55","seed":55,"learning_rate":0.00010,"num_epochs":4,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4}
+]

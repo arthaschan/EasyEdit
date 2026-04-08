@@ -1,0 +1,6 @@
+[
+  {"name":"r4_lr14_ep3_s42","learning_rate":0.00014,"num_epochs":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4,"seed":42},
+  {"name":"r4_lr16_ep3_s42","learning_rate":0.00016,"num_epochs":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4,"seed":42},
+  {"name":"r4_lr15_ep3_s55","learning_rate":0.00015,"num_epochs":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4,"seed":55},
+  {"name":"r4_lr15_ep3_r24_s42","learning_rate":0.00015,"num_epochs":3,"rank":24,"lora_alpha":48,"batch_size":2,"gradient_accumulation_steps":4,"seed":42}
+]

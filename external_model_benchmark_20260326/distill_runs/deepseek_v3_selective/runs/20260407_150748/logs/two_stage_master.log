@@ -1,0 +1,58 @@
+[INFO] RUN_ID=20260407_150748
+[INFO] MODE=round4_narrow
+[STEP] generate teacher labels
+[PROGRESS] scanned=20/672 newly_valid=20 failed=0 total_valid=20
+[PROGRESS] scanned=40/672 newly_valid=40 failed=0 total_valid=40
+[PROGRESS] scanned=60/672 newly_valid=60 failed=0 total_valid=60
+[PROGRESS] scanned=80/672 newly_valid=80 failed=0 total_valid=80
+[PROGRESS] scanned=100/672 newly_valid=100 failed=0 total_valid=100
+[PROGRESS] scanned=120/672 newly_valid=120 failed=0 total_valid=120
+[PROGRESS] scanned=140/672 newly_valid=140 failed=0 total_valid=140
+[PROGRESS] scanned=160/672 newly_valid=160 failed=0 total_valid=160
+[PROGRESS] scanned=180/672 newly_valid=180 failed=0 total_valid=180
+[PROGRESS] scanned=200/672 newly_valid=200 failed=0 total_valid=200
+[PROGRESS] scanned=220/672 newly_valid=220 failed=0 total_valid=220
+[PROGRESS] scanned=240/672 newly_valid=240 failed=0 total_valid=240
+[PROGRESS] scanned=260/672 newly_valid=260 failed=0 total_valid=260
+[PROGRESS] scanned=280/672 newly_valid=280 failed=0 total_valid=280
+[PROGRESS] scanned=300/672 newly_valid=300 failed=0 total_valid=300
+[PROGRESS] scanned=320/672 newly_valid=320 failed=0 total_valid=320
+[PROGRESS] scanned=340/672 newly_valid=340 failed=0 total_valid=340
+[PROGRESS] scanned=360/672 newly_valid=360 failed=0 total_valid=360
+[PROGRESS] scanned=380/672 newly_valid=380 failed=0 total_valid=380
+[PROGRESS] scanned=400/672 newly_valid=400 failed=0 total_valid=400
+[PROGRESS] scanned=420/672 newly_valid=420 failed=0 total_valid=420
+[PROGRESS] scanned=440/672 newly_valid=440 failed=0 total_valid=440
+[PROGRESS] scanned=460/672 newly_valid=460 failed=0 total_valid=460
+[PROGRESS] scanned=480/672 newly_valid=480 failed=0 total_valid=480
+[PROGRESS] scanned=500/672 newly_valid=500 failed=0 total_valid=500
+[PROGRESS] scanned=520/672 newly_valid=520 failed=0 total_valid=520
+[PROGRESS] scanned=540/672 newly_valid=540 failed=0 total_valid=540
+[PROGRESS] scanned=560/672 newly_valid=560 failed=0 total_valid=560
+[PROGRESS] scanned=580/672 newly_valid=580 failed=0 total_valid=580
+[PROGRESS] scanned=600/672 newly_valid=600 failed=0 total_valid=600
+[PROGRESS] scanned=620/672 newly_valid=620 failed=0 total_valid=620
+[PROGRESS] scanned=640/672 newly_valid=640 failed=0 total_valid=640
+[PROGRESS] scanned=660/672 newly_valid=660 failed=0 total_valid=660
+[DONE] attempted=672 newly_valid=672 failed=0 total_valid=672 output=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_150748/artifacts/teacher_train_raw.jsonl
+[STEP] build selective dataset
+[OUT] train=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_150748/artifacts/teacher_train_selective.jsonl
+[OUT] clean=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_150748/artifacts/teacher_train_clean.jsonl
+[OUT] mismatch=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_150748/artifacts/teacher_train_mismatch.jsonl
+[STATS] total=672 clean=577 mismatch=95 clean_ratio=0.8586
+[STEP] run two-stage narrow grid
+[RUN][stage1] a013_lr10
+[RUN][stage2] a013_lr10 alpha=0.13 temp=1.5 lr=0.0001
+[DONE] a013_lr10
+[RUN][stage1] a015_lr05
+[RUN][stage2] a015_lr05 alpha=0.15 temp=1.5 lr=5e-05
+[DONE] a015_lr05
+[RUN][stage1] a015_lr10
+[RUN][stage2] a015_lr10 alpha=0.15 temp=1.5 lr=0.0001
+[DONE] a015_lr10
+[RUN][stage1] a017_lr10
+[RUN][stage2] a017_lr10 alpha=0.17 temp=1.5 lr=0.0001
+[DONE] a017_lr10
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_150748/two_stage_results_latest.json
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260407_150748/two_stage_results_latest.md
+[DONE] two-stage round4 narrow finished

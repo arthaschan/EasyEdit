@@ -1,0 +1,59 @@
+{
+  "run_id": "20260401_074202",
+  "results": [
+    {
+      "name": "a03_t15",
+      "alpha": 0.3,
+      "temperature": 1.5,
+      "accuracy": 75.9,
+      "status": "ok",
+      "log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_grid/runs/20260401_074202/logs/train_a03_t15.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_grid/runs/20260401_074202/outputs/a03_t15"
+    },
+    {
+      "name": "a03_t20",
+      "alpha": 0.3,
+      "temperature": 2.0,
+      "accuracy": 72.29,
+      "status": "ok",
+      "log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_grid/runs/20260401_074202/logs/train_a03_t20.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_grid/runs/20260401_074202/outputs/a03_t20"
+    },
+    {
+      "name": "a05_t20",
+      "alpha": 0.5,
+      "temperature": 2.0,
+      "accuracy": 73.49,
+      "status": "ok",
+      "log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_grid/runs/20260401_074202/logs/train_a05_t20.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_grid/runs/20260401_074202/outputs/a05_t20"
+    },
+    {
+      "name": "a05_t25",
+      "alpha": 0.5,
+      "temperature": 2.5,
+      "accuracy": 73.49,
+      "status": "ok",
+      "log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_grid/runs/20260401_074202/logs/train_a05_t25.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_grid/runs/20260401_074202/outputs/a05_t25"
+    },
+    {
+      "name": "a07_t25",
+      "alpha": 0.7,
+      "temperature": 2.5,
+      "accuracy": 74.7,
+      "status": "ok",
+      "log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_grid/runs/20260401_074202/logs/train_a07_t25.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_grid/runs/20260401_074202/outputs/a07_t25"
+    },
+    {
+      "name": "a07_t30",
+      "alpha": 0.7,
+      "temperature": 3.0,
+      "accuracy": 74.7,
+      "status": "ok",
+      "log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_grid/runs/20260401_074202/logs/train_a07_t30.log",
+      "output_dir": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_grid/runs/20260401_074202/outputs/a07_t30"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+[
+  {"name":"rep1_a015_lr10","alpha":0.15,"temperature":1.5,"learning_rate":0.00010,"num_epochs_stage1":1,"num_epochs_stage2":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4},
+  {"name":"rep2_a015_lr10","alpha":0.15,"temperature":1.5,"learning_rate":0.00010,"num_epochs_stage1":1,"num_epochs_stage2":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4},
+  {"name":"rep3_a015_lr10","alpha":0.15,"temperature":1.5,"learning_rate":0.00010,"num_epochs_stage1":1,"num_epochs_stage2":3,"rank":16,"lora_alpha":32,"batch_size":2,"gradient_accumulation_steps":4}
+]

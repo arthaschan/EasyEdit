@@ -1,0 +1,56 @@
+{
+  "run_time": "2026-04-05T16:12:34.091870",
+  "baseline": 77.11,
+  "results": [
+    {
+      "name": "a015_t15",
+      "alpha": 0.15,
+      "temperature": 1.5,
+      "learning_rate": 0.00015,
+      "accuracy": 77.11,
+      "delta_vs_baseline": 0.0,
+      "status": "ok",
+      "log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260405_152319/logs/train_a015_t15.log"
+    },
+    {
+      "name": "a020_t15",
+      "alpha": 0.2,
+      "temperature": 1.5,
+      "learning_rate": 0.00015,
+      "accuracy": 74.7,
+      "delta_vs_baseline": -2.41,
+      "status": "ok",
+      "log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260405_152319/logs/train_a020_t15.log"
+    },
+    {
+      "name": "a025_t15",
+      "alpha": 0.25,
+      "temperature": 1.5,
+      "learning_rate": 0.00015,
+      "accuracy": 75.9,
+      "delta_vs_baseline": -1.21,
+      "status": "ok",
+      "log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260405_152319/logs/train_a025_t15.log"
+    },
+    {
+      "name": "a030_t15",
+      "alpha": 0.3,
+      "temperature": 1.5,
+      "learning_rate": 0.00015,
+      "accuracy": 74.7,
+      "delta_vs_baseline": -2.41,
+      "status": "ok",
+      "log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260405_152319/logs/train_a030_t15.log"
+    }
+  ],
+  "best": {
+    "name": "a015_t15",
+    "alpha": 0.15,
+    "temperature": 1.5,
+    "learning_rate": 0.00015,
+    "accuracy": 77.11,
+    "delta_vs_baseline": 0.0,
+    "status": "ok",
+    "log": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_v3_selective/runs/20260405_152319/logs/train_a015_t15.log"
+  }
+}

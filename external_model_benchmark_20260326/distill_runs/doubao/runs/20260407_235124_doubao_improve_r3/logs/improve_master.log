@@ -1,0 +1,21 @@
+[INFO] RUN_ID=20260407_235124_doubao_improve_r3
+[RUN][improve] sft_lr13_ep3_s7
+[DONE][improve] sft_lr13_ep3_s7
+[RUN][improve] sft_lr15_ep3_s11
+[DONE][improve] sft_lr15_ep3_s11
+[RUN][improve] sft_lr15_ep3_s42
+[DONE][improve] sft_lr15_ep3_s42
+[RUN][improve] sft_lr17_ep3_s21
+[DONE][improve] sft_lr17_ep3_s21
+[RUN][improve] sft_lr15_ep2_s42
+[DONE][improve] sft_lr15_ep2_s42
+[RUN][improve] sft_lr12_ep4_s33
+[DONE][improve] sft_lr12_ep4_s33
+[RUN][improve] sft_lr15_ep3_r32_s42
+[DONE][improve] sft_lr15_ep3_r32_s42
+[RUN][improve] sft_lr10_ep3_r32_s55
+[DONE][improve] sft_lr10_ep3_r32_s55
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_235124_doubao_improve_r3/improve_results_latest.json
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_235124_doubao_improve_r3/improve_results_latest.md
+[DONE] doubao improve round3 finished
+[OUT] run_root=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260407_235124_doubao_improve_r3

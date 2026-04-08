@@ -1,0 +1,8 @@
+[INFO] ROOT_DIR=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326
+[INFO] DATASET_PATH=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/../data/cmexam_dental_choice.jsonl
+[INFO] SAMPLE_SIZE=200
+[INFO] PYTHON_BIN=/home/student/arthas/EasyEdit3/.venv/bin/python
+Traceback (most recent call last):
+  File "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/external_benchmark.py", line 11, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'

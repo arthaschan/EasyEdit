@@ -1,0 +1,609 @@
+{
+  "run": {
+    "timestamp": "20260407_221654",
+    "dataset": "/home/student/arthas/EasyEdit3/data/cmexam_dental_choice_test.jsonl",
+    "sample_size": 83,
+    "seed": 42,
+    "timeout_sec": 120,
+    "max_tokens": 16,
+    "sleep_sec": 0.8
+  },
+  "results": [
+    {
+      "name": "doubao-teacher-eval",
+      "provider": "doubao",
+      "model": "ep-20260330210911-6pc2r",
+      "status": "ok",
+      "reason": "",
+      "total": 83,
+      "correct": 82,
+      "accuracy": 98.8,
+      "parsed": 83,
+      "parsed_rate": 100.0,
+      "errors": 0,
+      "details": [
+        {
+          "index": 1,
+          "answer": "A",
+          "prediction": "A",
+          "hit": true,
+          "raw": "A"
+        },
+        {
+          "index": 2,
+          "answer": "B",
+          "prediction": "B",
+          "hit": true,
+          "raw": "B"
+        },
+        {
+          "index": 3,
+          "answer": "B",
+          "prediction": "B",
+          "hit": true,
+          "raw": "B"
+        },
+        {
+          "index": 4,
+          "answer": "A",
+          "prediction": "A",
+          "hit": true,
+          "raw": "A"
+        },
+        {
+          "index": 5,
+          "answer": "B",
+          "prediction": "B",
+          "hit": true,
+          "raw": "B"
+        },
+        {
+          "index": 6,
+          "answer": "B",
+          "prediction": "B",
+          "hit": true,
+          "raw": "B"
+        },
+        {
+          "index": 7,
+          "answer": "E",
+          "prediction": "E",
+          "hit": true,
+          "raw": "E"
+        },
+        {
+          "index": 8,
+          "answer": "C",
+          "prediction": "C",
+          "hit": true,
+          "raw": "C"
+        },
+        {
+          "index": 9,
+          "answer": "B",
+          "prediction": "B",
+          "hit": true,
+          "raw": "B"
+        },
+        {
+          "index": 10,
+          "answer": "A",
+          "prediction": "A",
+          "hit": true,
+          "raw": "A"
+        },
+        {
+          "index": 11,
+          "answer": "E",
+          "prediction": "E",
+          "hit": true,
+          "raw": "E"
+        },
+        {
+          "index": 12,
+          "answer": "B",
+          "prediction": "B",
+          "hit": true,
+          "raw": "B"
+        },
+        {
+          "index": 13,
+          "answer": "D",
+          "prediction": "D",
+          "hit": true,
+          "raw": "D"
+        },
+        {
+          "index": 14,
+          "answer": "D",
+          "prediction": "D",
+          "hit": true,
+          "raw": "D"
+        },
+        {
+          "index": 15,
+          "answer": "E",
+          "prediction": "E",
+          "hit": true,
+          "raw": "E"
+        },
+        {
+          "index": 16,
+          "answer": "E",
+          "prediction": "E",
+          "hit": true,
+          "raw": "E"
+        },
+        {
+          "index": 17,
+          "answer": "A",
+          "prediction": "A",
+          "hit": true,
+          "raw": "A"
+        },
+        {
+          "index": 18,
+          "answer": "E",
+          "prediction": "E",
+          "hit": true,
+          "raw": "E"
+        },
+        {
+          "index": 19,
+          "answer": "A",
+          "prediction": "A",
+          "hit": true,
+          "raw": "A"
+        },
+        {
+          "index": 20,
+          "answer": "A",
+          "prediction": "A",
+          "hit": true,
+          "raw": "A"
+        },
+        {
+          "index": 21,
+          "answer": "B",
+          "prediction": "B",
+          "hit": true,
+          "raw": "B"
+        },
+        {
+          "index": 22,
+          "answer": "D",
+          "prediction": "D",
+          "hit": true,
+          "raw": "D"
+        },
+        {
+          "index": 23,
+          "answer": "B",
+          "prediction": "B",
+          "hit": true,
+          "raw": "B"
+        },
+        {
+          "index": 24,
+          "answer": "A",
+          "prediction": "A",
+          "hit": true,
+          "raw": "A"
+        },
+        {
+          "index": 25,
+          "answer": "A",
+          "prediction": "A",
+          "hit": true,
+          "raw": "A"
+        },
+        {
+          "index": 26,
+          "answer": "D",
+          "prediction": "D",
+          "hit": true,
+          "raw": "D"
+        },
+        {
+          "index": 27,
+          "answer": "C",
+          "prediction": "C",
+          "hit": true,
+          "raw": "C"
+        },
+        {
+          "index": 28,
+          "answer": "A",
+          "prediction": "A",
+          "hit": true,
+          "raw": "A"
+        },
+        {
+          "index": 29,
+          "answer": "E",
+          "prediction": "E",
+          "hit": true,
+          "raw": "E"
+        },
+        {
+          "index": 30,
+          "answer": "A",
+          "prediction": "A",
+          "hit": true,
+          "raw": "A"
+        },
+        {
+          "index": 31,
+          "answer": "D",
+          "prediction": "D",
+          "hit": true,
+          "raw": "D"
+        },
+        {
+          "index": 32,
+          "answer": "D",
+          "prediction": "D",
+          "hit": true,
+          "raw": "D"
+        },
+        {
+          "index": 33,
+          "answer": "C",
+          "prediction": "C",
+          "hit": true,
+          "raw": "C"
+        },
+        {
+          "index": 34,
+          "answer": "A",
+          "prediction": "A",
+          "hit": true,
+          "raw": "A"
+        },
+        {
+          "index": 35,
+          "answer": "C",
+          "prediction": "C",
+          "hit": true,
+          "raw": "C"
+        },
+        {
+          "index": 36,
+          "answer": "D",
+          "prediction": "D",
+          "hit": true,
+          "raw": "D"
+        },
+        {
+          "index": 37,
+          "answer": "E",
+          "prediction": "E",
+          "hit": true,
+          "raw": "E"
+        },
+        {
+          "index": 38,
+          "answer": "A",
+          "prediction": "A",
+          "hit": true,
+          "raw": "A"
+        },
+        {
+          "index": 39,
+          "answer": "B",
+          "prediction": "B",
+          "hit": true,
+          "raw": "B"
+        },
+        {
+          "index": 40,
+          "answer": "D",
+          "prediction": "D",
+          "hit": true,
+          "raw": "D"
+        },
+        {
+          "index": 41,
+          "answer": "C",
+          "prediction": "C",
+          "hit": true,
+          "raw": "C"
+        },
+        {
+          "index": 42,
+          "answer": "B",
+          "prediction": "B",
+          "hit": true,
+          "raw": "B"
+        },
+        {
+          "index": 43,
+          "answer": "E",
+          "prediction": "E",
+          "hit": true,
+          "raw": "E"
+        },
+        {
+          "index": 44,
+          "answer": "E",
+          "prediction": "E",
+          "hit": true,
+          "raw": "E"
+        },
+        {
+          "index": 45,
+          "answer": "B",
+          "prediction": "B",
+          "hit": true,
+          "raw": "B"
+        },
+        {
+          "index": 46,
+          "answer": "A",
+          "prediction": "A",
+          "hit": true,
+          "raw": "A"
+        },
+        {
+          "index": 47,
+          "answer": "A",
+          "prediction": "A",
+          "hit": true,
+          "raw": "A"
+        },
+        {
+          "index": 48,
+          "answer": "D",
+          "prediction": "D",
+          "hit": true,
+          "raw": "D"
+        },
+        {
+          "index": 49,
+          "answer": "C",
+          "prediction": "C",
+          "hit": true,
+          "raw": "C"
+        },
+        {
+          "index": 50,
+          "answer": "A",
+          "prediction": "A",
+          "hit": true,
+          "raw": "A"
+        },
+        {
+          "index": 51,
+          "answer": "B",
+          "prediction": "B",
+          "hit": true,
+          "raw": "B"
+        },
+        {
+          "index": 52,
+          "answer": "E",
+          "prediction": "E",
+          "hit": true,
+          "raw": "E"
+        },
+        {
+          "index": 53,
+          "answer": "E",
+          "prediction": "E",
+          "hit": true,
+          "raw": "E"
+        },
+        {
+          "index": 54,
+          "answer": "E",
+          "prediction": "E",
+          "hit": true,
+          "raw": "E"
+        },
+        {
+          "index": 55,
+          "answer": "E",
+          "prediction": "E",
+          "hit": true,
+          "raw": "E"
+        },
+        {
+          "index": 56,
+          "answer": "E",
+          "prediction": "E",
+          "hit": true,
+          "raw": "E"
+        },
+        {
+          "index": 57,
+          "answer": "A",
+          "prediction": "A",
+          "hit": true,
+          "raw": "A"
+        },
+        {
+          "index": 58,
+          "answer": "C",
+          "prediction": "C",
+          "hit": true,
+          "raw": "C"
+        },
+        {
+          "index": 59,
+          "answer": "C",
+          "prediction": "C",
+          "hit": true,
+          "raw": "C"
+        },
+        {
+          "index": 60,
+          "answer": "E",
+          "prediction": "E",
+          "hit": true,
+          "raw": "E"
+        },
+        {
+          "index": 61,
+          "answer": "B",
+          "prediction": "B",
+          "hit": true,
+          "raw": "B"
+        },
+        {
+          "index": 62,
+          "answer": "C",
+          "prediction": "C",
+          "hit": true,
+          "raw": "C"
+        },
+        {
+          "index": 63,
+          "answer": "A",
+          "prediction": "A",
+          "hit": true,
+          "raw": "A"
+        },
+        {
+          "index": 64,
+          "answer": "D",
+          "prediction": "D",
+          "hit": true,
+          "raw": "D"
+        },
+        {
+          "index": 65,
+          "answer": "B",
+          "prediction": "B",
+          "hit": true,
+          "raw": "B"
+        },
+        {
+          "index": 66,
+          "answer": "B",
+          "prediction": "B",
+          "hit": true,
+          "raw": "B"
+        },
+        {
+          "index": 67,
+          "answer": "D",
+          "prediction": "D",
+          "hit": true,
+          "raw": "D"
+        },
+        {
+          "index": 68,
+          "answer": "A",
+          "prediction": "A",
+          "hit": true,
+          "raw": "A"
+        },
+        {
+          "index": 69,
+          "answer": "E",
+          "prediction": "E",
+          "hit": true,
+          "raw": "E"
+        },
+        {
+          "index": 70,
+          "answer": "C",
+          "prediction": "C",
+          "hit": true,
+          "raw": "C"
+        },
+        {
+          "index": 71,
+          "answer": "E",
+          "prediction": "E",
+          "hit": true,
+          "raw": "E"
+        },
+        {
+          "index": 72,
+          "answer": "E",
+          "prediction": "E",
+          "hit": true,
+          "raw": "E"
+        },
+        {
+          "index": 73,
+          "answer": "E",
+          "prediction": "E",
+          "hit": true,
+          "raw": "E"
+        },
+        {
+          "index": 74,
+          "answer": "B",
+          "prediction": "B",
+          "hit": true,
+          "raw": "B"
+        },
+        {
+          "index": 75,
+          "answer": "D",
+          "prediction": "D",
+          "hit": true,
+          "raw": "D"
+        },
+        {
+          "index": 76,
+          "answer": "E",
+          "prediction": "E",
+          "hit": true,
+          "raw": "E"
+        },
+        {
+          "index": 77,
+          "answer": "B",
+          "prediction": "B",
+          "hit": true,
+          "raw": "B"
+        },
+        {
+          "index": 78,
+          "answer": "D",
+          "prediction": "D",
+          "hit": true,
+          "raw": "D"
+        },
+        {
+          "index": 79,
+          "answer": "D",
+          "prediction": "C",
+          "hit": false,
+          "raw": "C"
+        },
+        {
+          "index": 80,
+          "answer": "A",
+          "prediction": "A",
+          "hit": true,
+          "raw": "A"
+        },
+        {
+          "index": 81,
+          "answer": "A",
+          "prediction": "A",
+          "hit": true,
+          "raw": "A"
+        },
+        {
+          "index": 82,
+          "answer": "E",
+          "prediction": "E",
+          "hit": true,
+          "raw": "E"
+        },
+        {
+          "index": 83,
+          "answer": "C",
+          "prediction": "C",
+          "hit": true,
+          "raw": "C"
+        }
+      ]
+    }
+  ]
+}

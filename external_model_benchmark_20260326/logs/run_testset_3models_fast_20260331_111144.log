@@ -1,0 +1,10 @@
+[RUN] DeepSeek-V3 (deepseek) model=deepseek-chat
+[DONE] DeepSeek-V3 acc=87.95% parsed=100.00% total=83
+[RUN] Kimi-Latest (kimi) model=moonshot-v1-32k
+[DONE] Kimi-Latest acc=61.45% parsed=100.00% total=83
+[RUN] Doubao-ARK (doubao) model=ep-20260330210911-6pc2r
+[SKIP] Doubao-ARK reason=403 Client Error for url: https://ark.cn-beijing.volces.com/api/v3/chat/completions; body={"error":{"code":"AccountOverdueError","message":"The request failed because your account has an overdue balance. Request id: 0217749269748720ce6f61182d61ff41021c175780e6634528263","param":"","type":"Forbidden"}}
+[OUT] outputs/leaderboard_20260331_111144.json
+[OUT] outputs/leaderboard_20260331_111144.md
+[OUT] outputs/leaderboard_latest.json
+[OUT] outputs/leaderboard_latest.md

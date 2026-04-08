@@ -1,0 +1,10 @@
+[RUN] DeepSeek-V3 (deepseek) model=deepseek-chat
+[DONE] DeepSeek-V3 acc=87.95% parsed=100.00% total=83
+[RUN] Kimi-Latest (kimi) model=moonshot-v1-32k
+[DONE] Kimi-Latest acc=57.83% parsed=92.77% total=83
+[RUN] Doubao-ARK (doubao) model=ep-20260330210911-6pc2r
+[SKIP] Doubao-ARK reason=429 Client Error for url: https://ark.cn-beijing.volces.com/api/v3/chat/completions; body={"error":{"code":"SetLimitExceeded","message":"Your account [2123585771] has reached the set inference limit for the [doubao-seed-2-0-pro] model, and the model service has been paused. To continue using this model, please visit the Model Ac
+[OUT] outputs/leaderboard_20260331_103720.json
+[OUT] outputs/leaderboard_20260331_103720.md
+[OUT] outputs/leaderboard_latest.json
+[OUT] outputs/leaderboard_latest.md

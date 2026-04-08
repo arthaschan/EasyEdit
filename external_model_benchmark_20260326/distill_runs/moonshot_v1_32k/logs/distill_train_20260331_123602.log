@@ -1,0 +1,44 @@
+[STEP] Generate teacher-labeled dataset (moonshot-v1-32k)
+[PROGRESS] scanned=20/672 newly_valid=20 failed=0 total_valid=20
+[PROGRESS] scanned=40/672 newly_valid=40 failed=0 total_valid=40
+[PROGRESS] scanned=60/672 newly_valid=60 failed=0 total_valid=60
+[PROGRESS] scanned=80/672 newly_valid=80 failed=0 total_valid=80
+[PROGRESS] scanned=100/672 newly_valid=100 failed=0 total_valid=100
+[PROGRESS] scanned=120/672 newly_valid=120 failed=0 total_valid=120
+[PROGRESS] scanned=140/672 newly_valid=140 failed=0 total_valid=140
+[PROGRESS] scanned=160/672 newly_valid=160 failed=0 total_valid=160
+[PROGRESS] scanned=180/672 newly_valid=180 failed=0 total_valid=180
+[PROGRESS] scanned=200/672 newly_valid=200 failed=0 total_valid=200
+[ERR] {"index": 208, "error": "http_429: {\"error\":{\"message\":\"The engine is currently overloaded, please try again later\",\"type\":\"engine_overloaded_error\"}}", "question": "关于原发性三叉神经痛的临床表现，下列哪点是不正确的"}
+[ERR] {"index": 209, "error": "http_429: {\"error\":{\"message\":\"The engine is currently overloaded, please try again later\",\"type\":\"engine_overloaded_error\"}}", "question": "下颌第二乳磨牙和下颌第一恒磨牙形态近似、位置彼此相邻。容易混淆，下列哪项不是第二乳磨牙的特点"}
+[PROGRESS] scanned=220/672 newly_valid=218 failed=2 total_valid=218
+[PROGRESS] scanned=240/672 newly_valid=238 failed=2 total_valid=238
+[PROGRESS] scanned=260/672 newly_valid=258 failed=2 total_valid=258
+[PROGRESS] scanned=280/672 newly_valid=278 failed=2 total_valid=278
+[PROGRESS] scanned=300/672 newly_valid=298 failed=2 total_valid=298
+[ERR] {"index": 303, "error": "http_429: {\"error\":{\"message\":\"The engine is currently overloaded, please try again later\",\"type\":\"engine_overloaded_error\"}}", "question": "Kennedy第一类牙列缺损者是"}
+[PROGRESS] scanned=320/672 newly_valid=317 failed=3 total_valid=317
+[PROGRESS] scanned=340/672 newly_valid=337 failed=3 total_valid=337
+[PROGRESS] scanned=360/672 newly_valid=357 failed=3 total_valid=357
+[PROGRESS] scanned=380/672 newly_valid=377 failed=3 total_valid=377
+[PROGRESS] scanned=400/672 newly_valid=397 failed=3 total_valid=397
+[PROGRESS] scanned=420/672 newly_valid=417 failed=3 total_valid=417
+[PROGRESS] scanned=440/672 newly_valid=437 failed=3 total_valid=437
+[PROGRESS] scanned=460/672 newly_valid=457 failed=3 total_valid=457
+[PROGRESS] scanned=480/672 newly_valid=477 failed=3 total_valid=477
+[PROGRESS] scanned=500/672 newly_valid=497 failed=3 total_valid=497
+[PROGRESS] scanned=520/672 newly_valid=517 failed=3 total_valid=517
+[PROGRESS] scanned=540/672 newly_valid=537 failed=3 total_valid=537
+[PROGRESS] scanned=560/672 newly_valid=557 failed=3 total_valid=557
+[PROGRESS] scanned=580/672 newly_valid=577 failed=3 total_valid=577
+[PROGRESS] scanned=600/672 newly_valid=597 failed=3 total_valid=597
+[PROGRESS] scanned=620/672 newly_valid=617 failed=3 total_valid=617
+[PROGRESS] scanned=640/672 newly_valid=637 failed=3 total_valid=637
+[PROGRESS] scanned=660/672 newly_valid=657 failed=3 total_valid=657
+[DONE] attempted=672 newly_valid=669 failed=3 total_valid=669 output=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/moonshot_v1_32k/artifacts/teacher_train.jsonl
+[INFO] teacher_data_lines=669
+[STEP] Train student Qwen2.5-7B-Instruct from teacher labels
+Traceback (most recent call last):
+  File "/home/student/arthas/EasyEdit3/train_dental_lora7.py", line 6, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
