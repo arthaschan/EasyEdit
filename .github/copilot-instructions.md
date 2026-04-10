@@ -160,5 +160,18 @@ python autoTest7.py
 > 📝 **Tip for AI agents:** search with `grep`/`semantic_search` for `ALG_DICT`, `BaseEditor`,
 > or the specific algorithm name when you need examples.  If you’re adding code, follow the
 > existing naming patterns and update the registry; new hyperparams files are trivial JSON.
+---
 
+## Dental MCQ Distillation Experiments (2026-04)
+
+A comprehensive series of distillation experiments using DeepSeek and Doubao as teacher models.
+Full details are in `/memories/repo/dental_distillation_experiments.md`.
+
+* **Baseline**: 77.11% (Qwen2.5-7B-Instruct, 83 test samples, `do_sample=False`)
+* **Best DeepSeek**: 81.93% (Opus R1, Choice-Head→SFT, seed=11)
+* **Best Doubao**: 79.52% stable / 80.72% peak (MV5, Choice-Head→SFT)
+* **Best Augmented Data**: 81.93% (style-unified + targeted, 3-epoch, lr=1.4e-4)
+* **Documentation**: `docs/DeepSeek蒸馏训练记录.md`, `docs/豆包蒸馏训练记录.md`
+* **Experiment dir**: `external_model_benchmark_20260326/distill_runs/`
+* **Data augment**: `data/augment/` (1033 clean samples, no leakage)
 Please review and suggest any missing pieces.
