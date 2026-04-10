@@ -1,0 +1,25 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loaded 672 samples from /home/student/arthas/EasyEdit3/data/cmexam_dental_choice_train_nooverlap.jsonl
+Loading model from /home/student/arthas/EasyEdit3/Qwen2.5-14B-Instruct ...
+Loading weights:   0%|          | 0/579 [00:00<?, ?it/s]Loading weights:   0%|          | 1/579 [00:00<01:07,  8.53it/s]Loading weights:   0%|          | 2/579 [00:00<01:21,  7.08it/s]Loading weights:   3%|▎         | 17/579 [00:00<00:09, 60.02it/s]Loading weights:   7%|▋         | 40/579 [00:00<00:04, 112.64it/s]Loading weights:   9%|▉         | 54/579 [00:00<00:04, 116.27it/s]Loading weights:  13%|█▎        | 76/579 [00:00<00:03, 141.86it/s]Loading weights:  16%|█▌        | 91/579 [00:00<00:03, 139.93it/s]Loading weights:  19%|█▉        | 112/579 [00:00<00:02, 158.00it/s]Loading weights:  22%|██▏       | 129/579 [00:01<00:02, 155.87it/s]Loading weights:  26%|██▌       | 149/579 [00:01<00:02, 157.59it/s]Loading weights:  30%|██▉       | 171/579 [00:01<00:02, 169.86it/s]Loading weights:  33%|███▎      | 190/579 [00:01<00:02, 171.39it/s]Loading weights:  36%|███▌      | 209/579 [00:01<00:02, 172.60it/s]Loading weights:  39%|███▉      | 227/579 [00:01<00:02, 168.58it/s]Loading weights:  42%|████▏     | 244/579 [00:01<00:02, 166.83it/s]Loading weights:  45%|████▌     | 261/579 [00:01<00:02, 156.08it/s]Loading weights:  48%|████▊     | 277/579 [00:01<00:01, 155.02it/s]Loading weights:  51%|█████     | 293/579 [00:02<00:01, 145.12it/s]Loading weights:  53%|█████▎    | 308/579 [00:02<00:01, 137.78it/s]Loading weights:  56%|█████▌    | 324/579 [00:02<00:01, 141.68it/s]Loading weights:  59%|█████▊    | 340/579 [00:02<00:01, 146.20it/s]Loading weights:  61%|██████▏   | 355/579 [00:02<00:01, 133.05it/s]Loading weights:  64%|██████▍   | 372/579 [00:02<00:01, 139.63it/s]Loading weights:  67%|██████▋   | 388/579 [00:02<00:01, 131.25it/s]Loading weights:  70%|██████▉   | 405/579 [00:02<00:01, 141.27it/s]Loading weights:  73%|███████▎  | 424/579 [00:03<00:01, 127.81it/s]Loading weights:  77%|███████▋  | 444/579 [00:03<00:00, 143.53it/s]Loading weights:  79%|███████▉  | 460/579 [00:03<00:00, 141.54it/s]Loading weights:  82%|████████▏ | 475/579 [00:03<00:00, 132.00it/s]Loading weights:  85%|████████▍ | 492/579 [00:03<00:00, 140.12it/s]Loading weights:  88%|████████▊ | 508/579 [00:03<00:00, 140.45it/s]Loading weights:  90%|█████████ | 523/579 [00:03<00:00, 133.02it/s]Loading weights:  93%|█████████▎| 540/579 [00:03<00:00, 139.39it/s]Loading weights:  96%|█████████▌| 556/579 [00:03<00:00, 139.42it/s]Loading weights:  99%|█████████▊| 571/579 [00:04<00:00, 141.13it/s]Loading weights: 100%|██████████| 579/579 [00:04<00:00, 140.54it/s]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Model loaded.
+  [50/672] parsed=50/50, correct=38/50
+  [100/672] parsed=100/100, correct=76/100
+  [150/672] parsed=150/150, correct=118/150
+  [200/672] parsed=200/200, correct=156/200
+  [250/672] parsed=250/250, correct=194/250
+  [300/672] parsed=300/300, correct=233/300
+  [350/672] parsed=350/350, correct=273/350
+  [400/672] parsed=400/400, correct=312/400
+  [450/672] parsed=450/450, correct=359/450
+  [500/672] parsed=500/500, correct=395/500
+  [550/672] parsed=550/550, correct=436/550
+  [600/672] parsed=600/600, correct=476/600
+  [650/672] parsed=650/650, correct=518/650
+
+=== Teacher Label Summary ===
+Total: 672, Parsed: 672, Correct: 536
+Teacher Accuracy on train set: 79.76%
+Teacher-GT Mismatch: 136 (20.24%)
+Output: /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/qwen14/teacher_train.jsonl
