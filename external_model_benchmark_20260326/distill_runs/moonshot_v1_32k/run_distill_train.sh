@@ -43,8 +43,8 @@ SYSTEM_PROMPT="$BENCH_DIR/prompt_system.txt"
   fi
 
   echo "[STEP] Train student Qwen2.5-7B-Instruct from teacher labels"
+  cd "$PROJECT_ROOT"
   "$PY" "$PROJECT_ROOT/train_dental_lora7.py" \
-    --model_name "$MODEL_PATH" \
     --data_path "$TEACHER_DATA" \
     --val_path "$VAL_DATA" \
     --test_path "$TEST_DATA" \
@@ -56,8 +56,7 @@ SYSTEM_PROMPT="$BENCH_DIR/prompt_system.txt"
     --rank 16 \
     --lora_alpha 32 \
     --temperature 2.0 \
-    --alpha 0.5 \
-    --resume
+    --alpha 0.5
 
   echo "[DONE] teacher_data=$TEACHER_DATA"
 } 2>&1 | tee "$LOG"
