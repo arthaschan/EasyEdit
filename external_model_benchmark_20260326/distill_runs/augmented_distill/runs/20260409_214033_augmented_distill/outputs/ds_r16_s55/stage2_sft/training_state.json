@@ -1,0 +1,5 @@
+{
+  "last_completed_epoch": 2,
+  "best_val_acc": 67.56756756756756,
+  "best_ckpt_path": "external_model_benchmark_20260326/distill_runs/augmented_distill/runs/20260409_214033_augmented_distill/outputs/ds_r16_s55/stage2_sft/best"
+}

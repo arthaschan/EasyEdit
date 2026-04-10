@@ -1,0 +1,34 @@
+{
+  "run_root": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_185441_doubao_selmix_r6b",
+  "baseline": 77.11,
+  "previous_best": 80.72,
+  "n": 3,
+  "best": {
+    "name": "selmixb_s42",
+    "seed": 42,
+    "accuracy": 74.7,
+    "status": "ok"
+  },
+  "mean": 73.89,
+  "std": 0.57,
+  "rows": [
+    {
+      "name": "selmixb_s42",
+      "seed": 42,
+      "accuracy": 74.7,
+      "status": "ok"
+    },
+    {
+      "name": "selmixb_s11",
+      "seed": 11,
+      "accuracy": 73.49,
+      "status": "ok"
+    },
+    {
+      "name": "selmixb_s55",
+      "seed": 55,
+      "accuracy": 73.49,
+      "status": "ok"
+    }
+  ]
+}

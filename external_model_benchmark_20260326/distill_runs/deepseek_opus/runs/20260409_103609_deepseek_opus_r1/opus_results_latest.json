@@ -1,0 +1,48 @@
+{
+  "run_root": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_opus/runs/20260409_103609_deepseek_opus_r1",
+  "teacher": "deepseek_v3",
+  "approach": "choice-head-distill → GT-SFT (opus)",
+  "baseline": 77.11,
+  "previous_best_deepseek": 79.52,
+  "n": 5,
+  "best": {
+    "name": "opus_s11",
+    "seed": 11,
+    "accuracy": 81.93,
+    "status": "ok"
+  },
+  "mean": 76.87,
+  "std": 3.09,
+  "rows": [
+    {
+      "name": "opus_s42",
+      "seed": 42,
+      "accuracy": 72.29,
+      "status": "ok"
+    },
+    {
+      "name": "opus_s11",
+      "seed": 11,
+      "accuracy": 81.93,
+      "status": "ok"
+    },
+    {
+      "name": "opus_s55",
+      "seed": 55,
+      "accuracy": 75.9,
+      "status": "ok"
+    },
+    {
+      "name": "opus_s7",
+      "seed": 7,
+      "accuracy": 77.11,
+      "status": "ok"
+    },
+    {
+      "name": "opus_s99",
+      "seed": 99,
+      "accuracy": 77.11,
+      "status": "ok"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[RESUME] existing_done=19 existing_valid=19
+[PROGRESS] scanned=20/490 newly_valid=1 failed=0 total_valid=20
+[PROGRESS] scanned=40/490 newly_valid=21 failed=0 total_valid=40
+[PROGRESS] scanned=60/490 newly_valid=41 failed=0 total_valid=60
+[PROGRESS] scanned=80/490 newly_valid=61 failed=0 total_valid=80
+[PROGRESS] scanned=100/490 newly_valid=81 failed=0 total_valid=100
+[PROGRESS] scanned=120/490 newly_valid=101 failed=0 total_valid=120
+[PROGRESS] scanned=140/490 newly_valid=121 failed=0 total_valid=140
+[PROGRESS] scanned=160/490 newly_valid=141 failed=0 total_valid=160
+[PROGRESS] scanned=180/490 newly_valid=161 failed=0 total_valid=180
+[PROGRESS] scanned=200/490 newly_valid=181 failed=0 total_valid=200
+[PROGRESS] scanned=220/490 newly_valid=201 failed=0 total_valid=220
+[PROGRESS] scanned=240/490 newly_valid=221 failed=0 total_valid=240
+[PROGRESS] scanned=260/490 newly_valid=241 failed=0 total_valid=260
+[PROGRESS] scanned=280/490 newly_valid=261 failed=0 total_valid=280
+[PROGRESS] scanned=300/490 newly_valid=281 failed=0 total_valid=300
+[PROGRESS] scanned=320/490 newly_valid=301 failed=0 total_valid=320
+[PROGRESS] scanned=340/490 newly_valid=321 failed=0 total_valid=340
+[PROGRESS] scanned=360/490 newly_valid=341 failed=0 total_valid=360
+[PROGRESS] scanned=380/490 newly_valid=361 failed=0 total_valid=380
+[PROGRESS] scanned=400/490 newly_valid=381 failed=0 total_valid=400
+[PROGRESS] scanned=420/490 newly_valid=401 failed=0 total_valid=420
+[PROGRESS] scanned=440/490 newly_valid=421 failed=0 total_valid=440
+[PROGRESS] scanned=460/490 newly_valid=441 failed=0 total_valid=460
+[PROGRESS] scanned=480/490 newly_valid=461 failed=0 total_valid=480
+[DONE] attempted=471 newly_valid=471 failed=0 total_valid=490 output=external_model_benchmark_20260326/distill_runs/augmented_distill/runs/20260409_214033_augmented_distill/artifacts/deepseek_teacher_new490.jsonl

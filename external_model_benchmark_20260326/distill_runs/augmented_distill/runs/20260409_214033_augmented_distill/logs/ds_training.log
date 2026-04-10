@@ -1,0 +1,12 @@
+
+[RUN] Stage1 head-distill: ds_r16_s11 seed=11
+[RUN] Stage2 GT-SFT: ds_r16_s11 seed=11
+[DONE] ds_r16_s11
+
+[RUN] Stage1 head-distill: ds_r16_s55 seed=55
+[RUN] Stage2 GT-SFT: ds_r16_s55 seed=55
+[DONE] ds_r16_s55
+
+[RUN] Stage1 head-distill: ds_r16_s42 seed=42
+[RUN] Stage2 GT-SFT: ds_r16_s42 seed=42
+[DONE] ds_r16_s42

@@ -1,0 +1,34 @@
+{
+  "run_root": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_194306_doubao_headsft_r7",
+  "baseline": 77.11,
+  "previous_best": 80.72,
+  "n": 3,
+  "best": {
+    "name": "headsft_s42",
+    "seed": 42,
+    "accuracy": 79.52,
+    "status": "ok"
+  },
+  "mean": 79.12,
+  "std": 0.57,
+  "rows": [
+    {
+      "name": "headsft_s42",
+      "seed": 42,
+      "accuracy": 79.52,
+      "status": "ok"
+    },
+    {
+      "name": "headsft_s11",
+      "seed": 11,
+      "accuracy": 78.31,
+      "status": "ok"
+    },
+    {
+      "name": "headsft_s55",
+      "seed": 55,
+      "accuracy": 79.52,
+      "status": "ok"
+    }
+  ]
+}

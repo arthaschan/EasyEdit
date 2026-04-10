@@ -5,13 +5,12 @@ data/*.jsonl
 examples/WikiBio
 examples/wiki_recent
 .vscode
-logs
-results
-outputs
-scripts
+/logs
+/results
+/outputs
+/scripts
 vectors
 **/.cache/
-*.log
 delta.txt
 .history
 **/.hydra/
@@ -34,3 +33,16 @@ tmp_perf_check
 auto_experiments
 dental_qwen2.5_*
 Qwen2.5-32B-Instruct
+models
+
+# ===== Experiment artifact exclusions =====
+# Model weights & optimizer states (too large for git)
+*.safetensors
+*.pt
+# Auto-generated tokenizer copies (11MB each)
+**/distill_runs/**/tokenizer.json
+**/distill_runs/**/chat_template.jinja
+# Auto-generated PEFT README
+**/distill_runs/**/outputs/**/README.md
+# Temp diagnostic files
+external_model_benchmark_20260326/file_sizes_*.tsv

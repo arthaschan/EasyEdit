@@ -1,0 +1,96 @@
+============================================================
+ Style-Unified Pipeline - 20260410_020935
+============================================================
+
+[Step 1] Rewriting HuaTuo + AutoGen data to CMExam style...
+Start: Friday, April 10, 2026 AM02:09:35 HKT
+Rewritten data: 977 samples
+Step 1 done: Friday, April 10, 2026 AM02:28:02 HKT
+
+[Step 1b] Quality check on rewritten data...
+  cmexam_original: 672 samples, avg question len=28.6
+  deepseek_autogen_rewritten: 144 samples, avg question len=34.4
+  huatuo_converted_rewritten: 161 samples, avg question len=25.9
+Sources: {'cmexam_original': 672, 'huatuo_converted_rewritten': 161, 'deepseek_autogen_rewritten': 144}
+Answer distribution: {'A': 176, 'B': 211, 'C': 200, 'D': 181, 'E': 209}
+Remaining 根据对话: 0/977
+Remaining colon-ending: 0/977
+
+[Step 2] Training SFT models on style-unified data...
+
+--- Training config: sty_r16_s11_e2 (seed=11, lr=0.00012, epochs=2, rank=16) ---
+Start: Friday, April 10, 2026 AM02:28:02 HKT
+Config sty_r16_s11_e2: Test Accuracy = 78.31%
+Done: Friday, April 10, 2026 AM02:32:50 HKT
+
+--- Training config: sty_r16_s42_e2 (seed=42, lr=0.00012, epochs=2, rank=16) ---
+Start: Friday, April 10, 2026 AM02:32:50 HKT
+Config sty_r16_s42_e2: Test Accuracy = 80.72%
+Done: Friday, April 10, 2026 AM02:37:39 HKT
+
+--- Training config: sty_r16_s55_e2 (seed=55, lr=0.00012, epochs=2, rank=16) ---
+Start: Friday, April 10, 2026 AM02:37:39 HKT
+Config sty_r16_s55_e2: Test Accuracy = 77.11%
+Done: Friday, April 10, 2026 AM02:42:27 HKT
+
+--- Training config: sty_r16_s42_e3 (seed=42, lr=0.00014, epochs=3, rank=16) ---
+Start: Friday, April 10, 2026 AM02:42:27 HKT
+Config sty_r16_s42_e3: Test Accuracy = 79.52%
+Done: Friday, April 10, 2026 AM02:49:06 HKT
+
+--- Training config: sty_r16_s11_e3 (seed=11, lr=0.00014, epochs=3, rank=16) ---
+Start: Friday, April 10, 2026 AM02:49:06 HKT
+Config sty_r16_s11_e3: Test Accuracy = 75.90%
+Done: Friday, April 10, 2026 AM02:55:45 HKT
+
+[Step 3] Training baseline (original data) for comparison...
+
+--- Baseline config: orig_r16_s11_e2 (seed=11, original data) ---
+Start: Friday, April 10, 2026 AM02:55:45 HKT
+Baseline orig_r16_s11_e2: Test Accuracy = 78.31%
+Done: Friday, April 10, 2026 AM03:01:13 HKT
+
+--- Baseline config: orig_r16_s42_e2 (seed=42, original data) ---
+Start: Friday, April 10, 2026 AM03:01:13 HKT
+Baseline orig_r16_s42_e2: Test Accuracy = 74.70%
+Done: Friday, April 10, 2026 AM03:06:42 HKT
+
+[Step 4] Training CMExam-only baseline...
+
+--- CMExam-only: cmexam_r16_s11_e2 (seed=11, cmexam data only) ---
+Start: Friday, April 10, 2026 AM03:06:42 HKT
+CMExam-only cmexam_r16_s11_e2: Test Accuracy = 74.70%
+Done: Friday, April 10, 2026 AM03:10:23 HKT
+
+--- CMExam-only: cmexam_r16_s42_e3 (seed=42, cmexam data only) ---
+Start: Friday, April 10, 2026 AM03:10:23 HKT
+CMExam-only cmexam_r16_s42_e3: Test Accuracy = 74.70%
+Done: Friday, April 10, 2026 AM03:15:20 HKT
+
+============================================================
+ FINAL SUMMARY
+============================================================
+
+Historical Best (pure SFT, original augmented data): 79.52%
+Historical Best (5-model ensemble): 80.72%
+
+--- Style-Unified SFT Results ---
+  sty_r16_s11_e2: 78.31%
+  sty_r16_s42_e2: 80.72%
+  sty_r16_s55_e2: 77.11%
+  sty_r16_s42_e3: 79.52%
+  sty_r16_s11_e3: 75.90%
+
+--- Original Data Baselines ---
+  orig_r16_s11_e2: 78.31%
+  orig_r16_s42_e2: 74.70%
+
+--- CMExam-Only Baselines ---
+  cmexam_r16_s11_e2: 74.70%
+  cmexam_r16_s42_e3: 74.70%
+
+Data statistics:
+  Rewritten samples: 977
+
+Pipeline completed at: Friday, April 10, 2026 AM03:15:20 HKT
+Report location: /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/style_unified/runs/20260410_020935_style_unified/REPORT.txt

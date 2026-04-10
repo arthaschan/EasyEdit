@@ -1,0 +1,21 @@
+=============================================
+[RESUME] 2026-04-09 09:23:24
+=============================================
+[PHASE 1] Doubao R9 - completing remaining seeds
+[SKIP] headsft9_s42 already done: 79.52%
+[RESUME-EVAL] headsft9_s11 - rerun stage2 for test eval only (model exists)
+[SKIP][stage1] headsft9_s11 already done
+[RUN][stage2-sft] headsft9_s11 seed=11
+[DONE] headsft9_s11 acc=78.31%
+[RUN][stage1-head] headsft9_s55 seed=55
+[RUN][stage2-sft] headsft9_s55 seed=55
+[DONE] headsft9_s55 acc=79.52%
+[RUN][stage1-head] headsft9_s7 seed=7
+[RUN][stage2-sft] headsft9_s7 seed=7
+[DONE] headsft9_s7 acc=74.7%
+[RUN][stage1-head] headsft9_s99 seed=99
+[RUN][stage2-sft] headsft9_s99 seed=99
+[DONE] headsft9_s99 acc=74.7%
+Traceback (most recent call last):
+  File "<stdin>", line 7, in <module>
+NameError: name 'name' is not defined

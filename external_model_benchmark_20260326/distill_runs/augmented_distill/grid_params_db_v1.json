@@ -1,0 +1,67 @@
+[
+  {
+    "name": "r16_s11_a15",
+    "seed": 11,
+    "learning_rate_stage1": 0.00012,
+    "learning_rate_stage2": 0.00012,
+    "rank": 16,
+    "lora_alpha": 32,
+    "batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "num_epochs_stage1": 1,
+    "num_epochs_stage2": 2,
+    "alpha_stage1": 0.15
+  },
+  {
+    "name": "r16_s11_a25",
+    "seed": 11,
+    "learning_rate_stage1": 0.00012,
+    "learning_rate_stage2": 0.00012,
+    "rank": 16,
+    "lora_alpha": 32,
+    "batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "num_epochs_stage1": 1,
+    "num_epochs_stage2": 2,
+    "alpha_stage1": 0.25
+  },
+  {
+    "name": "r16_s11_a35",
+    "seed": 11,
+    "learning_rate_stage1": 0.00012,
+    "learning_rate_stage2": 0.00012,
+    "rank": 16,
+    "lora_alpha": 32,
+    "batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "num_epochs_stage1": 1,
+    "num_epochs_stage2": 2,
+    "alpha_stage1": 0.35
+  },
+  {
+    "name": "r16_s55_a15",
+    "seed": 55,
+    "learning_rate_stage1": 0.00012,
+    "learning_rate_stage2": 0.00012,
+    "rank": 16,
+    "lora_alpha": 32,
+    "batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "num_epochs_stage1": 1,
+    "num_epochs_stage2": 2,
+    "alpha_stage1": 0.15
+  },
+  {
+    "name": "r16_s55_a25",
+    "seed": 55,
+    "learning_rate_stage1": 0.00012,
+    "learning_rate_stage2": 0.00012,
+    "rank": 16,
+    "lora_alpha": 32,
+    "batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "num_epochs_stage1": 1,
+    "num_epochs_stage2": 2,
+    "alpha_stage1": 0.25
+  }
+]

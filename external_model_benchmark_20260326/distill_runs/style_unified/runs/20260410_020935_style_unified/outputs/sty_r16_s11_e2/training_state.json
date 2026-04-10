@@ -1,0 +1,5 @@
+{
+  "last_completed_epoch": 2,
+  "best_val_acc": 78.37837837837837,
+  "best_ckpt_path": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/style_unified/runs/20260410_020935_style_unified/outputs/sty_r16_s11_e2/best"
+}

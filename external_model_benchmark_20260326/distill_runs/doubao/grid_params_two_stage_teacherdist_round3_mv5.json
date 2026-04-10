@@ -1,0 +1,38 @@
+[
+  {
+    "name": "mv5_s42",
+    "seed": 42,
+    "learning_rate": 0.00015,
+    "rank": 16,
+    "lora_alpha": 32,
+    "batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "num_epochs_stage1": 2,
+    "num_epochs_stage2": 1,
+    "alpha_stage2": 0.05
+  },
+  {
+    "name": "mv5_s11",
+    "seed": 11,
+    "learning_rate": 0.00015,
+    "rank": 16,
+    "lora_alpha": 32,
+    "batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "num_epochs_stage1": 2,
+    "num_epochs_stage2": 1,
+    "alpha_stage2": 0.05
+  },
+  {
+    "name": "mv5_s55",
+    "seed": 55,
+    "learning_rate": 0.00015,
+    "rank": 16,
+    "lora_alpha": 32,
+    "batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "num_epochs_stage1": 2,
+    "num_epochs_stage2": 1,
+    "alpha_stage2": 0.05
+  }
+]

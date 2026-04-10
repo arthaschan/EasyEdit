@@ -1,0 +1,15 @@
+{
+  "total": 1162,
+  "matched_soft": 1162,
+  "selected_for_distill": 1162,
+  "selected_ratio": 1.0,
+  "teacher_disagree_count": 79,
+  "teacher_disagree_ratio": 0.068,
+  "selected_entropy_mean": 0.7777,
+  "selected_peak_mean": 0.8,
+  "min_entropy": 0.2,
+  "smooth_eps": 0.25,
+  "min_margin": 0.03,
+  "only_disagree": false,
+  "output": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/augmented_distill/runs/20260409_214033_augmented_distill/artifacts/db_train_head_distill.jsonl"
+}

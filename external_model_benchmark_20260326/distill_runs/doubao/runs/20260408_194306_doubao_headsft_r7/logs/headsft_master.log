@@ -1,0 +1,16 @@
+[INFO] RUN_ID=20260408_194306_doubao_headsft_r7
+[STEP] build head-distill dataset
+{"total": 672, "matched_soft": 604, "selected_for_distill": 604, "selected_ratio": 0.8988, "teacher_disagree_count": 2, "teacher_disagree_ratio": 0.0033, "selected_entropy_mean": 0.7777, "selected_peak_mean": 0.8, "min_entropy": 0.2, "smooth_eps": 0.25, "min_margin": 0.03, "only_disagree": false, "output": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_194306_doubao_headsft_r7/artifacts/train_head_distill.jsonl"}
+[RUN][stage1-head] headsft_s42 seed=42
+[RUN][stage2-sft] headsft_s42 seed=42
+[DONE] headsft_s42
+[RUN][stage1-head] headsft_s11 seed=11
+[RUN][stage2-sft] headsft_s11 seed=11
+[DONE] headsft_s11
+[RUN][stage1-head] headsft_s55 seed=55
+[RUN][stage2-sft] headsft_s55 seed=55
+[DONE] headsft_s55
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_194306_doubao_headsft_r7/headsft_results_latest.json
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_194306_doubao_headsft_r7/headsft_results_latest.md
+[DONE] doubao two-stage head-then-sft round7 finished
+[OUT] run_root=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_194306_doubao_headsft_r7

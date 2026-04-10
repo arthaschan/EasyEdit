@@ -1,0 +1,38 @@
+[
+  {
+    "name": "td_s42",
+    "seed": 42,
+    "learning_rate": 0.00015,
+    "rank": 16,
+    "lora_alpha": 32,
+    "batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "num_epochs_stage1": 1,
+    "num_epochs_stage2": 2,
+    "alpha_stage2": 0.1
+  },
+  {
+    "name": "td_s11",
+    "seed": 11,
+    "learning_rate": 0.00015,
+    "rank": 16,
+    "lora_alpha": 32,
+    "batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "num_epochs_stage1": 1,
+    "num_epochs_stage2": 2,
+    "alpha_stage2": 0.1
+  },
+  {
+    "name": "td_s55",
+    "seed": 55,
+    "learning_rate": 0.00015,
+    "rank": 16,
+    "lora_alpha": 32,
+    "batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "num_epochs_stage1": 1,
+    "num_epochs_stage2": 2,
+    "alpha_stage2": 0.1
+  }
+]

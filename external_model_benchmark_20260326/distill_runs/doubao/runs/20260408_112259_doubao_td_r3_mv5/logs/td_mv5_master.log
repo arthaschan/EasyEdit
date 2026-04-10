@@ -1,0 +1,114 @@
+[INFO] RUN_ID=20260408_112259_doubao_td_r3_mv5
+[STEP] build mv5 soft labels
+[RESUME] existing_done=88 existing_valid=88
+[ERR] {"index": 91, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "髁突位于关节窝中最上、最中位时发生上下（牙合）接触的是"}
+[ERR] {"index": 93, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "以下属于模式识别受体（PRR）的是"}
+[PROGRESS] scanned=100/672 newly_valid=10 failed=2 total_valid=98
+[PROGRESS] scanned=120/672 newly_valid=30 failed=2 total_valid=118
+[ERR] {"index": 125, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "患者，女，68岁。左下牙龈一菜花样溃疡，溃疡约3cm×2cm大小，下唇无麻木，活检诊为“鳞癌Ⅰ级”。下颌部未及明显肿大淋巴结。如该患者颌骨仅波及牙槽突时，最佳的治疗方案为"}
+[ERR] {"index": 129, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "以下关于牙根纵裂的描述中错误的是"}
+[ERR] {"index": 136, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "男，29岁，烧伤3h，烧伤总面积80%，其中深Ⅱ度30%，Ⅲ度50%，伤后无尿，心率150次/分，呼吸35次/分，伤后头8h输液4500ml（其中胶体800ml）后仍无尿。还应选择下列哪项措施以利诊断及治疗"}
+[PROGRESS] scanned=140/672 newly_valid=47 failed=5 total_valid=135
+[ERR] {"index": 144, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "全口义齿人工牙排列时，如果在前伸位，后牙接触，前牙不接触，则应"}
+[ERR] {"index": 149, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "下列有关切点描记的说法中错误的是"}
+[ERR] {"index": 157, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "原发性上皮带出现于胚胎第几周"}
+[PROGRESS] scanned=160/672 newly_valid=64 failed=8 total_valid=152
+[ERR] {"index": 164, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "下列关于牙根纵裂表述错误的是"}
+[ERR] {"index": 173, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "暂时冠的目的不是"}
+[ERR] {"index": 176, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "女性，20岁。颌面部跌伤4小时。无昏迷史，脉搏、血压、呼吸均正常。口腔检查：上唇有一个2cm长的穿通伤口，上2-2牙龈撕裂，轻摇之有骨块异常活动。下颌检查未见异常。后牙咬合关系正常，张口未受限，若上颌咬合片示：上2-2牙槽骨骨折。常用的固定"}
+[PROGRESS] scanned=180/672 newly_valid=81 failed=11 total_valid=169
+[ERR] {"index": 189, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "口腔医师在确定拔牙适应证时首先应考虑的是"}
+[ERR] {"index": 190, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "冲击法拔除下颌阻生智齿多用于"}
+[ERR] {"index": 191, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "可以累及釉质，牙骨质，牙本质的龋病为"}
+[PROGRESS] scanned=200/672 newly_valid=98 failed=14 total_valid=186
+[ERR] {"index": 201, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "关于DNA复制描述有误的是"}
+[ERR] {"index": 212, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "下列不是脑膜炎奈瑟球菌致病物质的是"}
+[ERR] {"index": 214, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "神经系统的成熟度已达97%"}
+[PROGRESS] scanned=220/672 newly_valid=115 failed=17 total_valid=203
+[ERR] {"index": 221, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "女，32岁，牙龈肿物3个月，镜下见病变由大量新生毛细血管及成纤维细胞组成，有多数炎症细胞浸润，表面上皮变薄。病理上最符合"}
+[ERR] {"index": 223, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "下列与维生素D缺乏性佝偻病鉴别的疾病中，不是从病因上相鉴别的一项是"}
+[ERR] {"index": 230, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "急性根尖周炎患牙在建立了通畅的引流后，还应适当"}
+[PROGRESS] scanned=240/672 newly_valid=132 failed=20 total_valid=220
+[ERR] {"index": 243, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "每周至少进行3次高强度体力活动的年龄组是"}
+[ERR] {"index": 252, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "临产前多长时间之内不宜使用哌替啶"}
+[ERR] {"index": 253, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "由一个卡环臂和近缺隙侧的铸造（牙合）支托组成，且较容易变形的属于哪种锻丝卡环"}
+[ERR] {"index": 254, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "休克病人在补充足够液体后，血压仍然偏低，中心静脉压正常，可考虑给予"}
+[PROGRESS] scanned=260/672 newly_valid=148 failed=24 total_valid=236
+[ERR] {"index": 271, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "不属于Garre＇骨髓炎镜下可见"}
+[PROGRESS] scanned=280/672 newly_valid=167 failed=25 total_valid=255
+[ERR] {"index": 292, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "需尽快灌制模型，取印模时需严格吹干的材料"}
+[ERR] {"index": 298, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "运送昏迷患者可采用的体位是"}
+[PROGRESS] scanned=300/672 newly_valid=185 failed=27 total_valid=273
+[ERR] {"index": 304, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "女童，7岁，乳牙龋坏较多，已充填。六龄牙已萌齐，医生诊断16（牙合）面中龋，采用龋非创伤性充填（ART）治疗该牙若使用没有填料的封闭剂，则下列操作过程中不正确的是"}
+[ERR] {"index": 316, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "全口义齿作侧方咬合时，工作侧接触，平衡侧不接触，应调整"}
+[ERR] {"index": 318, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "局麻下，开髓，去净髓室顶，摘除牙髓，髓室内置一无菌棉球，用氧化锌丁香油糊剂暂封窝洞是以上哪种方法的操作"}
+[PROGRESS] scanned=320/672 newly_valid=202 failed=30 total_valid=290
+[ERR] {"index": 321, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "患者男，因上前牙有白色斑要求治疗。检查：左上中切牙及右上中切牙唇面有白垩斑，探光滑、硬。余未见明显异常。其家人和孩子均未出现此种症状，该患牙诊断为"}
+[ERR] {"index": 337, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "在牙周翻瓣术中，颊、舌两侧龈缘高度差别大，应采用的缝合方式为"}
+[PROGRESS] scanned=340/672 newly_valid=220 failed=32 total_valid=308
+[ERR] {"index": 342, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "改良widman翻瓣术的适应证为"}
+[PROGRESS] scanned=360/672 newly_valid=239 failed=33 total_valid=327
+[ERR] {"index": 361, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "临床怀疑有多生牙时，应该对于以下哪个年龄段的儿童需要进行影像学检查以便早期发现"}
+[ERR] {"index": 375, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "复发性阿弗他溃疡发生的免疫因素说法不正确的是"}
+[ERR] {"index": 378, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "女童，5岁，右下第二乳磨牙咬合面深龋洞，腐质去净后洞底在牙本质浅层，治疗方法是"}
+[PROGRESS] scanned=380/672 newly_valid=256 failed=36 total_valid=344
+[ERR] {"index": 387, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "甲状腺形成的时间是胚胎"}
+[PROGRESS] scanned=400/672 newly_valid=275 failed=37 total_valid=363
+[ERR] {"index": 407, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "当两颗可疑牙均在上颌后牙区，若采用选择性麻醉法进行诊断时，应对位置相对靠前的牙行局部麻醉，原因是"}
+[PROGRESS] scanned=420/672 newly_valid=294 failed=38 total_valid=382
+[ERR] {"index": 436, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "患者女性25岁，怀孕5个月，怀孕后反复发生冠周炎，1周前再次发作，经治疗后治愈，目前最佳处理方法"}
+[PROGRESS] scanned=440/672 newly_valid=313 failed=39 total_valid=401
+[ERR] {"index": 442, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "能够引起放射性骨坏死的临界剂量值"}
+[ERR] {"index": 454, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "扪诊可以检查的内容不包括"}
+[ERR] {"index": 456, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "急性根尖周炎至骨膜下脓肿时，应在局部麻醉或表面麻醉下行"}
+[PROGRESS] scanned=460/672 newly_valid=330 failed=42 total_valid=418
+[ERR] {"index": 461, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "牙源性角化囊性瘤穿刺可抽出"}
+[PROGRESS] scanned=480/672 newly_valid=349 failed=43 total_valid=437
+[ERR] {"index": 484, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "女性，30岁，背部肿块，红、肿、疼痛3天，寒战、发热39℃，查体：背部肿物3cm×5cm，触之有波动感。为了提高病人血培养的阳性率，最好的抽血时间是"}
+[ERR] {"index": 492, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "如果在牙根发育过程中，上皮根鞘的连续性遭到破坏或者上皮隔融合不全，会造成牙根出现"}
+[ERR] {"index": 496, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "属于Kennedy第一类一亚类的是"}
+[PROGRESS] scanned=500/672 newly_valid=366 failed=46 total_valid=454
+[ERR] {"index": 503, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "一病人左颞下颌关节在开口、咀嚼时疼痛，无自发痛，检查发现开口中度受限、开口型偏左侧，左髁突后方明显压痛，未见红肿。其治疗应选用"}
+[ERR] {"index": 509, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "最有可能设计为单端固定桥的情况是"}
+[ERR] {"index": 510, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "正常人每日释放的甲状腺激素中，三碘甲状腺原氨酸占"}
+[ERR] {"index": 512, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "下列哪一种喹诺酮类药是泌尿系统感染的首选药"}
+[PROGRESS] scanned=520/672 newly_valid=382 failed=50 total_valid=470
+[PROGRESS] scanned=540/672 newly_valid=402 failed=50 total_valid=490
+[ERR] {"index": 549, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "全身化脓性感染导致脓毒血症，其热型在早期多为"}
+[ERR] {"index": 553, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "女性，57岁，戴用全口义齿2年，一直未吃硬性食物，小心谨慎使用，但上颌总义齿仍裂开。查：无牙颌，牙槽嵴中度丰满，腭中缝较平。义齿固位好，无翘动。上颌总义齿前部正中折裂，腭侧基托厚2mm。造成义齿折裂的主要原因是"}
+[ERR] {"index": 556, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "下列哪种不是抗原"}
+[PROGRESS] scanned=560/672 newly_valid=419 failed=53 total_valid=507
+[ERR] {"index": 562, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "拔除下8，张口受限，下颌内侧深压痛，5天后口受限消失"}
+[ERR] {"index": 568, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "牙髓电活力试验患牙读数比对照牙明显不同，可判断患牙"}
+[ERR] {"index": 575, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "某女性患者，45岁，更年期综合症明显，因全口牙齿猖獗龋进行就诊。自述两年来口干，眼干，严重口渴，影响咀嚼和吞咽。检查时除了检查龋齿以外，还可见此患者口底唾液池消失，口腔黏膜干燥，舌背呈“镜面”样改变。则判断此疾病的病理表现是"}
+[PROGRESS] scanned=580/672 newly_valid=436 failed=56 total_valid=524
+[ERR] {"index": 587, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "鳃瘘的形成与下列哪项有关"}
+[ERR] {"index": 588, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "颧弓骨折的重要临床体征是"}
+[ERR] {"index": 596, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "男性，35岁，劳力性呼吸困难，心悸，气短，少尿，下肢浮肿1年余，1周前咽痛、咳嗽、咯黄痰后呼吸困难加重，夜间不能平卧。超声心动图示，左右心室扩张，弥漫性运动不良，左心室射血分数30%。口服地高辛0.25mg，1次/d，既往无任何特殊病史。根"}
+[PROGRESS] scanned=600/672 newly_valid=453 failed=59 total_valid=541
+[ERR] {"index": 603, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "下列表述正确的是"}
+[ERR] {"index": 606, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "牙弓的长度是指"}
+[ERR] {"index": 611, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "9岁小儿腕部骨化中心应有"}
+[ERR] {"index": 613, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "患儿，男性，2岁，右侧完全性腭裂拟行腭裂修复术，术后5天腭前部出血，可能的原因是"}
+[ERR] {"index": 615, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "以下有关Turesky改良的Q-H菌斑指数的叙述中，正确的是"}
+[PROGRESS] scanned=620/672 newly_valid=468 failed=64 total_valid=556
+[ERR] {"index": 631, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "口服非甾体类抗炎镇痛药物（如双氯芬酸钠）及理疗"}
+[PROGRESS] scanned=640/672 newly_valid=487 failed=65 total_valid=575
+[ERR] {"index": 648, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "中龋在治疗时垫底或者不垫底的依据是"}
+[ERR] {"index": 659, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "形成导管系统约在"}
+[PROGRESS] scanned=660/672 newly_valid=505 failed=67 total_valid=593
+[ERR] {"index": 670, "error": "HTTPSConnectionPool(host='ark.cn-beijing.volces.com', port=443): Read timed out. (read timeout=25)", "question": "男婴，1岁，近日哭闹、拒食、流涎，检查见邻近磨牙的上腭和龈缘处见大面积浅表溃疡，上覆黄色假膜，偶见个别针头大小小水疱。下面哪项关于该病的描述是正确的"}
+[DONE] attempted=584 newly_valid=516 failed=68 total_valid=604 output=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/artifacts/teacher_train_soft_r6_mv5.jsonl
+[RUN][stage1] mv5_s42 seed=42
+[RUN][stage2] mv5_s42 seed=42
+[DONE] mv5_s42
+[RUN][stage1] mv5_s11 seed=11
+[RUN][stage2] mv5_s11 seed=11
+[DONE] mv5_s11
+[RUN][stage1] mv5_s55 seed=55
+[RUN][stage2] mv5_s55 seed=55
+[DONE] mv5_s55
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_112259_doubao_td_r3_mv5/td_mv5_results_latest.json
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_112259_doubao_td_r3_mv5/td_mv5_results_latest.md
+[DONE] doubao two-stage teacherdist round3 mv5 finished
+[OUT] run_root=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_112259_doubao_td_r3_mv5

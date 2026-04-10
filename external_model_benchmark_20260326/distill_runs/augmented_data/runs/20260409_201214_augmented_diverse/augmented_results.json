@@ -1,0 +1,64 @@
+{
+  "n": 7,
+  "baseline": 77.11,
+  "best": {
+    "name": "aug_r16_lr12_s11",
+    "seed": 11,
+    "rank": 16,
+    "lr": 0.00012,
+    "accuracy": 79.52
+  },
+  "mean": 76.94,
+  "std": 1.98,
+  "all": [
+    {
+      "name": "aug_r16_lr12_s42",
+      "seed": 42,
+      "rank": 16,
+      "lr": 0.00012,
+      "accuracy": 74.7
+    },
+    {
+      "name": "aug_r16_lr12_s11",
+      "seed": 11,
+      "rank": 16,
+      "lr": 0.00012,
+      "accuracy": 79.52
+    },
+    {
+      "name": "aug_r16_lr12_s55",
+      "seed": 55,
+      "rank": 16,
+      "lr": 0.00012,
+      "accuracy": 79.52
+    },
+    {
+      "name": "aug_r32_lr10_s42",
+      "seed": 42,
+      "rank": 32,
+      "lr": 0.0001,
+      "accuracy": 75.9
+    },
+    {
+      "name": "aug_r32_lr10_s11",
+      "seed": 11,
+      "rank": 32,
+      "lr": 0.0001,
+      "accuracy": 75.9
+    },
+    {
+      "name": "aug_r8_lr15_s42",
+      "seed": 42,
+      "rank": 8,
+      "lr": 0.00015,
+      "accuracy": 74.7
+    },
+    {
+      "name": "aug_r8_lr15_s11",
+      "seed": 11,
+      "rank": 8,
+      "lr": 0.00015,
+      "accuracy": 78.31
+    }
+  ]
+}

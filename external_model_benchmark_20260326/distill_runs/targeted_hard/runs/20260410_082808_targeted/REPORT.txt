@@ -1,0 +1,25 @@
+============================================================
+ Targeted Hard Questions Pipeline - 20260410_082808
+============================================================
+
+[Step 1] Merging datasets...
+Style-unified: 977 samples
+Targeted hard: 70 samples
+Merged total: 1047 samples
+Sources: {'cmexam_original': 672, 'huatuo_converted_rewritten': 161, 'deepseek_autogen_rewritten': 144, 'targeted_hard': 56, 'targeted_hard_direct': 14}
+Answer distribution: {'A': 193, 'B': 225, 'C': 223, 'D': 188, 'E': 218}
+
+[Step 2] Training on merged data...
+
+--- Config: tgt_r16_s42_e2 (seed=42, lr=0.00012, epochs=2) ---
+Start: Friday, April 10, 2026 AM08:28:08 HKT
+Config tgt_r16_s42_e2: Test Accuracy = 86.75%
+Done: Friday, April 10, 2026 AM08:37:02 HKT
+
+--- Config: tgt_r16_s11_e2 (seed=11, lr=0.00012, epochs=2) ---
+Start: Friday, April 10, 2026 AM08:37:02 HKT
+Config tgt_r16_s11_e2: Test Accuracy = 90.36%
+Done: Friday, April 10, 2026 AM08:45:55 HKT
+
+--- Config: tgt_r16_s55_e2 (seed=55, lr=0.00012, epochs=2) ---
+Start: Friday, April 10, 2026 AM08:45:55 HKT

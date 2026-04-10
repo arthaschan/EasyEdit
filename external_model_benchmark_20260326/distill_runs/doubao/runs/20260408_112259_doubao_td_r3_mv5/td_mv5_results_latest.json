@@ -1,0 +1,37 @@
+{
+  "run_root": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_112259_doubao_td_r3_mv5",
+  "baseline": 77.11,
+  "previous_best": 80.72,
+  "n": 3,
+  "best": {
+    "name": "mv5_s42",
+    "seed": 42,
+    "accuracy": 75.9,
+    "status": "ok"
+  },
+  "mean": 74.3,
+  "std": 1.5,
+  "soft_entropy_mean": -0.0,
+  "soft_peak_mean": 1.0,
+  "soft_peak_ge_099_ratio": 1.0,
+  "rows": [
+    {
+      "name": "mv5_s42",
+      "seed": 42,
+      "accuracy": 75.9,
+      "status": "ok"
+    },
+    {
+      "name": "mv5_s11",
+      "seed": 11,
+      "accuracy": 74.7,
+      "status": "ok"
+    },
+    {
+      "name": "mv5_s55",
+      "seed": 55,
+      "accuracy": 72.29,
+      "status": "ok"
+    }
+  ]
+}

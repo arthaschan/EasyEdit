@@ -1,0 +1,16 @@
+[INFO] RUN_ID=20260408_183013_doubao_selmix_r6
+[STEP] build selective mixed dataset
+{"total": 672, "matched_soft": 604, "selected_for_distill": 2, "selected_ratio": 0.003, "teacher_disagree_count": 2, "teacher_disagree_ratio": 0.0033, "selected_entropy_mean": 0.6615, "selected_peak_mean": 0.84, "min_entropy": 0.35, "smooth_eps": 0.2, "min_margin": 0.1, "only_disagree": true, "output": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_183013_doubao_selmix_r6/artifacts/train_selective_mix.jsonl"}
+[RUN][stage1] selmix_s42 seed=42
+[RUN][stage2] selmix_s42 seed=42
+[DONE] selmix_s42
+[RUN][stage1] selmix_s11 seed=11
+[RUN][stage2] selmix_s11 seed=11
+[DONE] selmix_s11
+[RUN][stage1] selmix_s55 seed=55
+[RUN][stage2] selmix_s55 seed=55
+[DONE] selmix_s55
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_183013_doubao_selmix_r6/selmix_results_latest.json
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_183013_doubao_selmix_r6/selmix_results_latest.md
+[DONE] doubao selective-mix round6 finished
+[OUT] run_root=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_183013_doubao_selmix_r6

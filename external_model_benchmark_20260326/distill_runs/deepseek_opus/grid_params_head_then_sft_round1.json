@@ -1,0 +1,67 @@
+[
+  {
+    "name": "opus_s42",
+    "seed": 42,
+    "learning_rate_stage1": 0.00012,
+    "learning_rate_stage2": 0.00012,
+    "rank": 16,
+    "lora_alpha": 32,
+    "batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "num_epochs_stage1": 1,
+    "num_epochs_stage2": 2,
+    "alpha_stage1": 0.35
+  },
+  {
+    "name": "opus_s11",
+    "seed": 11,
+    "learning_rate_stage1": 0.00012,
+    "learning_rate_stage2": 0.00012,
+    "rank": 16,
+    "lora_alpha": 32,
+    "batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "num_epochs_stage1": 1,
+    "num_epochs_stage2": 2,
+    "alpha_stage1": 0.35
+  },
+  {
+    "name": "opus_s55",
+    "seed": 55,
+    "learning_rate_stage1": 0.00012,
+    "learning_rate_stage2": 0.00012,
+    "rank": 16,
+    "lora_alpha": 32,
+    "batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "num_epochs_stage1": 1,
+    "num_epochs_stage2": 2,
+    "alpha_stage1": 0.35
+  },
+  {
+    "name": "opus_s7",
+    "seed": 7,
+    "learning_rate_stage1": 0.00012,
+    "learning_rate_stage2": 0.00012,
+    "rank": 16,
+    "lora_alpha": 32,
+    "batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "num_epochs_stage1": 1,
+    "num_epochs_stage2": 2,
+    "alpha_stage1": 0.35
+  },
+  {
+    "name": "opus_s99",
+    "seed": 99,
+    "learning_rate_stage1": 0.00012,
+    "learning_rate_stage2": 0.00012,
+    "rank": 16,
+    "lora_alpha": 32,
+    "batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "num_epochs_stage1": 1,
+    "num_epochs_stage2": 2,
+    "alpha_stage1": 0.35
+  }
+]

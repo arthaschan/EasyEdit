@@ -1,0 +1,25 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+🚀 开始基于EasyEdit框架的蒸馏+LoRA微调牙科选择题模型
+训练配置: {'num_epochs': 1, 'batch_size': 2, 'learning_rate': 0.00012, 'model_name': '/home/student/arthas/EasyEdit3/Qwen2.5-7B-Instruct', 'rank': 16, 'lora_alpha': 32, 'alpha': 0.35, 'data_path': '/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_183013_doubao_selmix_r6/artifacts/train_selective_mix.jsonl', 'output_dir': '/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_183013_doubao_selmix_r6/outputs/selmix_s42', 'gradient_accumulation_steps': 4, 'val_path': '/home/student/arthas/EasyEdit3/data/cmexam_dental_choice_val_nooverlap.jsonl', 'test_path': '/home/student/arthas/EasyEdit3/data/cmexam_dental_choice_test.jsonl', 'resume': True, 'default_distill_mask': 0, 'use_teacher_dist': True, 'seed': 42, 'deterministic': True}
+使用设备: cuda:0
+加载tokenizer...
+加载数据...
+加载牙科QA数据集完成，共 672 条记录
+启用TeacherDist软标签蒸馏，跳过本地教师模型加载
+加载学生模型并应用LoRA...
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights: 100%|██████████| 339/339 [00:00<00:00, 9770.15it/s]
+检测到断点，加载LoRA权重: /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_183013_doubao_selmix_r6/outputs/selmix_s42/checkpoints/epoch_2
+将从 epoch=3 开始继续训练
+trainable params: 10,092,544 || all params: 7,625,709,056 || trainable%: 0.1323
+调度器: cosine warmup, total_steps=84, warmup=8
+已恢复优化器状态: /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_183013_doubao_selmix_r6/outputs/selmix_s42/checkpoints/epoch_2/optimizer.pt
+已恢复调度器状态: /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_183013_doubao_selmix_r6/outputs/selmix_s42/checkpoints/epoch_2/scheduler.pt
+开始蒸馏训练...
+检测到训练已完成: start_epoch=2, num_epochs=1，跳过训练阶段
+保存模型...
+✅ 基于EasyEdit框架的蒸馏训练完成！模型保存至：/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_183013_doubao_selmix_r6/outputs/selmix_s42
+在测试集上进行评估...
+检测到最佳检查点: /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_183013_doubao_selmix_r6/outputs/selmix_s42/best，使用最佳模型进行测试评估
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights: 100%|██████████| 339/339 [00:00<00:00, 5230.50it/s]
+测试集准确率: 74.70%
+测试集错误样本已记录在 /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_183013_doubao_selmix_r6/outputs/selmix_s42/test_wrong.jsonl

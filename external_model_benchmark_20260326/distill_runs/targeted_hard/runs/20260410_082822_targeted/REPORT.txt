@@ -1,0 +1,109 @@
+============================================================
+ Targeted Hard Questions Pipeline - 20260410_082822
+============================================================
+
+[Step 1] Merging datasets...
+Style-unified: 977 samples
+Targeted hard: 70 samples
+Merged total: 1047 samples
+Sources: {'cmexam_original': 672, 'huatuo_converted_rewritten': 161, 'deepseek_autogen_rewritten': 144, 'targeted_hard': 56, 'targeted_hard_direct': 14}
+Answer distribution: {'A': 193, 'B': 225, 'C': 223, 'D': 188, 'E': 218}
+
+[Step 2] Training on merged data...
+
+--- Config: tgt_r16_s42_e2 (seed=42, lr=0.00012, epochs=2) ---
+Start: Friday, April 10, 2026 AM08:28:22 HKT
+Config tgt_r16_s42_e2: Test Accuracy = 86.75%
+Done: Friday, April 10, 2026 AM08:37:20 HKT
+
+--- Config: tgt_r16_s11_e2 (seed=11, lr=0.00012, epochs=2) ---
+Start: Friday, April 10, 2026 AM08:37:20 HKT
+Config tgt_r16_s11_e2: Test Accuracy = 83.13%
+Done: Friday, April 10, 2026 AM08:46:15 HKT
+
+--- Config: tgt_r16_s55_e2 (seed=55, lr=0.00012, epochs=2) ---
+Start: Friday, April 10, 2026 AM08:46:15 HKT
+Config tgt_r16_s55_e2: Test Accuracy = 85.54%
+Done: Friday, April 10, 2026 AM08:55:05 HKT
+
+--- Config: tgt_r16_s42_e3 (seed=42, lr=0.00014, epochs=3) ---
+Start: Friday, April 10, 2026 AM08:55:05 HKT
+Config tgt_r16_s42_e3: Test Accuracy = 86.75%
+Done: Friday, April 10, 2026 AM09:02:07 HKT
+
+--- Config: tgt_r16_s11_e3 (seed=11, lr=0.00014, epochs=3) ---
+Start: Friday, April 10, 2026 AM09:02:07 HKT
+Config tgt_r16_s11_e3: Test Accuracy = 95.18%
+Done: Friday, April 10, 2026 AM09:09:09 HKT
+
+[Step 3] Control group (style-unified only, no targeted data)...
+--- Control: ctrl_r16_s42_e2 (seed=42, style-unified only) ---
+Start: Friday, April 10, 2026 AM09:09:09 HKT
+Control ctrl_r16_s42_e2: Test Accuracy = 80.72%
+Done: Friday, April 10, 2026 AM09:13:58 HKT
+
+============================================================
+ FINAL SUMMARY
+============================================================
+
+Previous Best (style-unified, sty_r16_s42_e2): 80.72%
+Historical Best (pure SFT, original augmented): 79.52%
+
+--- Targeted + Style-Unified Results ---
+  tgt_r16_s42_e2: 86.75%
+  tgt_r16_s11_e2: 83.13%
+  tgt_r16_s55_e2: 85.54%
+  tgt_r16_s42_e3: 86.75%
+  tgt_r16_s11_e3: 95.18%
+
+--- Control (style-unified only, same seed) ---
+  ctrl_r16_s42_e2: 80.72%
+
+Pipeline completed at: Friday, April 10, 2026 AM09:13:58 HKT
+
+--- Hard Question Fix Analysis ---
+tgt_r16_s42_e2: fixed 7/14 hard, new_errors=3, still_hard=7
+  FIXED: 下颌支的发育是骨化迅速向第几鳃弓后方扩展而成的
+  FIXED: 拔牙局麻时最易形成血肿的麻醉方法是
+  FIXED: 有时上3│3腭侧牙龈为鼻腭神经与哪一神经共同分布
+  FIXED: 某患者，右上中切牙金属烤瓷冠修复后。检查：金属烤瓷冠颜色、形态良好，不松动，颈部边缘探针可探入，邻接点牙线可以勉强通过，
+  FIXED: 火器伤中能够造成人体组织撕裂性损伤的主要因素是
+  FIXED: 脂酰CoA转入线粒体催化脂肪酸氧化的酶存在于
+  FIXED: 骨纤维异常增生症常见的典型X线表现是
+tgt_r16_s11_e2: fixed 4/14 hard, new_errors=3, still_hard=10
+  FIXED: 下颌支的发育是骨化迅速向第几鳃弓后方扩展而成的
+  FIXED: 某患者，右上中切牙金属烤瓷冠修复后。检查：金属烤瓷冠颜色、形态良好，不松动，颈部边缘探针可探入，邻接点牙线可以勉强通过，
+  FIXED: 男性，4岁。诉发音不清求治。口腔检查：舌不能自由前伸，伸舌时舌尖部呈“M”形，智力发育正常。进行正确治疗的最佳时间是
+  FIXED: 骨纤维异常增生症常见的典型X线表现是
+tgt_r16_s55_e2: fixed 6/14 hard, new_errors=2, still_hard=8
+  FIXED: 拔牙局麻时最易形成血肿的麻醉方法是
+  FIXED: 有时上3│3腭侧牙龈为鼻腭神经与哪一神经共同分布
+  FIXED: 某患者，右上中切牙金属烤瓷冠修复后。检查：金属烤瓷冠颜色、形态良好，不松动，颈部边缘探针可探入，邻接点牙线可以勉强通过，
+  FIXED: 火器伤中能够造成人体组织撕裂性损伤的主要因素是
+  FIXED: 脂酰CoA转入线粒体催化脂肪酸氧化的酶存在于
+  FIXED: 骨纤维异常增生症常见的典型X线表现是
+tgt_r16_s42_e3: fixed 7/14 hard, new_errors=3, still_hard=7
+  FIXED: 下颌支的发育是骨化迅速向第几鳃弓后方扩展而成的
+  FIXED: 有时上3│3腭侧牙龈为鼻腭神经与哪一神经共同分布
+  FIXED: 某患者，右上中切牙金属烤瓷冠修复后。检查：金属烤瓷冠颜色、形态良好，不松动，颈部边缘探针可探入，邻接点牙线可以勉强通过，
+  FIXED: 火器伤中能够造成人体组织撕裂性损伤的主要因素是
+  FIXED: 肝、脂肪组织和小肠等组织细胞内质网的胞液中均含有的是
+  FIXED: 脂酰CoA转入线粒体催化脂肪酸氧化的酶存在于
+  FIXED: 骨纤维异常增生症常见的典型X线表现是
+tgt_r16_s11_e3: fixed 14/14 hard, new_errors=2, still_hard=0
+  FIXED: 下列关于分泌管的论述中正确的一项是
+  FIXED: 下列哪项不是面瘫的典型症状
+  FIXED: 下颌支的发育是骨化迅速向第几鳃弓后方扩展而成的
+  FIXED: 以下关于开口受限的描述，最为恰当的一项是
+  FIXED: 成熟牙本质中无机物占重量的
+  FIXED: 我国12岁儿童龋均为6.8，WHO龋病流行程度评价为
+  FIXED: 拔牙局麻时最易形成血肿的麻醉方法是
+  FIXED: 有时上3│3腭侧牙龈为鼻腭神经与哪一神经共同分布
+  FIXED: 某患者，右上中切牙金属烤瓷冠修复后。检查：金属烤瓷冠颜色、形态良好，不松动，颈部边缘探针可探入，邻接点牙线可以勉强通过，
+  FIXED: 火器伤中能够造成人体组织撕裂性损伤的主要因素是
+  FIXED: 男性，4岁。诉发音不清求治。口腔检查：舌不能自由前伸，伸舌时舌尖部呈“M”形，智力发育正常。进行正确治疗的最佳时间是
+  FIXED: 肝、脂肪组织和小肠等组织细胞内质网的胞液中均含有的是
+  FIXED: 脂酰CoA转入线粒体催化脂肪酸氧化的酶存在于
+  FIXED: 骨纤维异常增生症常见的典型X线表现是
+
+============== ALL DONE! ==============

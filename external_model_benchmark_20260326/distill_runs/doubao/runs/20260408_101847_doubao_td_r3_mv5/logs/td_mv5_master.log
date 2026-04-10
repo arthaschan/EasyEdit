@@ -1,0 +1,6 @@
+[INFO] RUN_ID=20260408_101847_doubao_td_r3_mv5
+[STEP] build mv5 soft labels
+[PROGRESS] scanned=20/672 newly_valid=20 failed=0 total_valid=20
+[PROGRESS] scanned=40/672 newly_valid=40 failed=0 total_valid=40
+[PROGRESS] scanned=60/672 newly_valid=60 failed=0 total_valid=60
+[PROGRESS] scanned=80/672 newly_valid=80 failed=0 total_valid=80

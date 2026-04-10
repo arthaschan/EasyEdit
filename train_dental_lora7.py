@@ -134,7 +134,7 @@ def evaluate_generation(model, tokenizer, file_path, device, max_new_tokens=4):
     for q, opts, ans in samples:
         prompt = f"<|im_start|>system\n你是一名专业的牙科医生，只需输出一个字母（A、B、C、D、E）作为结果，不要附带任何解释或空格。\n<|im_end|>\n<|im_start|>user\n问题：{q}\n选项：\n{opts}\n<|im_end|>\n<|im_start|>assistant\n"
         inputs = tokenizer(prompt, return_tensors="pt", truncation=True).to(device)
-        outputs = model.generate(**inputs, max_new_tokens=max_new_tokens)
+        outputs = model.generate(**inputs, max_new_tokens=max_new_tokens, do_sample=False)
         gen = tokenizer.decode(outputs[0][inputs["input_ids"].size(1):], skip_special_tokens=True)
         pred = extract_answer_char(gen)
         if pred == ans:

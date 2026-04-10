@@ -1,0 +1,48 @@
+=== Clean Targeted Pipeline (NO data leakage) ===
+Training data: 977 style-unified + 56 generated related (no test copies)
+
+--- clean_r16_s42_e2 (seed=42, lr=0.00012, epochs=2) ---
+clean_r16_s42_e2: 79.52%
+
+--- clean_r16_s11_e2 (seed=11, lr=0.00012, epochs=2) ---
+clean_r16_s11_e2: 79.52%
+
+--- clean_r16_s55_e2 (seed=55, lr=0.00012, epochs=2) ---
+clean_r16_s55_e2: 79.52%
+
+--- clean_r16_s42_e3 (seed=42, lr=0.00014, epochs=3) ---
+clean_r16_s42_e3: 81.93%
+
+--- clean_r16_s11_e3 (seed=11, lr=0.00014, epochs=3) ---
+clean_r16_s11_e3: 81.93%
+
+============================================================
+SUMMARY (clean, no data leakage)
+============================================================
+Previous best (style-unified only): 80.72%
+
+  clean_r16_s42_e2: 79.52%
+  clean_r16_s11_e2: 79.52%
+  clean_r16_s55_e2: 79.52%
+  clean_r16_s42_e3: 81.93%
+  clean_r16_s11_e3: 81.93%
+
+--- Hard Question Fix Analysis (clean) ---
+clean_r16_s42_e2: fixed 0/14 hard, new_errors=2, total_wrong=17
+clean_r16_s11_e2: fixed 2/14 hard, new_errors=4, total_wrong=17
+  FIXED: 火器伤中能够造成人体组织撕裂性损伤的主要因素是
+  FIXED: 骨纤维异常增生症常见的典型X线表现是
+clean_r16_s55_e2: fixed 2/14 hard, new_errors=3, total_wrong=17
+  FIXED: 下颌支的发育是骨化迅速向第几鳃弓后方扩展而成的
+  FIXED: 拔牙局麻时最易形成血肿的麻醉方法是
+clean_r16_s42_e3: fixed 2/14 hard, new_errors=2, total_wrong=15
+  FIXED: 拔牙局麻时最易形成血肿的麻醉方法是
+  FIXED: 火器伤中能够造成人体组织撕裂性损伤的主要因素是
+clean_r16_s11_e3: fixed 5/14 hard, new_errors=4, total_wrong=15
+  FIXED: 下颌支的发育是骨化迅速向第几鳃弓后方扩展而成的
+  FIXED: 拔牙局麻时最易形成血肿的麻醉方法是
+  FIXED: 有时上3│3腭侧牙龈为鼻腭神经与哪一神经共同分布
+  FIXED: 火器伤中能够造成人体组织撕裂性损伤的主要因素是
+  FIXED: 脂酰CoA转入线粒体催化脂肪酸氧化的酶存在于
+
+=== ALL DONE ===

@@ -1,0 +1,5 @@
+{
+  "last_completed_epoch": 3,
+  "best_val_acc": 74.32432432432432,
+  "best_ckpt_path": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_083133_doubao_soft_r5/outputs/soft5_a35_lr12e4_r24_s52/best"
+}

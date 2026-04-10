@@ -1,0 +1,41 @@
+[INFO] RUN_ID=20260409_103609_deepseek_opus_r1
+[INFO] Strategy: Choice-head distill (DeepSeek teacher) → GT SFT
+[INFO] Params: alpha_stage1=0.35, lr=0.00012, stage1_ep=1, stage2_ep=2
+[STEP 1] Convert DeepSeek hard labels to soft (label smoothing eps=0.25)
+{
+  "total": 672,
+  "converted": 672,
+  "clean": 577,
+  "mismatch": 95,
+  "smooth_eps": 0.25,
+  "per_sample_entropy": 0.7777,
+  "output": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_opus/runs/20260409_103609_deepseek_opus_r1/artifacts/teacher_train_soft.jsonl"
+}
+[STEP 2] Build head-distill dataset with entropy/margin filtering
+{"total": 672, "matched_soft": 672, "selected_for_distill": 672, "selected_ratio": 1.0, "teacher_disagree_count": 95, "teacher_disagree_ratio": 0.1414, "selected_entropy_mean": 0.7777, "selected_peak_mean": 0.8, "min_entropy": 0.2, "smooth_eps": 0.25, "min_margin": 0.03, "only_disagree": false, "output": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_opus/runs/20260409_103609_deepseek_opus_r1/artifacts/train_head_distill.jsonl"}
+[STEP 3] Two-stage training (5 seeds)
+[RUN][stage1-head] opus_s42 seed=42
+[RUN][stage2-sft] opus_s42 seed=42
+[DONE] opus_s42
+[RUN][stage1-head] opus_s11 seed=11
+[RUN][stage2-sft] opus_s11 seed=11
+[DONE] opus_s11
+[RUN][stage1-head] opus_s55 seed=55
+[RUN][stage2-sft] opus_s55 seed=55
+[DONE] opus_s55
+[RUN][stage1-head] opus_s7 seed=7
+[RUN][stage2-sft] opus_s7 seed=7
+[DONE] opus_s7
+[RUN][stage1-head] opus_s99 seed=99
+[RUN][stage2-sft] opus_s99 seed=99
+[DONE] opus_s99
+[STEP 4] Collect results
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_opus/runs/20260409_103609_deepseek_opus_r1/opus_results_latest.json
+  opus_s42 (seed=42): 72.29%
+  opus_s11 (seed=11): 81.93%
+  opus_s55 (seed=55): 75.9%
+  opus_s7 (seed=7): 77.11%
+  opus_s99 (seed=99): 77.11%
+  MEAN=76.87%  STD=3.09%  BEST=81.93%
+[DONE] DeepSeek Opus R1 finished
+[OUT] run_root=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/deepseek_opus/runs/20260409_103609_deepseek_opus_r1

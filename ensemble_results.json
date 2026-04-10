@@ -1,0 +1,951 @@
+{
+  "n_models": 5,
+  "n_samples": 83,
+  "ensemble_accuracy": 77.10843373493977,
+  "ensemble_correct": 64,
+  "unanimous_count": 66,
+  "disagreed_count": 17,
+  "details": [
+    {
+      "idx": 0,
+      "question": "全口义齿排列时，上颌第二双尖牙舌尖与（牙合）平面的关系",
+      "correct": "A",
+      "ensemble": "A",
+      "votes": {
+        "A": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 1,
+      "question": "男性，30岁。右下第一前磨牙远中龋深近髓，无自发痛。冷测反应同对照牙，叩痛（-）。治疗方法是",
+      "correct": "B",
+      "ensemble": "B",
+      "votes": {
+        "B": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 2,
+      "question": "小儿10个月，方颅，多汗，胸骨肋膈沟，血钙正常，血磷低，X线可见骨骺软骨增宽，干骺端临时钙化带模糊，并呈毛刷状改变，诊断为",
+      "correct": "B",
+      "ensemble": "B",
+      "votes": {
+        "B": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 3,
+      "question": "口腔颌面部感染的主要途径是",
+      "correct": "A",
+      "ensemble": "A",
+      "votes": {
+        "A": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 4,
+      "question": "代表来自于上皮和外间充质两种不同的矿化组织的交界面的结构是",
+      "correct": "B",
+      "ensemble": "B",
+      "votes": {
+        "B": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 5,
+      "question": "基牙形态正常，固位力最大的固位体是",
+      "correct": "B",
+      "ensemble": "B",
+      "votes": {
+        "B": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 6,
+      "question": "男性，10岁。左侧舌缘溃烂3个月余。最早溃烂处曾为1个小结节，无疼痛，左下颌下淋巴结疼痛。口腔检查：左侧舌缘可见1个直径1cm的溃疡，周围有硬结，基底有少许脓性",
+      "correct": "E",
+      "ensemble": "D",
+      "votes": {
+        "D": 4,
+        "E": 1
+      },
+      "is_correct": false,
+      "unanimous": false
+    },
+    {
+      "idx": 7,
+      "question": "修复体损坏修复前牙烤瓷冠局部崩瓷缺损，可用氢氟酸溶液酸蚀断面",
+      "correct": "C",
+      "ensemble": "C",
+      "votes": {
+        "C": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 8,
+      "question": "口腔结核病原微生物是",
+      "correct": "B",
+      "ensemble": "B",
+      "votes": {
+        "B": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 9,
+      "question": "制备鸠尾的目的是",
+      "correct": "A",
+      "ensemble": "B",
+      "votes": {
+        "B": 4,
+        "A": 1
+      },
+      "is_correct": false,
+      "unanimous": false
+    },
+    {
+      "idx": 10,
+      "question": "与可摘局部义齿的功能恢复有关的因素有",
+      "correct": "E",
+      "ensemble": "E",
+      "votes": {
+        "E": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 11,
+      "question": "在变形链球菌黏附于牙面过程中起主要作用的酶是：",
+      "correct": "B",
+      "ensemble": "B",
+      "votes": {
+        "B": 3,
+        "A": 2
+      },
+      "is_correct": true,
+      "unanimous": false
+    },
+    {
+      "idx": 12,
+      "question": "引起慢性胃炎或胃溃疡的是",
+      "correct": "D",
+      "ensemble": "D",
+      "votes": {
+        "D": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 13,
+      "question": "翼外肌的起始部位为",
+      "correct": "D",
+      "ensemble": "D",
+      "votes": {
+        "D": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 14,
+      "question": "下列哪种物质不是甘油磷脂的成分",
+      "correct": "E",
+      "ensemble": "E",
+      "votes": {
+        "E": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 15,
+      "question": "我国12岁儿童龋均为6.8，WHO龋病流行程度评价为",
+      "correct": "E",
+      "ensemble": "D",
+      "votes": {
+        "D": 5
+      },
+      "is_correct": false,
+      "unanimous": true
+    },
+    {
+      "idx": 16,
+      "question": "下列关于分泌管的论述中正确的一项是",
+      "correct": "A",
+      "ensemble": "B",
+      "votes": {
+        "B": 5
+      },
+      "is_correct": false,
+      "unanimous": true
+    },
+    {
+      "idx": 17,
+      "question": "患者48岁，肝硬化导致肝癌伴发DIC，发生休克，对于伴发DIC休克的机制，理解不正确的是",
+      "correct": "E",
+      "ensemble": "E",
+      "votes": {
+        "E": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 18,
+      "question": "肝、脂肪组织和小肠等组织细胞内质网的胞液中均含有的是",
+      "correct": "A",
+      "ensemble": "C",
+      "votes": {
+        "C": 5
+      },
+      "is_correct": false,
+      "unanimous": true
+    },
+    {
+      "idx": 19,
+      "question": "可作3/4冠修复的情况是",
+      "correct": "A",
+      "ensemble": "A",
+      "votes": {
+        "A": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 20,
+      "question": "对于传染病，除了“三早”（早期发现、早期诊断、早期治疗），尚需做到疫情早报告及患者早隔离，即“五早”，属于三级预防中的",
+      "correct": "B",
+      "ensemble": "B",
+      "votes": {
+        "B": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 21,
+      "question": "下列情况，不能应用肾上腺素的疾病是",
+      "correct": "D",
+      "ensemble": "D",
+      "votes": {
+        "D": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 22,
+      "question": "噻嗪类利尿药药理作用不包括",
+      "correct": "B",
+      "ensemble": "D",
+      "votes": {
+        "D": 4,
+        "B": 1
+      },
+      "is_correct": false,
+      "unanimous": false
+    },
+    {
+      "idx": 23,
+      "question": "对牙周组织损伤最大的力",
+      "correct": "A",
+      "ensemble": "A",
+      "votes": {
+        "A": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 24,
+      "question": "塑料全冠最常见的适应症是",
+      "correct": "A",
+      "ensemble": "A",
+      "votes": {
+        "A": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 25,
+      "question": "对苯海拉明，哪一项是错误的",
+      "correct": "D",
+      "ensemble": "D",
+      "votes": {
+        "D": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 26,
+      "question": "以下舌肌的叙述中，不正确的是",
+      "correct": "C",
+      "ensemble": "C",
+      "votes": {
+        "C": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 27,
+      "question": "，缺牙区牙槽嵴丰满。拟行可摘局部义齿修复，45最适合选用的卡环类型是",
+      "correct": "A",
+      "ensemble": "A",
+      "votes": {
+        "A": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 28,
+      "question": "下列哪项不是咀嚼效率的影响因素",
+      "correct": "E",
+      "ensemble": "E",
+      "votes": {
+        "E": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 29,
+      "question": "下列是肺炎链球菌主要致病物质中主要毒力因子的是",
+      "correct": "A",
+      "ensemble": "A",
+      "votes": {
+        "A": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 30,
+      "question": "关于口腔流行病学作用的描述，不正确的是",
+      "correct": "D",
+      "ensemble": "D",
+      "votes": {
+        "D": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 31,
+      "question": "维拉帕米对哪种心律失常疗效最好",
+      "correct": "D",
+      "ensemble": "D",
+      "votes": {
+        "D": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 32,
+      "question": "治疗休克时，常根据尿量的变化来估计下列哪项",
+      "correct": "C",
+      "ensemble": "C",
+      "votes": {
+        "C": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 33,
+      "question": "可使用扭转力进行拔除的牙齿是",
+      "correct": "A",
+      "ensemble": "A",
+      "votes": {
+        "A": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 34,
+      "question": "正常龈沟深度",
+      "correct": "C",
+      "ensemble": "C",
+      "votes": {
+        "E": 1,
+        "C": 4
+      },
+      "is_correct": true,
+      "unanimous": false
+    },
+    {
+      "idx": 35,
+      "question": "以下关于开口受限的描述，最为恰当的一项是",
+      "correct": "D",
+      "ensemble": "C",
+      "votes": {
+        "C": 3,
+        "B": 2
+      },
+      "is_correct": false,
+      "unanimous": false
+    },
+    {
+      "idx": 36,
+      "question": "拔牙局麻时最易形成血肿的麻醉方法是",
+      "correct": "E",
+      "ensemble": "E",
+      "votes": {
+        "E": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 37,
+      "question": "下列哪项不是面瘫的典型症状",
+      "correct": "A",
+      "ensemble": "E",
+      "votes": {
+        "E": 5
+      },
+      "is_correct": false,
+      "unanimous": true
+    },
+    {
+      "idx": 38,
+      "question": "上下颌突未联合或部分联合，裂隙可自口角至耳屏前，属于哪种表现",
+      "correct": "B",
+      "ensemble": "C",
+      "votes": {
+        "C": 2,
+        "B": 2,
+        "A": 1
+      },
+      "is_correct": false,
+      "unanimous": false
+    },
+    {
+      "idx": 39,
+      "question": "关于麻风分枝杆菌叙述错误的是",
+      "correct": "D",
+      "ensemble": "D",
+      "votes": {
+        "D": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 40,
+      "question": "去除负压引流的指征是",
+      "correct": "C",
+      "ensemble": "C",
+      "votes": {
+        "C": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 41,
+      "question": "男性，4岁。诉发音不清求治。口腔检查：舌不能自由前伸，伸舌时舌尖部呈“M”形，智力发育正常。进行正确治疗的最佳时间是",
+      "correct": "B",
+      "ensemble": "B",
+      "votes": {
+        "B": 4,
+        "A": 1
+      },
+      "is_correct": true,
+      "unanimous": false
+    },
+    {
+      "idx": 42,
+      "question": "休克代偿期的临床表现是",
+      "correct": "E",
+      "ensemble": "E",
+      "votes": {
+        "E": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 43,
+      "question": "关于免疫耐受的叙述哪项是正确的",
+      "correct": "E",
+      "ensemble": "E",
+      "votes": {
+        "E": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 44,
+      "question": "口腔念珠菌病病损区涂片直接镜检可见",
+      "correct": "B",
+      "ensemble": "B",
+      "votes": {
+        "B": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 45,
+      "question": "对烤瓷合金的性能要求，不正确的是",
+      "correct": "A",
+      "ensemble": "A",
+      "votes": {
+        "A": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 46,
+      "question": "下列哪一项是口腔颌面部感染的主要途径",
+      "correct": "A",
+      "ensemble": "A",
+      "votes": {
+        "A": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 47,
+      "question": "慢性感染指病程超过",
+      "correct": "D",
+      "ensemble": "D",
+      "votes": {
+        "D": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 48,
+      "question": "以下关于唇裂、腭裂的叙述哪项是错误的",
+      "correct": "C",
+      "ensemble": "C",
+      "votes": {
+        "C": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 49,
+      "question": "口腔颌面外科进行淋巴结检查时，患者及检查者的体位应是",
+      "correct": "A",
+      "ensemble": "A",
+      "votes": {
+        "A": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 50,
+      "question": "女，26岁，右下后牙牙龈易出血1月，可自行止住。检查：牙石I度，右下5近中见树脂充填，探及充填物悬突，右下45间龈乳头充血，探诊易出血。此临床症状的主要促进因素",
+      "correct": "B",
+      "ensemble": "B",
+      "votes": {
+        "B": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 51,
+      "question": "患者男性，38岁，因左下颌骨慢性中央性骨髓炎，造成左颌下多个瘘管，现病源牙已拔除，但瘘口未愈，仍有少量脓液溢出偶有小块死骨排出，关于此患者的治疗，下列错误的是",
+      "correct": "E",
+      "ensemble": "E",
+      "votes": {
+        "E": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 52,
+      "question": "有时上3│3腭侧牙龈为鼻腭神经与哪一神经共同分布",
+      "correct": "E",
+      "ensemble": "D",
+      "votes": {
+        "D": 5
+      },
+      "is_correct": false,
+      "unanimous": true
+    },
+    {
+      "idx": 53,
+      "question": "能产生正常的修复性牙本质的窝洞，剩余牙本质的有效厚度为",
+      "correct": "E",
+      "ensemble": "B",
+      "votes": {
+        "E": 1,
+        "B": 4
+      },
+      "is_correct": false,
+      "unanimous": false
+    },
+    {
+      "idx": 54,
+      "question": "下列对于身体活动的健康益处说法错误的是",
+      "correct": "E",
+      "ensemble": "E",
+      "votes": {
+        "E": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 55,
+      "question": "以下不属于患者认知活动异常改变的是",
+      "correct": "E",
+      "ensemble": "E",
+      "votes": {
+        "E": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 56,
+      "question": "修复前对于牙槽骨吸收达到根2/3以上，牙松动达Ⅲ度者应",
+      "correct": "A",
+      "ensemble": "A",
+      "votes": {
+        "A": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 57,
+      "question": "患者，男性，30岁。左上2近中切角缺损，牙冠变色。已做根管治疗，无不适症状，X线片未见异常，患者咬（牙合）关系正常。最佳修复设计方案为",
+      "correct": "C",
+      "ensemble": "C",
+      "votes": {
+        "C": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 58,
+      "question": "成熟牙本质中无机物占重量的",
+      "correct": "C",
+      "ensemble": "B",
+      "votes": {
+        "B": 5
+      },
+      "is_correct": false,
+      "unanimous": true
+    },
+    {
+      "idx": 59,
+      "question": "某患者，右上中切牙金属烤瓷冠修复后。检查：金属烤瓷冠颜色、形态良好，不松动，颈部边缘探针可探入，邻接点牙线可以勉强通过，正中（牙合）时右下1切端咬在金属烤瓷冠的",
+      "correct": "E",
+      "ensemble": "B",
+      "votes": {
+        "B": 3,
+        "D": 2
+      },
+      "is_correct": false,
+      "unanimous": false
+    },
+    {
+      "idx": 60,
+      "question": "眶下间隙的上界是",
+      "correct": "B",
+      "ensemble": "B",
+      "votes": {
+        "B": 3,
+        "A": 2
+      },
+      "is_correct": true,
+      "unanimous": false
+    },
+    {
+      "idx": 61,
+      "question": "脂酰CoA转入线粒体催化脂肪酸氧化的酶存在于",
+      "correct": "C",
+      "ensemble": "A",
+      "votes": {
+        "C": 2,
+        "A": 3
+      },
+      "is_correct": false,
+      "unanimous": false
+    },
+    {
+      "idx": 62,
+      "question": "发生在釉质或根面牙骨质层内的龋损称为",
+      "correct": "A",
+      "ensemble": "D",
+      "votes": {
+        "D": 3,
+        "A": 2
+      },
+      "is_correct": false,
+      "unanimous": false
+    },
+    {
+      "idx": 63,
+      "question": "女性，46岁，口腔溃疡反复发作3年，间隔1～2个月，多在经前出现，每次1～3个不等，主要位于下唇和舌等部位，疼痛明显，7～10天左右愈合。要想达到理想的治疗效果",
+      "correct": "D",
+      "ensemble": "D",
+      "votes": {
+        "D": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 64,
+      "question": "增生性龈炎的临床表现是",
+      "correct": "B",
+      "ensemble": "B",
+      "votes": {
+        "B": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 65,
+      "question": "下颌左侧78游离缺失，右侧36缺失，属于",
+      "correct": "B",
+      "ensemble": "B",
+      "votes": {
+        "D": 1,
+        "B": 4
+      },
+      "is_correct": true,
+      "unanimous": false
+    },
+    {
+      "idx": 66,
+      "question": "牙周病的部位特异性表现为",
+      "correct": "D",
+      "ensemble": "D",
+      "votes": {
+        "D": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 67,
+      "question": "全冠戴用几天后出现咬合痛，应如何处理",
+      "correct": "A",
+      "ensemble": "A",
+      "votes": {
+        "A": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 68,
+      "question": "骨纤维异常增生症常见的典型X线表现是",
+      "correct": "E",
+      "ensemble": "A",
+      "votes": {
+        "A": 5
+      },
+      "is_correct": false,
+      "unanimous": true
+    },
+    {
+      "idx": 69,
+      "question": "正常情况下牙槽嵴顶距釉牙骨质界的距离，在X线片上通常为小于",
+      "correct": "C",
+      "ensemble": "C",
+      "votes": {
+        "C": 4,
+        "A": 1
+      },
+      "is_correct": true,
+      "unanimous": false
+    },
+    {
+      "idx": 70,
+      "question": "隐匿、伪造或者擅自销毁医学文书及有关资料，由县级以上地方人民政府卫生行政部门给予",
+      "correct": "E",
+      "ensemble": "E",
+      "votes": {
+        "E": 4,
+        "C": 1
+      },
+      "is_correct": true,
+      "unanimous": false
+    },
+    {
+      "idx": 71,
+      "question": "非参数检验不适合于",
+      "correct": "E",
+      "ensemble": "E",
+      "votes": {
+        "E": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 72,
+      "question": "下列关于颈嵴的说法，正确的是",
+      "correct": "E",
+      "ensemble": "E",
+      "votes": {
+        "E": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 73,
+      "question": "卫生法效力的地域范围称为",
+      "correct": "B",
+      "ensemble": "B",
+      "votes": {
+        "B": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 74,
+      "question": "前牙作龈下边缘的主要优点是",
+      "correct": "D",
+      "ensemble": "D",
+      "votes": {
+        "D": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 75,
+      "question": "属于口腔健康促进范围的是",
+      "correct": "E",
+      "ensemble": "E",
+      "votes": {
+        "E": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 76,
+      "question": "患儿，男性，8个月，舌系带溃烂长肿物1个月，影响进食与舌的活动，求治。检查：乳切牙萌出，边缘锐利，舌系带处可见1.0cm×0.8cm大小的溃疡，溃疡增殖，边缘高",
+      "correct": "B",
+      "ensemble": "D",
+      "votes": {
+        "D": 3,
+        "E": 2
+      },
+      "is_correct": false,
+      "unanimous": false
+    },
+    {
+      "idx": 77,
+      "question": "Kennedy第四类除前磨牙设置的直接固位体外，可在磨牙上增设具有间接固位作用的",
+      "correct": "D",
+      "ensemble": "D",
+      "votes": {
+        "D": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 78,
+      "question": "火器伤中能够造成人体组织撕裂性损伤的主要因素是",
+      "correct": "D",
+      "ensemble": "C",
+      "votes": {
+        "C": 5
+      },
+      "is_correct": false,
+      "unanimous": true
+    },
+    {
+      "idx": 79,
+      "question": "下颌支的发育是骨化迅速向第几鳃弓后方扩展而成的",
+      "correct": "A",
+      "ensemble": "B",
+      "votes": {
+        "B": 5
+      },
+      "is_correct": false,
+      "unanimous": true
+    },
+    {
+      "idx": 80,
+      "question": "牙槽骨吸收处的Howship陷窝内的细胞是",
+      "correct": "A",
+      "ensemble": "A",
+      "votes": {
+        "A": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 81,
+      "question": "脓肿切开引流操作哪项是错误的",
+      "correct": "E",
+      "ensemble": "E",
+      "votes": {
+        "E": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    },
+    {
+      "idx": 82,
+      "question": "骨髓腔或骨孔内的出血可用",
+      "correct": "C",
+      "ensemble": "C",
+      "votes": {
+        "C": 5
+      },
+      "is_correct": true,
+      "unanimous": true
+    }
+  ],
+  "individual_accuracies": {
+    "best": 77.10843373493977
+  },
+  "lora_dirs": [
+    "external_model_benchmark_20260326/distill_runs/deepseek_opus/runs/20260409_103609_deepseek_opus_r1/outputs/opus_s11/stage2_sft/best",
+    "external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_224133_doubao_headsft_r9/outputs/headsft9_s42/stage2_sft/best",
+    "external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_224133_doubao_headsft_r9/outputs/headsft9_s55/stage2_sft/best",
+    "external_model_benchmark_20260326/distill_runs/doubao/runs/20260408_224133_doubao_headsft_r9/outputs/headsft9_s11/stage2_sft/best",
+    "external_model_benchmark_20260326/distill_runs/deepseek_opus/runs/20260409_103609_deepseek_opus_r1/outputs/opus_s42/stage2_sft/best"
+  ]
+}
