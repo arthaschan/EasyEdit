@@ -1,0 +1,40 @@
+{
+  "run_root": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/moonshot_v1_32k/runs/20260410_161640_moonshot_headsft_r1",
+  "teacher": "moonshot-v1-32k",
+  "approach": "choice-head-distill -> GT-SFT",
+  "baseline": 77.11,
+  "single_stage_moonshot": 74.7,
+  "n": 3,
+  "best": {
+    "name": "moonshot_headsft_s42",
+    "seed": 42,
+    "val_accuracy": 75.68,
+    "test_accuracy": 77.11,
+    "status": "ok"
+  },
+  "mean": 76.3,
+  "std": 0.57,
+  "rows": [
+    {
+      "name": "moonshot_headsft_s42",
+      "seed": 42,
+      "val_accuracy": 75.68,
+      "test_accuracy": 77.11,
+      "status": "ok"
+    },
+    {
+      "name": "moonshot_headsft_s11",
+      "seed": 11,
+      "val_accuracy": 75.68,
+      "test_accuracy": 75.9,
+      "status": "ok"
+    },
+    {
+      "name": "moonshot_headsft_s55",
+      "seed": 55,
+      "val_accuracy": 72.97,
+      "test_accuracy": 75.9,
+      "status": "ok"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+[INFO] RUN_ID=20260410_161640_moonshot_headsft_r1
+[INFO] Strategy: Choice-head distill (Moonshot teacher) -> GT SFT
+[INFO] Note: current moonshot teacher labels exactly match GT on train set; this run tests whether two-stage smoothing still helps
+[INFO] Params: alpha_stage1=0.35, lr=0.00012, stage1_ep=1, stage2_ep=2
+[STEP 1] Convert Moonshot hard labels to soft (label smoothing eps=0.25)
+{
+  "total": 672,
+  "converted": 672,
+  "clean": 672,
+  "mismatch": 0,
+  "smooth_eps": 0.25,
+  "per_sample_entropy": 0.7777,
+  "output": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/moonshot_v1_32k/runs/20260410_161640_moonshot_headsft_r1/artifacts/teacher_train_soft.jsonl"
+}
+[STEP 2] Build head-distill dataset with entropy/margin filtering
+{"total": 672, "matched_soft": 672, "selected_for_distill": 672, "selected_ratio": 1.0, "teacher_disagree_count": 199, "teacher_disagree_ratio": 0.2961, "selected_entropy_mean": 0.7777, "selected_peak_mean": 0.8, "min_entropy": 0.2, "smooth_eps": 0.25, "min_margin": 0.03, "only_disagree": false, "output": "/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/moonshot_v1_32k/runs/20260410_161640_moonshot_headsft_r1/artifacts/train_head_distill.jsonl"}
+[STEP 3] Two-stage training (3 seeds)
+
+[RUN] Stage1 head-distill: moonshot_headsft_s42 seed=42
+[RUN] Stage2 GT-SFT: moonshot_headsft_s42 seed=42
+[DONE] moonshot_headsft_s42
+
+[RUN] Stage1 head-distill: moonshot_headsft_s11 seed=11
+[RUN] Stage2 GT-SFT: moonshot_headsft_s11 seed=11
+[DONE] moonshot_headsft_s11
+
+[RUN] Stage1 head-distill: moonshot_headsft_s55 seed=55
+[RUN] Stage2 GT-SFT: moonshot_headsft_s55 seed=55
+[DONE] moonshot_headsft_s55
+[STEP 4] Collect results
+[OUT] /home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/moonshot_v1_32k/runs/20260410_161640_moonshot_headsft_r1/moonshot_headsft_results_latest.json
+  moonshot_headsft_s42 (seed=42): 77.11%
+  moonshot_headsft_s11 (seed=11): 75.9%
+  moonshot_headsft_s55 (seed=55): 75.9%
+  MEAN=76.3%  STD=0.57%  BEST=77.11%
+[DONE] Moonshot two-stage round1 finished
+[OUT] run_root=/home/student/arthas/EasyEdit3/external_model_benchmark_20260326/distill_runs/moonshot_v1_32k/runs/20260410_161640_moonshot_headsft_r1
