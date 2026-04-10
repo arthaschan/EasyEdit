@@ -42,7 +42,15 @@ models
 # Auto-generated tokenizer copies (11MB each)
 **/distill_runs/**/tokenizer.json
 **/distill_runs/**/chat_template.jinja
-# Auto-generated PEFT README
+# Auto-generated PEFT README & small config copies in every checkpoint
 **/distill_runs/**/outputs/**/README.md
+**/distill_runs/**/outputs/**/adapter_config.json
+**/distill_runs/**/outputs/**/tokenizer_config.json
+# Root-level training logs (not needed in repo)
+/*.log
 # Temp diagnostic files
 external_model_benchmark_20260326/file_sizes_*.tsv
+# Benchmark leaderboard outputs (auto-generated, can be re-run)
+external_model_benchmark_20260326/outputs/
+# Checkpoint dirs that only contain model weights (caught by *.safetensors *.pt but keep dir clean)
+**/output_seed*/checkpoints/
